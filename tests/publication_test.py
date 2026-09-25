@@ -29,5 +29,11 @@ class PublicationTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 publication.scan_zip(file)
 
+    def test_png_metadata_and_trailing_data_are_rejected(self):
+        source=(root/'extension/icons/icon-16.png').read_bytes()
+        publication.check_bytes('extension/icons/icon-16.png',source)
+        with self.assertRaises(ValueError):
+            publication.check_bytes('extension/icons/icon-16.png',source+b'private-data')
+
 if __name__ == '__main__':
     unittest.main()

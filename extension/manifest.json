@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "快速翻译 · Local Codex",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "选中文字，右键快速翻译。结合网页语境输出中文，支持本地 Markdown 收藏。",
   "permissions": [
     "contextMenus",
@@ -14,7 +14,11 @@
   },
   "action": {
     "default_title": "快速翻译设置",
-    "default_popup": "options.html"
+    "default_popup": "options.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png"
+    }
   },
   "options_ui": {
     "page": "options.html",
@@ -28,5 +32,12 @@
       "description": "快速翻译选中文字"
     }
   },
-  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoOXK+Xj+TxGAp2kBzpRM4SusYKh/V+t3VWVJQvmoJgNCfwoODnkBvje9RDcsyCTphChREyulN1j7ikUvM5XHdAPwbXzQdaNrL2luFQJ1XbZL9QLQIrXt3R6qmGuU2hD/LENnWIlzC+p9H9Q8DI23hpNdHA17mH1Mc8HOmDv6z4DVgvouzZxP52kjS+NTEShUJQIfC2zTAF8jQJcI0LxiZJkX7Kjm8c/s+76yNd6hplsX+3OxmCleAMJ1n8vLlmcwuoO0rDomJ0XRzDGlqXAizchZT52BIt388milqGXvGHJKB55U3ADxp9c7i0iJIf6cV05PejgnoMWW+hDAYoqUwwIDAQAB"
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoOXK+Xj+TxGAp2kBzpRM4SusYKh/V+t3VWVJQvmoJgNCfwoODnkBvje9RDcsyCTphChREyulN1j7ikUvM5XHdAPwbXzQdaNrL2luFQJ1XbZL9QLQIrXt3R6qmGuU2hD/LENnWIlzC+p9H9Q8DI23hpNdHA17mH1Mc8HOmDv6z4DVgvouzZxP52kjS+NTEShUJQIfC2zTAF8jQJcI0LxiZJkX7Kjm8c/s+76yNd6hplsX+3OxmCleAMJ1n8vLlmcwuoO0rDomJ0XRzDGlqXAizchZT52BIt388milqGXvGHJKB55U3ADxp9c7i0iJIf6cV05PejgnoMWW+hDAYoqUwwIDAQAB",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "homepage_url": "https://github.com/ggghhh16/codex-quick-translator"
 }

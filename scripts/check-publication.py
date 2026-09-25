@@ -5,6 +5,8 @@ import json
 import re
 import subprocess
 import sys
+import struct
+import zlib
 
 ROOT = Path(__file__).resolve().parent.parent
 RULES = {
@@ -26,6 +28,25 @@ def allowed_files():
     return sorted(names)
 
 def check_bytes(name, data):
+    if name.endswith('.png'):
+        if not re.fullmatch(r'(?:extension/icons/icon-(?:16|32|48|128)|store/images/[a-z0-9-]+)\.png', name.removeprefix('codex-quick-translator/')):
+            raise ValueError(f'{name}: unexpected binary file')
+        if not data.startswith(b'\x89PNG\r\n\x1a\n'):
+            raise ValueError(f'{name}: invalid PNG')
+        offset=8
+        while offset < len(data):
+            size=struct.unpack('>I',data[offset:offset+4])[0]
+            kind=data[offset+4:offset+8]
+            end=offset+8+size
+            if kind not in (b'IHDR',b'IDAT',b'IEND',b'pHYs',b'sRGB',b'gAMA',b'cHRM',b'PLTE',b'tRNS'):
+                raise ValueError(f'{name}: unexpected PNG metadata')
+            if zlib.crc32(data[offset+4:end]) != struct.unpack('>I',data[end:end+4])[0]:
+                raise ValueError(f'{name}: invalid PNG checksum')
+            offset=end+4
+            if kind==b'IEND':
+                if offset!=len(data): raise ValueError(f'{name}: trailing PNG data')
+                return
+        raise ValueError(f'{name}: incomplete PNG')
     text = data.decode('utf-8')
     for label, pattern in RULES.items():
         if re.search(pattern, text, re.I):

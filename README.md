@@ -4,6 +4,8 @@ Chrome Manifest V3 插件，连接本机已登录的 Codex App Server。选择�
 
 默认 **GPT-6 Luna + low + 快速模式（标称 1.5×）**。[下载发布包](https://github.com/ggghhh16/codex-quick-translator/releases/latest) · [安全与隐私](SECURITY.md) · [更新记录](CHANGELOG.md)
 
+独立开发，与 OpenAI 或 Google 无官方隶属关系。[隐私政策](PRIVACY.md)。Chrome 商店发布准备材料见 [store/LISTING.zh-CN.md](store/LISTING.zh-CN.md)；材料齐备不代表已经上架。
+
 ## 已实现
 
 - 右键「快速翻译」；快捷键 `Alt+Shift+T`。
@@ -39,6 +41,8 @@ Chrome Manifest V3 插件，连接本机已登录的 Codex App Server。选择�
 ```
 
 卸载本地主机：运行 `scripts/uninstall.ps1`；随后在 Chrome 扩展页面移除插件。笔记文件保留。
+
+商店版使用说明：如果从 Chrome 商店安装，打开扩展设置中的“本地连接与隐私”，下载本地连接程序并运行页面显示的命令，其中 `-ExtensionId` 是商店版当前 ID。只允许该 ID 访问本地主机；不要再额外加载另一个本地扩展。未提供该参数时，安装脚本默认使用源码版公钥所对应的 ID。
 
 ## 快速模式的实际含义
 
@@ -82,7 +86,8 @@ node scripts/native-smoke.cjs
 node scripts/check-host.cjs
 node scripts/benchmark.cjs
 python scripts/package.py
-python scripts/check-publication.py --index --zip dist/codex-quick-translator-1.2.0.zip
+python scripts/check-publication.py --index --zip dist/codex-quick-translator-1.2.1.zip
+python scripts/package-store.py
 ```
 
 `probe` 和本地主机使用同一运行时选择逻辑。`check-host` 只读检查模型和设置。`benchmark` 顺序运行五轮公开翻译材料，保存每次首字耗时、完整耗时、输出文本及汇总到 `.dev/benchmark.json`，会消耗模型额度。`native-smoke` 需要安装生成的 `.local/host-config.json`；它在 `.dev/smoke-*` 独立目录通过标准输入输出测试本地主机、翻译与收藏，不改动正式偏好或笔记。这些测试不能代替安装后的 Chrome 联调。

@@ -11,6 +11,7 @@ function effective() {
 function modelChanged(preferred=$('effort').value){const m=models.find(m=>m.model===$('model').value);if(!m)return;TranslatorSettings.fillEfforts($('effort'),m,preferred);effective();}
 async function load() {
   $('extension-id').textContent=`扩展 ID：${chrome.runtime.id}`;
+  $('install-command').textContent=`powershell -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\install.ps1 -ExtensionId ${chrome.runtime.id}`;
   try {
     const r=await ask({type:'hello'});models=r.models;
     $('model').replaceChildren(...models.map(m=>{const o=document.createElement('option');o.value=m.model;o.textContent=m.displayName||m.model;return o;}));
