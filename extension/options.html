@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>快速翻译 · 设置</title><link rel="stylesheet" href="options.css"></head>
+<body><main><header><div class="logo">译</div><div><h1>快速翻译</h1><p>Local Codex · 把理解留在阅读现场</p></div></header>
+<div class="connection" id="connection" role="status">正在连接本地 Codex…</div>
+<form id="settings"><label for="model">模型</label><select id="model" disabled><option>加载中…</option></select>
+<label for="effort">思考强度</label><select id="effort" disabled><option>加载中…</option></select><p class="hint">独立设置；较低强度通常更快，切换闪电不会改变它。</p>
+<div class="row"><div><label for="fast" id="fast-label">⚡ 快速模式</label><p class="hint">仅调整服务速度</p></div><input type="checkbox" role="switch" id="fast" checked></div>
+<p class="hint" id="effective">模型和思考强度以本地 Codex 返回的能力为准。</p>
+<label for="path">收藏文件路径</label><input id="path" placeholder="D:\Notes\translations.md" required spellcheck="false"><p class="hint">旗帜按钮将原文、翻译、解释、语境和来源追加到此文件。</p>
+<button type="submit" id="save" disabled>保存设置</button></form><p id="status" role="status" aria-live="polite"></p>
+<section><h2>开始阅读</h2><ol><li>选中网页上的文字。</li><li>右键选择「快速翻译」，或按 <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd>。</li><li>拖动四个角调整浮窗大小，点击旗帜收藏。</li></ol></section>
+<details id="help"><summary>本地连接与隐私</summary><p>首次使用请在项目目录运行 <code>powershell -ExecutionPolicy Bypass -File scripts/install.ps1</code>。需要已登录的 Codex。</p><p>仅在点击翻译时发送所选文字、附近段落及最多 16,000 字符的网页正文到 Codex 所用的模型服务。模型运行在云端，本地程序负责连接及保存文件。</p><p>快速服务可能增加额度消耗。Chrome 内置页面、扩展商店、部分跨域嵌入页面与内置 PDF 阅读器无法注入浮窗。</p><p id="extension-id"></p></details>
+</main><script src="settings-ui.js"></script><script src="options.js"></script></body></html>

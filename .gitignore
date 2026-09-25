@@ -1,0 +1,12 @@
+.dev/
+.local/
+notes/
+dist/
+node_modules/
+__pycache__/
+*.pyc
+.env
+.env.*
+*.pem
+*.key
+*.log
