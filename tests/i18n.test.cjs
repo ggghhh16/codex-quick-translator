@@ -8,6 +8,17 @@ const {mergeModels,migratePreferences}=require('../native/models.cjs');
 const {markdown}=require('../native/notes.cjs');
 const {resultMarkdown}=require('../native/safety.cjs');
 const english=require('../extension/_locales/en/messages.json');
+const I18n=require('../extension/i18n.js');
+test('floating translator explicitly selects a catalog without changing Chrome locale',()=>{
+  const context=vm.createContext({chrome:{i18n:{getUILanguage:()=> 'zh-CN',getMessage:()=> '中文'}}});
+  vm.runInContext(fs.readFileSync('extension/i18n.js','utf8'),context);
+  const floating=context.TranslatorI18n.create();floating.setCatalog({locale:'en',messages:english});
+  assert.equal(floating.t('settings'),'Settings');assert.equal(floating.t('savedTo',['test.md']),'Saved to test.md');
+  assert.equal(floating.locale(),'en');assert.equal(context.TranslatorI18n.locale(),'zh-CN');assert.equal(context.TranslatorI18n.t('settings'),'中文');
+});
+test('explicit catalog selection handles variants and safely falls back to English',()=>{
+  for(const [code,expected] of [['en-US','en'],['ja-JP','ja'],['ar','ar'],['zh-Hant-HK','zh_TW'],['zh-CN','zh_CN'],['pt-PT','pt_BR'],['sr-Latn-RS','en'],['../../secret','en']])assert.equal(I18n.catalogLocale(code),expected);
+});
 test('all packaged locales cover the same messages and preserve substitutions',()=>{
   const locales=fs.readdirSync('extension/_locales');assert.ok(locales.length>=10);
   for(const locale of locales){

@@ -8,7 +8,7 @@ Select text on a webpage and choose **Quick Translate**, or press `Alt+Shift+T`.
 
 Set **Target language** in the toolbar settings or floating panel's gear menu. The picker includes over 150 languages, plus custom language codes such as `sr-Latn-RS`. Translation, explanation, context and section headings all use the selected language. Support and quality depend on the model; inclusion is not a guarantee of translation quality for every language.
 
-New installations follow Chrome's language by default. Existing installations retain Simplified Chinese until changed. The interface follows Chrome independently: English, Simplified Chinese, Traditional Chinese, Spanish, French, German, Japanese, Korean, Arabic and Brazilian Portuguese are included; other interface languages fall back to English. Arabic and other right-to-left output use the appropriate text direction. Note metadata uses an included locale or English fallback; every note records its actual target language.
+New installations follow Chrome's language by default. Existing installations retain Simplified Chinese until changed. Floating-panel labels and settings follow the target language and update immediately after saving, including panels already open in other tabs. The toolbar settings page and context menu follow Chrome. Available interface languages: English, Simplified Chinese, Traditional Chinese, Spanish, French, German, Japanese, Korean, Arabic and Brazilian Portuguese are included; other panel languages fall back to English while model output keeps the selected target language. Arabic and other right-to-left output use the appropriate text direction. Note metadata uses an included locale or English fallback; every note records its actual target language.
 
 The implementation uses Chrome's standard `_locales`, `default_locale`, manifest message substitutions and `chrome.i18n.getMessage`. See [Chrome i18n documentation](https://developer.chrome.com/docs/extensions/reference/api/i18n).
 
@@ -16,7 +16,7 @@ The implementation uses Chrome's standard `_locales`, `default_locale`, manifest
 
 Currently **Windows only**. You need Chrome, Node.js 20+ and an installed, signed-in Codex with model access. Translation uses your configured cloud model provider and may consume service quota. It is not offline translation and no free model quota is included.
 
-1. Download the full `codex-quick-translator-1.3.0.zip` companion/source package from Releases and extract it to a permanent directory.
+1. Download the full `codex-quick-translator-1.3.1.zip` companion/source package from Releases and extract it to a permanent directory.
 2. For an unpacked installation, run `powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\install.ps1` from that directory. Open `chrome://extensions`, enable Developer mode, then load the `extension` folder.
 3. For a Web Store installation, open the extension's settings/help section and run its displayed installation command from the companion directory. It includes `-ExtensionId` for your store installation. Do not load a second unpacked extension.
 4. Open settings, confirm the connection, choose a target language and set an absolute local `.md` path.

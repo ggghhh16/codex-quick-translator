@@ -1,7 +1,7 @@
 (() => {
   if(globalThis.__localCodexTranslator) return;
   globalThis.__localCodexTranslator = true;
-  const {t,locale,apply,error:displayError}=TranslatorI18n;
+  const {t,locale,apply,error:displayError,setCatalog}=TranslatorI18n.create();
   const svg = (body) => `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${body}</svg>`;
   const icons = {
     flag:svg('<path d="M5 21V4c4-4 9 4 14 0v11c-5 4-10-4-14 0"/>'),
@@ -12,8 +12,8 @@
     arrow:svg('<path d="M5 12h14m-5-5 5 5-5 5"/>'),
     copy:svg('<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/>')
   };
-  let host, shadow, ui, data, requestId, raw = '', done = false, prefs, models = [], started = 0, ticker;
-  const ask = async msg => { const r = await chrome.runtime.sendMessage(msg); if(!r?.ok) throw new Error(r?.error || t('errorConnection')); return r; };
+  let host, shadow, ui, data, requestId, raw = '', done = false, prefs, models = [], started = 0, ticker, lastEffective, lastStatus, loadingHost;
+  const ask = async msg => { const r = await chrome.runtime.sendMessage(msg); if(!r?.ok) throw Object.assign(new Error(r?.error || t('errorConnection')),{code:r?.errorCode,args:r?.errorArgs}); return r; };
   function collect(fallback) {
     const selection = window.getSelection();
     let selected = selection?.toString().trim() || fallback?.trim() || '';
@@ -61,6 +61,7 @@
   `;
   function mount(rect) {
     if(host) close();
+    raw='';lastEffective=null;lastStatus=null;prefs=null;models=[];
     host = document.createElement('div');
     host.id = 'local-codex-quick-translator';
     host.style.cssText='all:initial!important;position:fixed!important;inset:0!important;width:0!important;height:0!important;z-index:2147483647!important;';
@@ -72,24 +73,25 @@
       <div class="field"><label for="target-language" data-i18n="targetLanguage"></label><select id="target-language"></select><input id="custom-language" dir="ltr" hidden maxlength="50" data-i18n-placeholder="languageCode" data-i18n-aria="languageCodeLabel" spellcheck="false"><div class="hint" data-i18n="targetHint"></div></div>
       <div class="field"><label for="model" data-i18n="model"></label><select id="model" name="model"><option data-i18n="connecting"></option></select></div><div class="field"><label for="effort" data-i18n="effort"></label><select id="effort" name="effort" disabled><option data-i18n="loading"></option></select><div class="hint" data-i18n="effortHint"></div></div>
       <div class="field"><div class="toggle-row"><label class="fast-label" data-i18n="fastMode"></label><button class="switch" type="button" role="switch" aria-checked="true">${icons.bolt}<span data-i18n="enabled"></span></button></div><div class="hint speed-hint" data-i18n="speedHint"></div></div><div class="field"><label for="notes-path" data-i18n="notesPath"></label><input id="notes-path" name="path" dir="ltr" placeholder="D:\\Notes\\translations.md" spellcheck="false" required><div class="hint" data-i18n="notesHint"></div></div><button class="save-settings" type="submit" disabled data-i18n="saveSettings"></button><div class="privacy" data-i18n="privacyShort"></div></form><div class="status" role="status" aria-live="polite"></div></div>
-      <footer class="bottom"><span class="bottom-left" data-i18n="connecting"></span><div class="actions"><button class="text-button retry" hidden data-i18n="retry"></button><button class="text-button stop" data-i18n="stop"></button><button class="icon copy" data-i18n-title="copy" data-i18n-aria="copy" disabled>${icons.copy}</button></div></footer>
+      <footer class="bottom"><span class="bottom-left"></span><div class="actions"><button class="text-button retry" hidden data-i18n="retry"></button><button class="text-button stop" data-i18n="stop"></button><button class="icon copy" data-i18n-title="copy" data-i18n-aria="copy" disabled>${icons.copy}</button></div></footer>
       ${['nw','ne','sw','se'].map(c=>`<div class="handle ${c}" data-corner="${c}" aria-hidden="true"></div>`).join('')}
     </section>`;
     apply(shadow);
     document.documentElement.append(host);
     ui = sel => shadow.querySelector(sel);
+    ui('.bottom-left').textContent=t('connecting');
     const panel = ui('.panel'); panel.lang=locale();panel.dir=TranslatorLanguages.direction(locale()); const w=Math.min(460,innerWidth-16),h=Math.min(530,innerHeight-16);
     let x=Math.max(8,Math.min(rect?.left || 24,innerWidth-w-8));
     let y=rect ? rect.bottom+10 : 60;
     if(y+h>innerHeight-8) y=rect && rect.top-h-10>=8 ? rect.top-h-10 : innerHeight-h-8;
     Object.assign(panel.style,{left:`${x}px`,top:`${Math.max(8,y)}px`,width:`${w}px`,height:`${h}px`});
     ui('.close').onclick=close;
-    ui('.gear').onclick=()=>{const showing=ui('.settings').classList.toggle('visible');ui('.reading').classList.toggle('hidden',showing);ui('.gear').classList.toggle('active',showing);if(showing) void loadSettings();};
+    ui('.gear').onclick=()=>{const showing=ui('.settings').classList.toggle('visible');ui('.reading').classList.toggle('hidden',showing);ui('.gear').classList.toggle('active',showing);if(showing&&!prefs)void loadSettings();};
     ui('.flag').onclick=save;
     ui('.stop').onclick=()=>void stop();
-    ui('.retry').onclick=()=>void translate();
-    ui('.copy').onclick=async()=>{try {await navigator.clipboard.writeText(raw);status(t('copied'));}catch{status(t('copyFailed'),true);}};
-    ui('.settings').onsubmit=async event=>{event.preventDefault();const button=ui('.save-settings');button.disabled=true;try {const r=await ask({type:'settings',preferences:{model:ui('#model').value,effort:ui('#effort').value,fast:ui('.switch').getAttribute('aria-checked')==='true',notesPath:ui('#notes-path').value.trim(),targetLanguage:TranslatorLanguages.read(ui('#target-language'),ui('#custom-language'))}});prefs=r.preferences;status(t('settingsSaved'));if(!raw)effective(r.effective);}catch(e){status(displayError(e),true);}finally{button.disabled=false;}};
+    ui('.retry').onclick=()=>void beginTranslation();
+    ui('.copy').onclick=async()=>{try {await navigator.clipboard.writeText(raw);statusKey('copied');}catch{statusKey('copyFailed',[],true);}};
+    ui('.settings').onsubmit=async event=>{event.preventDefault();const panelHost=host,button=ui('.save-settings');button.disabled=true;try {const r=await ask({type:'settings',preferences:{model:ui('#model').value,effort:ui('#effort').value,fast:ui('.switch').getAttribute('aria-checked')==='true',notesPath:ui('#notes-path').value.trim(),targetLanguage:TranslatorLanguages.read(ui('#target-language'),ui('#custom-language'))}});if(host!==panelHost)return;updateSettings(r);statusKey('settingsSaved');}catch(e){if(host===panelHost)status(displayError(e),true);}finally{button.disabled=false;}};
     ui('.switch').onclick=()=>{const on=ui('.switch').getAttribute('aria-checked')!=='true';toggle(on);speedHint();};
     ui('#model').onchange=()=>{fillEfforts(ui('#effort').value);speedHint();};
     shadow.addEventListener('keydown',e=>{e.stopPropagation();if(e.key==='Escape') close();});
@@ -112,12 +114,25 @@
       target.addEventListener('pointermove',move);target.addEventListener('pointerup',end);target.addEventListener('pointercancel',end);
     });
   }
-  function status(text,error=false){if(!host)return;ui('.status').textContent=text;ui('.status').classList.toggle('error',error);}
+  function status(text,error=false){if(!host)return;lastStatus={text,error};ui('.status').textContent=text;ui('.status').classList.toggle('error',error);}
+  function statusKey(key,args=[],error=false){status(t(key,args),error);lastStatus={key,args,error};}
   function toggle(on){ui('.switch').setAttribute('aria-checked',String(on));ui('.switch span').textContent=t(on?'enabled':'disabled');}
-  function fillEfforts(preferred){const m=models.find(m=>m.model===ui('#model').value);if(m)TranslatorSettings.fillEfforts(ui('#effort'),m,preferred);}
-  function speedHint(){const m=models.find(m=>m.model===ui('#model').value);if(!m)return;const info=TranslatorSettings.speedInfo(m);ui('.fast-label').textContent=info.label;ui('.speed-hint').textContent=info.hint;ui('.switch').disabled=!info.supported;}
-  function effective(settings){if(!host||!settings)return;const language=settings.targetLanguage||TranslatorLanguages.resolve(prefs?.targetLanguage,locale());ui('.translation').lang=language;ui('.translation').dir=TranslatorLanguages.direction(language);ui('.bottom-left').textContent=`${settings.model} · ${settings.effort} · ${TranslatorLanguages.name(language,locale())}${settings.serviceTier!=='default'?' · ⚡':''}`;}
-  async function loadSettings(){try{const r=await ask({type:'hello'});if(!host)return;prefs=r.preferences;models=r.models;TranslatorLanguages.fill(ui('#target-language'),ui('#custom-language'),prefs.targetLanguage,locale(),t);const select=ui('#model');select.replaceChildren(...models.map(m=>{const o=document.createElement('option');o.value=m.model;o.textContent=m.displayName||m.model;return o;}));select.value=prefs.model;fillEfforts(prefs.effort);ui('#notes-path').value=prefs.notesPath;toggle(prefs.fast);speedHint();ui('.save-settings').disabled=false;if(!raw)effective(r.effective);}catch(e){status(displayError(e),true);}}
+  function fillEfforts(preferred){const m=models.find(m=>m.model===ui('#model').value);if(m)TranslatorSettings.fillEfforts(ui('#effort'),m,preferred,t);}
+  function speedHint(){const m=models.find(m=>m.model===ui('#model').value);if(!m)return;const info=TranslatorSettings.speedInfo(m,t);ui('.fast-label').textContent=info.label;ui('.speed-hint').textContent=info.hint;ui('.switch').disabled=!info.supported;}
+  function effective(settings){if(!host||!settings)return;lastEffective=settings;const language=settings.targetLanguage||TranslatorLanguages.resolve(prefs?.targetLanguage,chrome.i18n.getUILanguage());ui('.translation').lang=language;ui('.translation').dir=TranslatorLanguages.direction(language);ui('.bottom-left').textContent=`${settings.model} · ${settings.effort} · ${TranslatorLanguages.name(language,locale())}${settings.serviceTier!=='default'?' · ⚡':''}`;}
+  function updateSettings(r){
+    prefs=r.preferences;models=r.models||models;
+    if(r.ui)setCatalog(r.ui);
+    apply(shadow);ui('.panel').lang=locale();ui('.panel').dir=TranslatorLanguages.direction(locale());
+    TranslatorLanguages.fill(ui('#target-language'),ui('#custom-language'),prefs.targetLanguage,locale(),t);
+    const select=ui('#model');select.replaceChildren(...models.map(m=>{const o=document.createElement('option');o.value=m.model;o.textContent=m.displayName||m.model;return o;}));
+    select.value=prefs.model;fillEfforts(prefs.effort);ui('#notes-path').value=prefs.notesPath;toggle(prefs.fast);speedHint();ui('.save-settings').disabled=false;
+    // Existing output keeps its own language and direction; changing UI does not regenerate it.
+    effective(lastEffective||r.effective);
+    if(lastStatus?.key)statusKey(lastStatus.key,lastStatus.args,lastStatus.error);
+  }
+  async function loadSettings(){const panelHost=host;if(loadingHost===panelHost)return false;loadingHost=panelHost;try{const r=await ask({type:'hello'});if(host!==panelHost)return false;updateSettings(r);return true;}catch(e){if(host===panelHost)status(displayError(e),true);return false;}finally{if(loadingHost===panelHost)loadingHost=null;}}
+  async function beginTranslation(){const panelHost=host;const ready=prefs||await loadSettings();if(host!==panelHost)return;if(ready)await translate();else finish(lastStatus?.text||t('errorConnection'));}
   function render(text){
     if(!host)return;const area=ui('.translation');area.replaceChildren();let primary=false,headingCount=0;
     for(const block of text.split(/\n(?=## )|(?<=\n)\n/)){
@@ -132,18 +147,19 @@
     requestId=crypto.randomUUID();raw='';done=false;started=performance.now();
     ui('.source').textContent=data.selected;ui('.flag').disabled=true;ui('.flag').classList.remove('active');ui('.flag').innerHTML=icons.flag;ui('.copy').disabled=true;ui('.stop').hidden=false;ui('.retry').hidden=true;
     ui('.translation').dir=TranslatorLanguages.direction(locale());ui('.translation').innerHTML='<div class="empty"><span class="pulse"></span><span data-i18n="translatingContext"></span></div>';apply(ui('.translation'));ui('.translation').setAttribute('aria-busy','true');status('');
-    clearInterval(ticker);ticker=setInterval(()=>{if(host&&!raw)status(t('elapsed',[String(Math.floor((performance.now()-started)/1000))]));},1000);
+    clearInterval(ticker);ticker=setInterval(()=>{if(host&&!raw)statusKey('elapsed',[String(Math.floor((performance.now()-started)/1000))]);},1000);
     const id=requestId;
-    try{const {rect,...payload}=data;await ask({type:'translate',id,data:payload});}catch(e){if(id===requestId)finish(e.message);}
+    try{const {rect,...payload}=data;await ask({type:'translate',id,data:payload});}catch(e){if(id===requestId)finish(displayError(e));}
   }
-  function finish(error){clearInterval(ticker);if(!host)return;done=true;ui('.translation').setAttribute('aria-busy','false');ui('.stop').hidden=true;ui('.retry').hidden=false;ui('.copy').disabled=!raw;ui('.flag').disabled=!!error||!raw;if(error){if(!raw)ui('.translation').textContent=t('incomplete');status(error,true);}else status(t('complete',[((performance.now()-started)/1000).toFixed(1)]));}
+  function finish(error){clearInterval(ticker);if(!host)return;done=true;ui('.translation').setAttribute('aria-busy','false');ui('.stop').hidden=true;ui('.retry').hidden=false;ui('.copy').disabled=!raw;ui('.flag').disabled=!!error||!raw;if(error){if(!raw)ui('.translation').textContent=t('incomplete');status(error,true);}else statusKey('complete',[((performance.now()-started)/1000).toFixed(1)]);}
   async function stop(){if(requestId&&!done){ask({type:'cancel',target:requestId}).catch(()=>{});finish(t('stopped'));requestId=null;}}
-  async function save(){const id=requestId;ui('.flag').disabled=true;try{const r=await ask({type:'save',target:id});if(id!==requestId||!host)return;ui('.flag').innerHTML=icons.check;ui('.flag').classList.add('active');status(t('savedTo',[r.path]));}catch(e){if(id===requestId&&host){ui('.flag').disabled=false;status(displayError(e),true);}}}
-  function close(){if(requestId&&!done)ask({type:'cancel',target:requestId}).catch(()=>{});clearInterval(ticker);host?.remove();host=null;requestId=null;}
+  async function save(){const id=requestId;ui('.flag').disabled=true;try{const r=await ask({type:'save',target:id});if(id!==requestId||!host)return;ui('.flag').innerHTML=icons.check;ui('.flag').classList.add('active');statusKey('savedTo',[r.path]);}catch(e){if(id===requestId&&host){ui('.flag').disabled=false;status(displayError(e),true);}}}
+  function close(){if(requestId&&!done)ask({type:'cancel',target:requestId}).catch(()=>{});ask({type:'panel-closed'}).catch(()=>{});clearInterval(ticker);host?.remove();host=null;requestId=null;}
   document.addEventListener('keydown',event=>{if(host&&event.key==='Escape'){event.preventDefault();event.stopPropagation();close();}},true);
   window.addEventListener('resize',()=>{if(!host)return;const panel=ui('.panel'),r=panel.getBoundingClientRect();const w=Math.min(r.width,innerWidth-16),h=Math.min(r.height,innerHeight-16);Object.assign(panel.style,{width:`${w}px`,height:`${h}px`,left:`${Math.max(8,Math.min(r.left,innerWidth-w-8))}px`,top:`${Math.max(8,Math.min(r.top,innerHeight-h-8))}px`});});
   chrome.runtime.onMessage.addListener(msg=>{
-    if(msg.type==='open-translator') {try{const collected=collect(msg.selectionText);mount(collected.rect);data=collected;void translate();}catch(e){mount();status(displayError(e),true);ui('.translation').textContent=t('errorSelectText');ui('.stop').hidden=true;}return;}
-    if(msg.type==='translation-event'&&msg.id===requestId&&host){if(msg.text!==undefined){raw=msg.text;render(raw);effective(msg.settings);status(t('translating'));}if(msg.event==='done')finish();if(msg.event==='error')finish(msg.error);}
+    if(msg.type==='open-translator') {try{const collected=collect(msg.selectionText);mount(collected.rect);data=collected;void beginTranslation();}catch(e){mount();status(displayError(e),true);ui('.translation').textContent=t('errorSelectText');ui('.stop').hidden=true;}return;}
+    if(msg.type==='settings-updated'&&host){updateSettings(msg);return;}
+    if(msg.type==='translation-event'&&msg.id===requestId&&host){if(msg.text!==undefined){raw=msg.text;render(raw);effective(msg.settings);statusKey('translating');}if(msg.event==='done')finish();if(msg.event==='error')finish(displayError({code:msg.errorCode,args:msg.errorArgs,message:msg.error}));}
   });
 })();

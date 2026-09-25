@@ -19,8 +19,8 @@
 
 - 在浮窗齿轮或扩展设置页选择目标语言；提供 150 多种语言选项，也允许填写其他语言或地区代码，例如 `fil`、`sr-Latn-RS`。实际翻译支持与质量取决于模型，不保证所有语言同等准确。
 - 新安装默认“跟随浏览器语言”；已有用户保留原先的简体中文，可随时修改。GPT-6 Luna + low + 快速服务的默认组合不变。
-- 翻译、解释、语境说明及其标题使用目标语言；界面独立跟随 Chrome。
-- 按 [Chrome i18n 文档](https://developer.chrome.com/docs/extensions/reference/api/i18n) 使用 `_locales`、`default_locale`、`__MSG_*__` 和 `chrome.i18n.getMessage`，包含简体中文、繁体中文、英语、西班牙语、法语、德语、日语、韩语、阿拉伯语、巴西葡萄牙语。其他界面语言回退英文。
+- 翻译、解释、语境说明及其标题使用目标语言；浮窗按钮与设置界面也跟随目标语言，保存后立即更新已打开的浮窗。工具栏设置页与右键菜单仍跟随 Chrome。
+- 按 [Chrome i18n 文档](https://developer.chrome.com/docs/extensions/reference/api/i18n) 使用 `_locales`、`default_locale`、`__MSG_*__` 和 `chrome.i18n.getMessage`，包含简体中文、繁体中文、英语、西班牙语、法语、德语、日语、韩语、阿拉伯语、巴西葡萄牙语。尚未提供的浮窗界面语言回退英文，模型输出仍使用所选目标语言。
 - 阿拉伯语等从右向左书写的语言独立设置排版方向。Markdown 保存本次实际目标语言及明确的来源网址；元信息标签在支持的界面语言中本地化，其余回退英文。
 - 扩展与本地连接程序都需要更新至 1.3.0 或以上。只更新浏览器扩展时会提示更新连接程序，避免所选语言被旧程序忽略。旧安装目录原位覆盖新版完整包即可保留 `.local` 设置；目录或扩展 ID 改变则重新运行安装脚本。
 
@@ -96,7 +96,7 @@ node tests/i18n-browser.cjs
 node scripts/check-host.cjs
 node scripts/benchmark.cjs
 python scripts/package.py
-python scripts/check-publication.py --index --zip dist/codex-quick-translator-1.3.0.zip
+python scripts/check-publication.py --index --zip dist/codex-quick-translator-1.3.1.zip
 python scripts/package-store.py
 ```
 

@@ -160,7 +160,7 @@
     "message": "Idioma de destino"
   },
   "targetHint": {
-    "message": "La traducción, la explicación y el contexto usarán este idioma. La interfaz seguirá el idioma de Chrome."
+    "message": "La traducción, la explicación, el contexto y el panel flotante usan este idioma. Si el panel no lo admite, se usa inglés."
   },
   "followBrowser": {
     "message": "Seguir el idioma del navegador"

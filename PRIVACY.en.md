@@ -16,7 +16,7 @@ The developer has no server receiving translation data. The extension includes n
 
 ## Local storage and deletion
 
-Model, reasoning effort, speed, target language and note-path preferences are stored in the companion's `.local` directory. Chrome's interface language is used to localize the UI and resolve the “Follow browser language” target. Up to 100 completed translations are retained in companion process memory and cleared when that process exits.
+Model, reasoning effort, speed, target language and note-path preferences are stored in the companion's `.local` directory. The selected target language also determines floating-panel labels. Chrome’s interface language localizes toolbar settings and the context menu, and resolves the “Follow browser language” target. Up to 100 completed translations are retained in companion process memory and cleared when that process exits.
 
 Only clicking the flag appends original text, translation, explanation, context, page title, source URL, time, target language and model settings to your chosen Markdown file. The developer cannot access it. You may edit or delete notes yourself; uninstalling intentionally preserves them. Deleting the companion directory removes its settings and test data. Codex manages its own account data and logs separately.
 

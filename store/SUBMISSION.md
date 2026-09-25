@@ -1,6 +1,6 @@
 # 提交清单
 
-1. 上传 `dist/codex-quick-translator-store-1.3.0.zip`，其中 `manifest.json` 在 ZIP 根目录，仅包含浏览器代码和图标。不要上传含本机连接程序的完整源码 ZIP。
+1. 上传 `dist/codex-quick-translator-store-1.3.1.zip`，其中 `manifest.json` 在 ZIP 根目录，仅包含浏览器代码和图标。不要上传含本机连接程序的完整源码 ZIP。
 2. 商店条目创建后记录 Item ID。商店版设置页会按运行时 ID 给出安装命令，本机连接程序安装时支持 `-ExtensionId`。源码中的开发公钥不放入商店 ZIP。
 3. 使用 `LISTING.zh-CN.md` 及 `LISTING.en.md` 分别填写中英文条目的介绍、单一用途、权限说明和隐私信息；使用 `REVIEWER.md` 填写测试说明。
 4. 上传 `images/screenshot-translation.png`、`images/screenshot-settings.png`（1280×800），以及 `images/promo-440x280.png`。扩展图标位于 `extension/icons/icon-128.png`。

@@ -160,7 +160,7 @@
     "message": "Target language"
   },
   "targetHint": {
-    "message": "Translation, explanation and context use this language. The interface follows Chrome."
+    "message": "Translation, explanation, context and the floating panel use this language. Unavailable panel languages fall back to English."
   },
   "followBrowser": {
     "message": "Follow browser language"

@@ -9,9 +9,11 @@ Element.prototype.attachShadow=function(options){return attachShadow.call(this,{
 const listeners=[];let cancel=false;let fail=false;
 let preferences={model:'gpt-6-luna',effort:'low',fast:true,targetLanguage:'auto',notesPath:'D:\\Notes\\translations.md'};
 const models=[{model:'gpt-6-luna',displayName:'GPT-6 Luna',defaultReasoningEffort:'medium',supportedReasoningEfforts:[{reasoningEffort:'low'},{reasoningEffort:'medium'}],serviceTiers:[{id:'priority',description:'1.5x speed'}]},{model:'gpt-6-sol',displayName:'GPT-6 Sol',defaultReasoningEffort:'medium',supportedReasoningEfforts:[{reasoningEffort:'low'},{reasoningEffort:'medium'}],serviceTiers:[{id:'priority',description:'1.5x speed'}]}];
+async function panelCatalog(){const code=TranslatorI18n.catalogLocale(preferences.targetLanguage==='auto'?chrome.i18n.getUILanguage():preferences.targetLanguage);return {locale:code.replace('_','-'),messages:await fetch('/_locales/'+code+'/messages.json').then(r=>r.json())};}
 window.chrome={i18n:window.__testI18n||{getUILanguage:()=> 'en',getMessage:()=>''},runtime:{onMessage:{addListener(fn){listeners.push(fn);}},async sendMessage(msg){
-  if(msg.type==='hello')return{ok:true,models,preferences,effective:{model:preferences.model,effort:'low',serviceTier:'priority',targetLanguage:preferences.targetLanguage==='auto'?chrome.i18n.getUILanguage():preferences.targetLanguage}};
-  if(msg.type==='settings'){preferences=msg.preferences;return{ok:true,preferences,effective:{model:preferences.model,effort:preferences.effort,serviceTier:preferences.fast?'priority':'default',targetLanguage:preferences.targetLanguage==='auto'?chrome.i18n.getUILanguage():preferences.targetLanguage}};}
+  if(msg.type==='hello')return{ok:true,ui:await panelCatalog(),models,preferences,effective:{model:preferences.model,effort:'low',serviceTier:'priority',targetLanguage:preferences.targetLanguage==='auto'?chrome.i18n.getUILanguage():preferences.targetLanguage}};
+  if(msg.type==='settings'){preferences=msg.preferences;return{ok:true,ui:await panelCatalog(),preferences,effective:{model:preferences.model,effort:preferences.effort,serviceTier:preferences.fast?'priority':'default',targetLanguage:preferences.targetLanguage==='auto'?chrome.i18n.getUILanguage():preferences.targetLanguage}};}
+  if(msg.type==='panel-closed')return{ok:true};
   if(msg.type==='save')return{ok:true,path:preferences.notesPath};
   if(msg.type==='cancel'){cancel=true;return{ok:true};}
   if(msg.type==='translate'){

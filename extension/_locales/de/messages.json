@@ -160,7 +160,7 @@
     "message": "Zielsprache"
   },
   "targetHint": {
-    "message": "Übersetzung, Erklärung und Kontext verwenden diese Sprache. Die Benutzeroberfläche richtet sich nach Chrome."
+    "message": "Übersetzung, Erklärung, Kontext und schwebendes Fenster verwenden diese Sprache. Fehlt die Sprache für das Fenster, wird Englisch verwendet."
   },
   "followBrowser": {
     "message": "Browsersprache verwenden"

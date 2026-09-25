@@ -160,7 +160,7 @@
     "message": "Langue cible"
   },
   "targetHint": {
-    "message": "La traduction, l’explication et le contexte utilisent cette langue. L’interface suit la langue de Chrome."
+    "message": "La traduction, les explications, le contexte et le panneau flottant utilisent cette langue. Si elle manque pour le panneau, il utilise l’anglais."
   },
   "followBrowser": {
     "message": "Suivre la langue du navigateur"

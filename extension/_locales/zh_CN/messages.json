@@ -160,7 +160,7 @@
     "message": "目标语言"
   },
   "targetHint": {
-    "message": "翻译、解释和语境说明均使用此语言；界面语言跟随 Chrome。"
+    "message": "翻译、解释、语境和浮窗界面均使用此语言。尚未提供的浮窗界面语言回退为英文。"
   },
   "followBrowser": {
     "message": "跟随浏览器语言"

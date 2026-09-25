@@ -4,6 +4,7 @@ const path=require('node:path');
 const root=path.resolve(__dirname,'..');
 const files={'/settings-ui.js':['extension/settings-ui.js','text/javascript; charset=utf-8'],'/':['tests/preview.html','text/html; charset=utf-8'],'/content.js':['extension/content.js','text/javascript; charset=utf-8'],'/result.json':['.dev/preview-result.json','application/json; charset=utf-8']};
 for(const name of ['i18n.js','languages.js'])files['/'+name]=['extension/'+name,'text/javascript; charset=utf-8'];
+for(const code of fs.readdirSync(path.join(root,'extension/_locales')))files[`/_locales/${code}/messages.json`]=[`extension/_locales/${code}/messages.json`,'application/json; charset=utf-8'];
 const server=http.createServer((req,res)=>{
   const url=new URL(req.url,'http://localhost');res.setHeader('Cache-Control','no-store');
   if(url.pathname==='/preview-i18n.js'){

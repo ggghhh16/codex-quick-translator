@@ -2,6 +2,26 @@ importScripts('i18n.js','languages.js');
 const {t,locale,error:displayError}=TranslatorI18n;
 const HOST = 'com.local.codex_quick_translator';
 let nativePort, languageCapable=false, checkingHost;
+const panels=new Map(),catalogs=new Map();
+async function localized(result) {
+  const code=TranslatorI18n.catalogLocale(TranslatorLanguages.resolve(result.preferences.targetLanguage,locale()));
+  if(!catalogs.has(code))catalogs.set(code,fetch(chrome.runtime.getURL(`_locales/${code}/messages.json`)).then(response=>{
+    if(!response.ok)throw new Error(t('errorConnection'));
+    return response.json();
+  }).catch(error=>{catalogs.delete(code);throw error;}));
+  return {...result,ui:{locale:code.replace('_','-'),messages:await catalogs.get(code)}};
+}
+function watchPanel(sender) {
+  if(!sender.tab)return;
+  panels.set(owner(sender),{tabId:sender.tab.id,frameId:sender.frameId||0,documentId:sender.documentId});
+  if(panels.size>200)panels.delete(panels.keys().next().value);
+}
+function notifySettings(result,sender) {
+  for(const [key,panel] of panels){
+    if(key===owner(sender))continue;
+    chrome.tabs.sendMessage(panel.tabId,{type:'settings-updated',preferences:result.preferences,effective:result.effective,ui:result.ui},{frameId:panel.frameId,documentId:panel.documentId}).catch(()=>panels.delete(key));
+  }
+}
 async function hello() {
   const result=await request('hello');
   languageCapable=result.capabilities?.targetLanguage===true;
@@ -28,7 +48,7 @@ function connect() {
       if(message.type === 'done' || message.type === 'error') routes.delete(message.id);
     }
     const p = pending.get(message.id);
-    if(p) { clearTimeout(p.timer); pending.delete(message.id); message.type === 'error' ? p.reject(new Error(message.error)) : p.resolve(message); }
+    if(p) { clearTimeout(p.timer); pending.delete(message.id); message.type === 'error' ? p.reject(Object.assign(new Error(message.error),{code:message.errorCode,args:message.errorArgs})) : p.resolve(message); }
   });
   port.onDisconnect.addListener(()=>{
     const error = chrome.runtime.lastError?.message || t('errorHostDisconnected');
@@ -73,13 +93,16 @@ chrome.runtime.onMessage.addListener((msg,sender,reply)=>{
     const source = new URL(sender.url || '');
     const ownOptions = source.href === `chrome-extension://${chrome.runtime.id}/options.html`;
     if(!(sender.tab && ['https:','http:'].includes(source.protocol)) && !ownOptions) throw new Error(t('errorSender'));
-    if(msg.type === 'hello') return hello();
+    if(msg.type === 'hello') {watchPanel(sender);return localized(await hello());}
+    if(msg.type === 'panel-closed' && sender.tab) {panels.delete(owner(sender));return {ok:true};}
     if(msg.type === 'settings') {
       const p=msg.preferences;
       if(!p || typeof p.model!=='string' || p.model.length>160 || typeof p.effort!=='string' || p.effort.length>20 || typeof p.fast!=='boolean' || typeof p.notesPath!=='string' || p.notesPath.length>2048 || typeof p.targetLanguage!=='string') throw new Error(t('errorSettings'));
       const targetLanguage=TranslatorLanguages.normalize(p.targetLanguage);
       await ensureHost();
-      return request('settings',{preferences:{model:p.model,effort:p.effort,fast:p.fast,notesPath:p.notesPath,targetLanguage}});
+      const result=await localized(await request('settings',{preferences:{model:p.model,effort:p.effort,fast:p.fast,notesPath:p.notesPath,targetLanguage}}));
+      notifySettings(result,sender);
+      return result;
     }
     if(msg.type === 'translate' && sender.tab) {
       if(typeof msg.id !== 'string' || !msg.id || msg.id.length > 120 || owners.has(msg.id)) throw new Error(t('errorRequest'));
@@ -99,10 +122,11 @@ chrome.runtime.onMessage.addListener((msg,sender,reply)=>{
       return request(msg.type,{target:msg.target});
     }
     throw new Error(t('errorRequest'));
-  })().then(result=>reply({ok:true,...result}),e=>reply({ok:false,error:displayError(e)}));
+  })().then(result=>reply({ok:true,...result}),e=>reply({ok:false,error:displayError(e),errorCode:e.code,errorArgs:e.args}));
   return true;
 });
 chrome.tabs.onRemoved.addListener(tabId=>{
+  for(const [key,panel] of panels)if(panel.tabId===tabId)panels.delete(key);
   for(const [id,route] of routes) if(route.tabId===tabId) {if(nativePort) nativePort.postMessage({id:crypto.randomUUID(),type:'cancel',target:id});routes.delete(id);}
   for(const [id,key] of owners) if(key.startsWith(`${tabId}:`)) owners.delete(id);
 });

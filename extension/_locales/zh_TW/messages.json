@@ -160,7 +160,7 @@
     "message": "目標語言"
   },
   "targetHint": {
-    "message": "翻譯、說明和上下文會使用此語言。介面語言依 Chrome 設定。"
+    "message": "翻譯、解釋、語境和浮動視窗介面均使用此語言。尚未提供的介面語言會改用英文。"
   },
   "followBrowser": {
     "message": "跟隨瀏覽器語言"
