@@ -1,3 +1,4 @@
+const {error:localError} = require('./messages.cjs');
 function encode(message) {
   const body = Buffer.from(JSON.stringify(message));
   const header = Buffer.alloc(4); header.writeUInt32LE(body.length);
@@ -11,7 +12,7 @@ function decoder(onMessage, onError) {
     try {
       while(buffer.length >= 4) {
         const size = buffer.readUInt32LE(0);
-        if(size > 1024 * 1024) throw new Error('本地消息超过大小限制。');
+        if(size > 1024 * 1024) throw localError('errorMessageSize');
         if(buffer.length < size+4) return;
         const body = buffer.subarray(4,size+4); buffer = buffer.subarray(size+4);
         onMessage(JSON.parse(body.toString('utf8')));

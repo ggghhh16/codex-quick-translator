@@ -1,0 +1,382 @@
+{
+  "extName": {
+    "message": "الترجمة السريعة · Codex محلي"
+  },
+  "extDescription": {
+    "message": "ترجم النص المحدد مع سياق الصفحة إلى اللغة التي تختارها. احفظ النتائج والمصادر في ملف Markdown محلي."
+  },
+  "appName": {
+    "message": "الترجمة السريعة"
+  },
+  "settingsTitle": {
+    "message": "إعدادات الترجمة السريعة"
+  },
+  "translateCommand": {
+    "message": "ترجمة النص المحدد"
+  },
+  "settings": {
+    "message": "الإعدادات"
+  },
+  "translationSettings": {
+    "message": "إعدادات الترجمة"
+  },
+  "saveNote": {
+    "message": "حفظ في Markdown"
+  },
+  "close": {
+    "message": "إغلاق"
+  },
+  "closeEsc": {
+    "message": "إغلاق (Esc)"
+  },
+  "original": {
+    "message": "النص الأصلي"
+  },
+  "translation": {
+    "message": "الترجمة"
+  },
+  "explanation": {
+    "message": "الشرح"
+  },
+  "context": {
+    "message": "السياق"
+  },
+  "model": {
+    "message": "النموذج"
+  },
+  "effort": {
+    "message": "مستوى الاستدلال"
+  },
+  "effortHint": {
+    "message": "لا يعتمد على السرعة. عادةً ما يستجيب المستوى الأقل أسرع."
+  },
+  "fastMode": {
+    "message": "الوضع السريع"
+  },
+  "fastMultiplier": {
+    "message": "الوضع السريع ($value1$×)",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "speedHint": {
+    "message": "يغيّر فئة الخدمة فقط، لا مستوى الاستدلال."
+  },
+  "speedSupported": {
+    "message": "يبقى مستوى الاستدلال دون تغيير. يختلف زمن الاستجابة وقد يزيد استهلاك الحصة."
+  },
+  "nominalSpeed": {
+    "message": "السرعة المعلنة للخدمة هي $value1$×.",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "speedUnavailable": {
+    "message": "يستخدم هذا النموذج الخدمة العادية. مستوى الاستدلال مستقل عن السرعة."
+  },
+  "enabled": {
+    "message": "مفعّل"
+  },
+  "disabled": {
+    "message": "متوقف"
+  },
+  "notesPath": {
+    "message": "مسار ملف Markdown"
+  },
+  "notesHint": {
+    "message": "يحفظ هذا الخيار النص الأصلي والترجمة والشرح والسياق ومصدر الصفحة."
+  },
+  "saveSettings": {
+    "message": "حفظ الإعدادات"
+  },
+  "settingsSaved": {
+    "message": "حُفظت الإعدادات. تُطبّق التغييرات على الترجمة التالية."
+  },
+  "connecting": {
+    "message": "جارٍ الاتصال بـ Codex المحلي…"
+  },
+  "connected": {
+    "message": "تم الاتصال بـ Codex المحلي"
+  },
+  "loading": {
+    "message": "جارٍ التحميل…"
+  },
+  "translatingContext": {
+    "message": "جارٍ الترجمة مع سياق الصفحة…"
+  },
+  "translating": {
+    "message": "جارٍ الترجمة…"
+  },
+  "elapsed": {
+    "message": "جارٍ الترجمة · $value1$ ث",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "complete": {
+    "message": "اكتملت الترجمة · $value1$ ث",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "incomplete": {
+    "message": "لم تكتمل هذه الترجمة."
+  },
+  "stopped": {
+    "message": "أُوقفت الترجمة."
+  },
+  "retry": {
+    "message": "إعادة المحاولة"
+  },
+  "stop": {
+    "message": "إيقاف"
+  },
+  "copy": {
+    "message": "نسخ الترجمة"
+  },
+  "copied": {
+    "message": "نُسخت الترجمة."
+  },
+  "copyFailed": {
+    "message": "تعذّر النسخ. حدّد الترجمة وانسخها يدويًا."
+  },
+  "savedTo": {
+    "message": "حُفظ في $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "targetLanguage": {
+    "message": "اللغة المستهدفة"
+  },
+  "targetHint": {
+    "message": "تُعرض الترجمة والشرح والسياق بهذه اللغة. تتبع الواجهة لغة Chrome."
+  },
+  "followBrowser": {
+    "message": "اتباع لغة المتصفح"
+  },
+  "otherLanguage": {
+    "message": "لغة أو تنويع إقليمي آخر…"
+  },
+  "languageCode": {
+    "message": "رمز اللغة، مثل en أو zh-Hant أو fil"
+  },
+  "languageCodeLabel": {
+    "message": "رمز لغة مخصص"
+  },
+  "privacyShort": {
+    "message": "لا يُرسل النص والفقرات القريبة وسياق محدود من الصفحة إلى مزوّد نموذج Codex إلا عند طلب الترجمة."
+  },
+  "tagline": {
+    "message": "Codex محلي · افهم ما تقرأ"
+  },
+  "capabilitiesHint": {
+    "message": "تعتمد النماذج ومستويات الاستدلال المتاحة على Codex المحلي لديك."
+  },
+  "startReading": {
+    "message": "ابدأ القراءة"
+  },
+  "stepSelect": {
+    "message": "حدّد نصًا على صفحة ويب."
+  },
+  "stepTranslate": {
+    "message": "انقر بزر الماوس الأيمن على الترجمة السريعة، أو اضغط Alt+Shift+T."
+  },
+  "stepSave": {
+    "message": "غيّر الحجم من أي زاوية. استخدم العلم للحفظ."
+  },
+  "helpTitle": {
+    "message": "الاتصال المحلي والخصوصية"
+  },
+  "installIntro": {
+    "message": "يدعم حاليًا Windows. نزّل التطبيق المرافق، واستخرجه إلى مجلد ثابت، ثم شغّل هذا الأمر في PowerShell من ذلك المجلد:"
+  },
+  "downloadCompanion": {
+    "message": "تنزيل التطبيق المرافق المحلي"
+  },
+  "requirements": {
+    "message": "يتطلب Node.js 20+ ونسخة Codex مثبّتة ومسجّلًا الدخول إليها. لا يحتاج مستخدمو المتجر إلى تحميل إضافة أخرى غير معبأة."
+  },
+  "privacyLong": {
+    "message": "عند الترجمة فقط، يُرسل النص المحدد والفقرات القريبة وما يصل إلى 16,000 حرف من محتوى الصفحة إلى مزوّد نموذج Codex الذي ضبطته. تعمل المعالجة السحابية؛ ويتولى التطبيق المحلي الاتصال وحفظ الملفات."
+  },
+  "limitations": {
+    "message": "قد تستهلك الخدمة السريعة حصة أكبر. لا تدعم الصفحات الداخلية في Chrome ومتجر الويب وبعض الإطارات من مصادر مختلفة وعارض PDF المدمج اللوحة العائمة."
+  },
+  "independent": {
+    "message": "طُوّرت بشكل مستقل؛ ولا تتبع OpenAI أو Google."
+  },
+  "privacyPolicy": {
+    "message": "سياسة الخصوصية"
+  },
+  "support": {
+    "message": "الدعم والملاحظات"
+  },
+  "extensionId": {
+    "message": "معرّف الإضافة: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "sourcePage": {
+    "message": "الصفحة المصدر"
+  },
+  "sourceUrl": {
+    "message": "عنوان URL للمصدر"
+  },
+  "savedAt": {
+    "message": "وقت الحفظ"
+  },
+  "untitledPage": {
+    "message": "مقتطف من الويب"
+  },
+  "noSource": {
+    "message": "لم يُقدَّم عنوان URL عام عبر HTTP(S)"
+  },
+  "effort_none": {
+    "message": "بلا استدلال"
+  },
+  "effort_minimal": {
+    "message": "أدنى"
+  },
+  "effort_low": {
+    "message": "منخفض"
+  },
+  "effort_medium": {
+    "message": "متوسط"
+  },
+  "effort_high": {
+    "message": "مرتفع"
+  },
+  "effort_xhigh": {
+    "message": "مرتفع جدًا"
+  },
+  "effort_max": {
+    "message": "أقصى"
+  },
+  "effort_ultra": {
+    "message": "فائق"
+  },
+  "errorConnection": {
+    "message": "انقطع اتصال الإضافة. حدّث صفحة الويب."
+  },
+  "errorSelectText": {
+    "message": "حدّد نصًا لترجمته أولًا."
+  },
+  "errorSelectionLarge": {
+    "message": "حدّد ما لا يزيد على 12,000 حرف لكل ترجمة."
+  },
+  "errorPage": {
+    "message": "الترجمة غير متاحة في هذه الصفحة. استخدم صفحة ويب عادية."
+  },
+  "errorRequest": {
+    "message": "الطلب غير صالح أو مكرر."
+  },
+  "errorSender": {
+    "message": "لا يمكن لهذه الصفحة الوصول إلى أداة الترجمة المحلية."
+  },
+  "errorSettings": {
+    "message": "الإعدادات غير صالحة."
+  },
+  "errorExpired": {
+    "message": "انتهت صلاحية هذه الترجمة. أعد ترجمتها."
+  },
+  "errorHostDisconnected": {
+    "message": "أُغلق الاتصال المحلي."
+  },
+  "errorHostConnect": {
+    "message": "تعذّر الاتصال بالتطبيق المرافق المحلي: $value1$. شغّل برنامج التثبيت ثم أعد المحاولة.",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorHostTimeout": {
+    "message": "انتهت مهلة التطبيق المرافق المحلي. أعد المحاولة."
+  },
+  "errorModel": {
+    "message": "النموذج المحدد غير متاح. اختر نموذجًا آخر."
+  },
+  "errorEffort": {
+    "message": "هذا النموذج لا يدعم مستوى الاستدلال هذا."
+  },
+  "errorInvalidLanguage": {
+    "message": "أدخل رمز لغة صالحًا، مثل en أو zh-Hant أو fil."
+  },
+  "errorInvalidPath": {
+    "message": "أدخل مسارًا مطلقًا لملف .md محلي."
+  },
+  "errorLocalPath": {
+    "message": "لا تُدعم إلا ملفات Markdown على محركات الأقراص المحلية."
+  },
+  "errorDevicePath": {
+    "message": "لا يجوز أن تتضمن المسارات أسماء أجهزة أو مسافات أو نقاطًا في نهايتها."
+  },
+  "errorLinkedPath": {
+    "message": "لا يمكن الحفظ في روابط أو مجلدات أو ملفات لها روابط صلبة متعددة."
+  },
+  "errorChangedPath": {
+    "message": "الملف رابط أو تم استبداله. رُفض الحفظ."
+  },
+  "errorExecutablePath": {
+    "message": "يجب أن يكون مسار ملف Codex التنفيذي مطلقًا."
+  },
+  "errorCodexMissing": {
+    "message": "لم يُعثر على تثبيت Codex صالح. أعد تشغيل برنامج التثبيت."
+  },
+  "errorConcurrent": {
+    "message": "يمكن تشغيل ما يصل إلى أربع ترجمات في آنٍ واحد. أوقف إحداها أو انتظر."
+  },
+  "errorNoOutput": {
+    "message": "لم يُرجع النموذج أي ترجمة. أعد المحاولة."
+  },
+  "errorModelMismatch": {
+    "message": "لم يستخدم Codex الإعدادات المطلوبة: $value1$. غيّر الإعدادات ثم أعد المحاولة.",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorCodexStart": {
+    "message": "تعذّر تشغيل Codex المحلي: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorCodexClosed": {
+    "message": "انقطع اتصال Codex المحلي. أعد المحاولة."
+  },
+  "errorCodexTimeout": {
+    "message": "انتهت مهلة طلب Codex: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorMessageSize": {
+    "message": "تجاوزت الرسالة المحلية الحد الأقصى للحجم."
+  },
+  "errorUpdateHost": {
+    "message": "حدّث التطبيق المرافق المحلي إلى الإصدار 1.3.0 أو أحدث لاستخدام اللغات المستهدفة."
+  },
+  "supplementalModel": {
+    "message": "النموذج الرسمي غير موجود في فهرس النماذج المحلي."
+  }
+}

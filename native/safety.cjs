@@ -19,7 +19,7 @@ function plainMarkdown(value) {
     .replace(/([\\`*_[\]{}()#!|~$=+.-])/g, '\\$1');
 }
 function resultMarkdown(value) {
-  return String(value).split(/\r?\n/).map(line => /^## (翻译|解释|语境)$/.test(line) ? line : plainMarkdown(line)).join('\n');
+  return String(value).split(/\r?\n/).map(line => /^## [^\r\n]{1,160}$/.test(line) ? '## '+plainMarkdown(line.slice(3)) : plainMarkdown(line)).join('\n');
 }
 function disabledIntegrations(config) {
   // App Server splits dotted override paths literally, without TOML quote parsing.

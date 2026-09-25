@@ -1,0 +1,382 @@
+{
+  "extName": {
+    "message": "快速翻译 · Local Codex"
+  },
+  "extDescription": {
+    "message": "将选中文字结合网页语境翻译为所选语言，并将结果与来源收藏到本地 Markdown。"
+  },
+  "appName": {
+    "message": "快速翻译"
+  },
+  "settingsTitle": {
+    "message": "快速翻译设置"
+  },
+  "translateCommand": {
+    "message": "翻译选中文字"
+  },
+  "settings": {
+    "message": "设置"
+  },
+  "translationSettings": {
+    "message": "翻译设置"
+  },
+  "saveNote": {
+    "message": "收藏到 Markdown"
+  },
+  "close": {
+    "message": "关闭"
+  },
+  "closeEsc": {
+    "message": "关闭（Esc）"
+  },
+  "original": {
+    "message": "原文"
+  },
+  "translation": {
+    "message": "翻译"
+  },
+  "explanation": {
+    "message": "解释"
+  },
+  "context": {
+    "message": "语境"
+  },
+  "model": {
+    "message": "模型"
+  },
+  "effort": {
+    "message": "思考强度"
+  },
+  "effortHint": {
+    "message": "独立设置；较低强度通常更快，切换闪电不会改变它。"
+  },
+  "fastMode": {
+    "message": "快速模式"
+  },
+  "fastMultiplier": {
+    "message": "快速模式（$value1$×）",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "speedHint": {
+    "message": "只切换服务速度，不改变思考强度。"
+  },
+  "speedSupported": {
+    "message": "思考强度保持不变。实际延迟会波动，可能增加额度消耗。"
+  },
+  "nominalSpeed": {
+    "message": " $value1$× 为服务标称速度。",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "speedUnavailable": {
+    "message": "该模型未提供快速服务，将使用标准服务。思考强度独立设置。"
+  },
+  "enabled": {
+    "message": "已开启"
+  },
+  "disabled": {
+    "message": "已关闭"
+  },
+  "notesPath": {
+    "message": "收藏文件路径"
+  },
+  "notesHint": {
+    "message": "旗帜按钮将原文、翻译、解释、语境和来源追加到此文件。"
+  },
+  "saveSettings": {
+    "message": "保存设置"
+  },
+  "settingsSaved": {
+    "message": "设置已保存，下次翻译生效。"
+  },
+  "connecting": {
+    "message": "正在连接本地 Codex…"
+  },
+  "connected": {
+    "message": "本地 Codex 已连接"
+  },
+  "loading": {
+    "message": "加载中…"
+  },
+  "translatingContext": {
+    "message": "正在结合网页语境翻译…"
+  },
+  "translating": {
+    "message": "正在翻译…"
+  },
+  "elapsed": {
+    "message": "正在翻译 · $value1$ 秒",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "complete": {
+    "message": "翻译完成 · $value1$ 秒",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "incomplete": {
+    "message": "本次翻译未完成。"
+  },
+  "stopped": {
+    "message": "已停止翻译。"
+  },
+  "retry": {
+    "message": "重新翻译"
+  },
+  "stop": {
+    "message": "停止"
+  },
+  "copy": {
+    "message": "复制翻译"
+  },
+  "copied": {
+    "message": "已复制翻译。"
+  },
+  "copyFailed": {
+    "message": "复制失败，请手动选择翻译文字复制。"
+  },
+  "savedTo": {
+    "message": "已收藏到 $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "targetLanguage": {
+    "message": "目标语言"
+  },
+  "targetHint": {
+    "message": "翻译、解释和语境说明均使用此语言；界面语言跟随 Chrome。"
+  },
+  "followBrowser": {
+    "message": "跟随浏览器语言"
+  },
+  "otherLanguage": {
+    "message": "其他语言或地区变体…"
+  },
+  "languageCode": {
+    "message": "语言代码，例如 en、zh-Hant、fil"
+  },
+  "languageCodeLabel": {
+    "message": "自定义语言代码"
+  },
+  "privacyShort": {
+    "message": "仅在你点击翻译时，将选中文字、附近段落和有限长度的网页正文发送给 Codex 使用的模型服务。"
+  },
+  "tagline": {
+    "message": "Local Codex · 阅读时随手理解"
+  },
+  "capabilitiesHint": {
+    "message": "模型和思考强度以本地 Codex 返回的能力为准。"
+  },
+  "startReading": {
+    "message": "开始阅读"
+  },
+  "stepSelect": {
+    "message": "选中网页上的文字。"
+  },
+  "stepTranslate": {
+    "message": "右键选择“快速翻译”，或按 Alt+Shift+T。"
+  },
+  "stepSave": {
+    "message": "拖动四个角调整浮窗大小，点击旗帜收藏。"
+  },
+  "helpTitle": {
+    "message": "本地连接与隐私"
+  },
+  "installIntro": {
+    "message": "目前支持 Windows。下载本地连接程序并解压到固定目录，然后在该目录的 PowerShell 中运行以下命令："
+  },
+  "downloadCompanion": {
+    "message": "下载本地连接程序"
+  },
+  "requirements": {
+    "message": "需要 Node.js 20+ 和已安装、登录的 Codex。商店版无需再加载另一个本地扩展。"
+  },
+  "privacyLong": {
+    "message": "仅在点击翻译时发送所选文字、附近段落及最多 16,000 字符的网页正文到 Codex 所用的模型服务。模型运行在云端，本地程序负责连接及保存文件。"
+  },
+  "limitations": {
+    "message": "快速服务可能增加额度消耗。Chrome 内置页面、扩展商店、部分跨域页面与内置 PDF 阅读器无法显示浮窗。"
+  },
+  "independent": {
+    "message": "独立开发，与 OpenAI 或 Google 无官方隶属关系。"
+  },
+  "privacyPolicy": {
+    "message": "隐私政策"
+  },
+  "support": {
+    "message": "支持与反馈"
+  },
+  "extensionId": {
+    "message": "扩展 ID：$value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "sourcePage": {
+    "message": "来源网页"
+  },
+  "sourceUrl": {
+    "message": "来源网址"
+  },
+  "savedAt": {
+    "message": "保存时间"
+  },
+  "untitledPage": {
+    "message": "网页摘录"
+  },
+  "noSource": {
+    "message": "未提供可公开的 HTTP(S) 网址"
+  },
+  "effort_none": {
+    "message": "不思考"
+  },
+  "effort_minimal": {
+    "message": "极低"
+  },
+  "effort_low": {
+    "message": "低"
+  },
+  "effort_medium": {
+    "message": "中"
+  },
+  "effort_high": {
+    "message": "高"
+  },
+  "effort_xhigh": {
+    "message": "很高"
+  },
+  "effort_max": {
+    "message": "最高"
+  },
+  "effort_ultra": {
+    "message": "极高"
+  },
+  "errorConnection": {
+    "message": "扩展连接已断开，请刷新网页。"
+  },
+  "errorSelectText": {
+    "message": "请先选择需要翻译的文字。"
+  },
+  "errorSelectionLarge": {
+    "message": "单次最多翻译 12,000 个字符，请缩小选择范围。"
+  },
+  "errorPage": {
+    "message": "此页面不允许扩展读取，请在普通网页使用快速翻译。"
+  },
+  "errorRequest": {
+    "message": "请求无效或编号重复。"
+  },
+  "errorSender": {
+    "message": "不允许此页面访问本地翻译程序。"
+  },
+  "errorSettings": {
+    "message": "设置格式无效。"
+  },
+  "errorExpired": {
+    "message": "此翻译已失效，请重新翻译。"
+  },
+  "errorHostDisconnected": {
+    "message": "本地连接已断开。"
+  },
+  "errorHostConnect": {
+    "message": "无法连接本地翻译程序：$value1$。请运行安装脚本，然后重试。",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorHostTimeout": {
+    "message": "本地程序响应超时，请重试。"
+  },
+  "errorModel": {
+    "message": "所选模型不可用，请在设置中重新选择。"
+  },
+  "errorEffort": {
+    "message": "所选模型不支持此思考强度，请重新选择。"
+  },
+  "errorInvalidLanguage": {
+    "message": "请输入有效的语言代码，例如 en、zh-Hant 或 fil。"
+  },
+  "errorInvalidPath": {
+    "message": "请输入完整的本地 .md 文件路径。"
+  },
+  "errorLocalPath": {
+    "message": "只支持本地磁盘上的 Markdown 文件。"
+  },
+  "errorDevicePath": {
+    "message": "保存路径不能包含设备名称或尾部空格、点号。"
+  },
+  "errorLinkedPath": {
+    "message": "保存路径不能是链接、目录或多重硬链接文件。"
+  },
+  "errorChangedPath": {
+    "message": "保存路径不能是链接或被替换的文件。"
+  },
+  "errorExecutablePath": {
+    "message": "Codex 程序必须使用绝对路径。"
+  },
+  "errorCodexMissing": {
+    "message": "未找到可运行的 Codex，请重新运行安装脚本。"
+  },
+  "errorConcurrent": {
+    "message": "最多同时进行四次翻译，请等待或停止其他翻译。"
+  },
+  "errorNoOutput": {
+    "message": "模型未返回翻译，请重试。"
+  },
+  "errorModelMismatch": {
+    "message": "Codex 未使用指定设置：$value1$。请调整设置后重试。",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorCodexStart": {
+    "message": "无法启动本地 Codex：$value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorCodexClosed": {
+    "message": "本地 Codex 连接已断开，请重试。"
+  },
+  "errorCodexTimeout": {
+    "message": "Codex 请求超时：$value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorMessageSize": {
+    "message": "本地消息超过大小限制。"
+  },
+  "errorUpdateHost": {
+    "message": "请将本地连接程序更新到 1.3.0 或以上版本后再使用目标语言设置。"
+  },
+  "supplementalModel": {
+    "message": "补充本地 Codex 目录遗漏的官方模型。"
+  }
+}

@@ -28,6 +28,13 @@ with ZipFile(output) as archive:
     for name in archive.namelist():
         publication.check_bytes('extension/'+name,archive.read(name))
     assert all(name in archive.namelist() for name in actual['icons'].values())
+    assert actual['default_locale']=='en'
+    default=json.loads(archive.read('_locales/en/messages.json'))
+    for file in archive.namelist():
+        if file.startswith('_locales/') and file.endswith('/messages.json'):
+            catalog=json.loads(archive.read(file))
+            assert set(catalog)==set(default), f'Incomplete locale: {file}'
+            assert len(catalog['extDescription']['message'])<=132
 digest=hashlib.sha256(output.read_bytes()).hexdigest()
 output.with_suffix('.zip.sha256').write_text(f'{digest}  {output.name}\n',encoding='utf-8')
 print(f'{output.name}: {len(files)} browser files; SHA256 {digest}')

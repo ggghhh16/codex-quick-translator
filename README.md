@@ -1,6 +1,6 @@
 # 快速翻译 · Local Codex
 
-Chrome Manifest V3 插件，连接本机已登录的 Codex App Server。选择网页文字，右键 **快速翻译**，在选择位置旁显示中文翻译、解释和网页语境。
+[English](README.en.md) · Chrome Manifest V3 插件，连接本机已登录的 Codex App Server。选择网页文字，右键 **快速翻译**，在选择位置旁显示所选目标语言的翻译、解释和网页语境。
 
 默认 **GPT-6 Luna + low + 快速模式（标称 1.5×）**。[下载发布包](https://github.com/ggghhh16/codex-quick-translator/releases/latest) · [安全与隐私](SECURITY.md) · [更新记录](CHANGELOG.md)
 
@@ -10,10 +10,19 @@ Chrome Manifest V3 插件，连接本机已登录的 Codex App Server。选择�
 
 - 右键「快速翻译」；快捷键 `Alt+Shift+T`。
 - 深色 Notion 风格、圆角悬浮窗，标题栏拖动，**四个角都可以调整大小**。
-- 流式显示「翻译」「解释」「语境」，所有输出使用简体中文。
-- 齿轮设置：模型、独立思考强度、闪电快速模式、完整 Markdown 文件路径；包含 GPT-6 Sol 和 GPT-6 Luna。
+- 流式显示「翻译」「解释」「语境」，三个区块及标题统一使用所选目标语言。
+- 齿轮设置：目标语言、模型、独立思考强度、闪电快速模式、完整 Markdown 文件路径；包含 GPT-6 Sol 和 GPT-6 Luna。
 - 齿轮左侧的帆布旗帜图标：追加保存原文、翻译、解释、语境、网页标题与来源 URL；同一次翻译在同一文件中只保存一次。
 - 停止、重新翻译、复制、Esc 关闭；不同网页和不同选择使用独立临时模型会话。
+
+## 目标语言与界面语言
+
+- 在浮窗齿轮或扩展设置页选择目标语言；提供 150 多种语言选项，也允许填写其他语言或地区代码，例如 `fil`、`sr-Latn-RS`。实际翻译支持与质量取决于模型，不保证所有语言同等准确。
+- 新安装默认“跟随浏览器语言”；已有用户保留原先的简体中文，可随时修改。GPT-6 Luna + low + 快速服务的默认组合不变。
+- 翻译、解释、语境说明及其标题使用目标语言；界面独立跟随 Chrome。
+- 按 [Chrome i18n 文档](https://developer.chrome.com/docs/extensions/reference/api/i18n) 使用 `_locales`、`default_locale`、`__MSG_*__` 和 `chrome.i18n.getMessage`，包含简体中文、繁体中文、英语、西班牙语、法语、德语、日语、韩语、阿拉伯语、巴西葡萄牙语。其他界面语言回退英文。
+- 阿拉伯语等从右向左书写的语言独立设置排版方向。Markdown 保存本次实际目标语言及明确的来源网址；元信息标签在支持的界面语言中本地化，其余回退英文。
+- 扩展与本地连接程序都需要更新至 1.3.0 或以上。只更新浏览器扩展时会提示更新连接程序，避免所选语言被旧程序忽略。旧安装目录原位覆盖新版完整包即可保留 `.local` 设置；目录或扩展 ID 改变则重新运行安装脚本。
 
 ## Windows 安装
 
@@ -72,7 +81,7 @@ Chrome Manifest V3 插件，连接本机已登录的 Codex App Server。选择�
 - 翻译窗口使用封闭 Shadow DOM，模型内容作为纯文本渲染，不执行模型生成的 HTML。
 - 每条收藏明确注明“来源网页”和可点击的“来源网址”。网址删除账号密码和片段，仅保留常见资源编号查询参数；完整隐私行为见 [SECURITY.md](SECURITY.md)。
 - Chrome 内置页面、扩展商店及内置 PDF 阅读器通常不能注入脚本；跨域 iframe 因 `activeTab` 范围限制可能不可用。请在普通网页正文使用。
-- 应用未上传到 Chrome 商店，也未打包成自动安装的 CRX。
+- 商店提交与审核状态以开发者后台为准；GitHub Release 不代表商店已上架。
 
 ## 开发与验证
 
@@ -83,12 +92,15 @@ node --test tests/*.test.cjs
 python -m unittest discover -s tests -p '*_test.py'
 node scripts/probe.cjs --translate
 node scripts/native-smoke.cjs
+node tests/i18n-browser.cjs
 node scripts/check-host.cjs
 node scripts/benchmark.cjs
 python scripts/package.py
-python scripts/check-publication.py --index --zip dist/codex-quick-translator-1.2.1.zip
+python scripts/check-publication.py --index --zip dist/codex-quick-translator-1.3.0.zip
 python scripts/package-store.py
 ```
+
+`i18n-browser.cjs` 需要开发环境提供 Playwright 和已安装的 Chrome；使用生产 UI、模拟通信和真实模型结果重放验证三种界面语言。
 
 `probe` 和本地主机使用同一运行时选择逻辑。`check-host` 只读检查模型和设置。`benchmark` 顺序运行五轮公开翻译材料，保存每次首字耗时、完整耗时、输出文本及汇总到 `.dev/benchmark.json`，会消耗模型额度。`native-smoke` 需要安装生成的 `.local/host-config.json`；它在 `.dev/smoke-*` 独立目录通过标准输入输出测试本地主机、翻译与收藏，不改动正式偏好或笔记。这些测试不能代替安装后的 Chrome 联调。
 

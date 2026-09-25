@@ -1,0 +1,382 @@
+{
+  "extName": {
+    "message": "Quick Translate · Local Codex"
+  },
+  "extDescription": {
+    "message": "Ausgewählten Text mit Seitenkontext in die gewünschte Sprache übersetzen. Ergebnisse und Quellen lokal als Markdown speichern."
+  },
+  "appName": {
+    "message": "Quick Translate"
+  },
+  "settingsTitle": {
+    "message": "Quick Translate-Einstellungen"
+  },
+  "translateCommand": {
+    "message": "Ausgewählten Text übersetzen"
+  },
+  "settings": {
+    "message": "Einstellungen"
+  },
+  "translationSettings": {
+    "message": "Übersetzungseinstellungen"
+  },
+  "saveNote": {
+    "message": "In Markdown speichern"
+  },
+  "close": {
+    "message": "Schließen"
+  },
+  "closeEsc": {
+    "message": "Schließen (Esc)"
+  },
+  "original": {
+    "message": "Originaltext"
+  },
+  "translation": {
+    "message": "Übersetzung"
+  },
+  "explanation": {
+    "message": "Erklärung"
+  },
+  "context": {
+    "message": "Kontext"
+  },
+  "model": {
+    "message": "Modell"
+  },
+  "effort": {
+    "message": "Denkaufwand"
+  },
+  "effortHint": {
+    "message": "Unabhängig von der Geschwindigkeit. Bei geringerem Aufwand kommt die Antwort meist schneller."
+  },
+  "fastMode": {
+    "message": "Schnellmodus"
+  },
+  "fastMultiplier": {
+    "message": "Schnellmodus ($value1$×)",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "speedHint": {
+    "message": "Ändert nur die Service-Stufe, nicht den Denkaufwand."
+  },
+  "speedSupported": {
+    "message": "Der Denkaufwand bleibt unverändert. Die Latenz variiert; der Kontingentverbrauch kann steigen."
+  },
+  "nominalSpeed": {
+    "message": "$value1$× ist die angegebene Service-Geschwindigkeit.",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "speedUnavailable": {
+    "message": "Dieses Modell verwendet den Standard-Service. Der Denkaufwand bleibt davon unabhängig."
+  },
+  "enabled": {
+    "message": "Ein"
+  },
+  "disabled": {
+    "message": "Aus"
+  },
+  "notesPath": {
+    "message": "Pfad zur Markdown-Datei"
+  },
+  "notesHint": {
+    "message": "Mit dieser Option werden Originaltext, Übersetzung, Erklärung, Kontext und Seitenquelle gespeichert."
+  },
+  "saveSettings": {
+    "message": "Einstellungen speichern"
+  },
+  "settingsSaved": {
+    "message": "Einstellungen gespeichert. Änderungen gelten ab der nächsten Übersetzung."
+  },
+  "connecting": {
+    "message": "Verbindung zu lokalem Codex wird hergestellt …"
+  },
+  "connected": {
+    "message": "Mit lokalem Codex verbunden"
+  },
+  "loading": {
+    "message": "Wird geladen …"
+  },
+  "translatingContext": {
+    "message": "Übersetzung mit Seitenkontext läuft …"
+  },
+  "translating": {
+    "message": "Übersetzung läuft …"
+  },
+  "elapsed": {
+    "message": "Übersetzung läuft · $value1$ s",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "complete": {
+    "message": "Übersetzung abgeschlossen · $value1$ s",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "incomplete": {
+    "message": "Diese Übersetzung wurde nicht fertiggestellt."
+  },
+  "stopped": {
+    "message": "Übersetzung angehalten."
+  },
+  "retry": {
+    "message": "Erneut versuchen"
+  },
+  "stop": {
+    "message": "Anhalten"
+  },
+  "copy": {
+    "message": "Übersetzung kopieren"
+  },
+  "copied": {
+    "message": "Übersetzung kopiert."
+  },
+  "copyFailed": {
+    "message": "Kopieren nicht möglich. Wähle die Übersetzung aus und kopiere sie manuell."
+  },
+  "savedTo": {
+    "message": "Gespeichert unter $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "targetLanguage": {
+    "message": "Zielsprache"
+  },
+  "targetHint": {
+    "message": "Übersetzung, Erklärung und Kontext verwenden diese Sprache. Die Benutzeroberfläche richtet sich nach Chrome."
+  },
+  "followBrowser": {
+    "message": "Browsersprache verwenden"
+  },
+  "otherLanguage": {
+    "message": "Andere Sprache / regionale Variante …"
+  },
+  "languageCode": {
+    "message": "Sprachcode, z. B. en, zh-Hant, fil"
+  },
+  "languageCodeLabel": {
+    "message": "Benutzerdefinierter Sprachcode"
+  },
+  "privacyShort": {
+    "message": "Text, benachbarte Absätze und begrenzter Seitenkontext werden nur dann an deinen Codex-Modellanbieter gesendet, wenn du eine Übersetzung anforderst."
+  },
+  "tagline": {
+    "message": "Local Codex · Beim Lesen verstehen"
+  },
+  "capabilitiesHint": {
+    "message": "Verfügbare Modelle und Denkstufen hängen von deinem lokalen Codex ab."
+  },
+  "startReading": {
+    "message": "Mit dem Lesen beginnen"
+  },
+  "stepSelect": {
+    "message": "Wähle Text auf einer Webseite aus."
+  },
+  "stepTranslate": {
+    "message": "Klicke mit der rechten Maustaste auf Quick Translate oder drücke Alt+Shift+T."
+  },
+  "stepSave": {
+    "message": "Ziehe zum Ändern der Größe an einer beliebigen Ecke. Über die Flagge kannst du speichern."
+  },
+  "helpTitle": {
+    "message": "Lokale Verbindung und Datenschutz"
+  },
+  "installIntro": {
+    "message": "Derzeit wird Windows unterstützt. Lade die Begleit-App herunter, entpacke sie in einen festen Ordner und führe diesen Befehl in PowerShell in diesem Ordner aus:"
+  },
+  "downloadCompanion": {
+    "message": "Lokale Begleit-App herunterladen"
+  },
+  "requirements": {
+    "message": "Erfordert Node.js 20+ und ein installiertes Codex, bei dem du angemeldet bist. Nutzer der Store-Version müssen keine weitere entpackte Erweiterung laden."
+  },
+  "privacyLong": {
+    "message": "Nur bei einer Übersetzung werden der ausgewählte Text, benachbarte Absätze und bis zu 16.000 Zeichen Seiteninhalt an deinen konfigurierten Codex-Modellanbieter gesendet. Die Inferenz läuft in der Cloud; die lokale Begleit-App stellt die Verbindung her und speichert Dateien."
+  },
+  "limitations": {
+    "message": "Der schnelle Service kann mehr Kontingent verbrauchen. Interne Chrome-Seiten, der Web Store, einige Cross-Origin-Frames und der integrierte PDF-Viewer unterstützen das schwebende Bedienfeld nicht."
+  },
+  "independent": {
+    "message": "Unabhängig entwickelt; nicht mit OpenAI oder Google verbunden."
+  },
+  "privacyPolicy": {
+    "message": "Datenschutzerklärung"
+  },
+  "support": {
+    "message": "Support und Feedback"
+  },
+  "extensionId": {
+    "message": "Erweiterungs-ID: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "sourcePage": {
+    "message": "Quellseite"
+  },
+  "sourceUrl": {
+    "message": "Quell-URL"
+  },
+  "savedAt": {
+    "message": "Gespeichert am"
+  },
+  "untitledPage": {
+    "message": "Webseitenauszug"
+  },
+  "noSource": {
+    "message": "Keine öffentliche HTTP(S)-URL angegeben"
+  },
+  "effort_none": {
+    "message": "Keiner"
+  },
+  "effort_minimal": {
+    "message": "Minimal"
+  },
+  "effort_low": {
+    "message": "Niedrig"
+  },
+  "effort_medium": {
+    "message": "Mittel"
+  },
+  "effort_high": {
+    "message": "Hoch"
+  },
+  "effort_xhigh": {
+    "message": "Sehr hoch"
+  },
+  "effort_max": {
+    "message": "Maximum"
+  },
+  "effort_ultra": {
+    "message": "Ultra"
+  },
+  "errorConnection": {
+    "message": "Erweiterung getrennt. Lade die Webseite neu."
+  },
+  "errorSelectText": {
+    "message": "Wähle zuerst Text zum Übersetzen aus."
+  },
+  "errorSelectionLarge": {
+    "message": "Wähle pro Übersetzung höchstens 12.000 Zeichen aus."
+  },
+  "errorPage": {
+    "message": "Auf dieser Seite ist keine Übersetzung möglich. Verwende eine gewöhnliche Webseite."
+  },
+  "errorRequest": {
+    "message": "Ungültige oder doppelte Anfrage."
+  },
+  "errorSender": {
+    "message": "Diese Seite kann nicht auf den lokalen Übersetzer zugreifen."
+  },
+  "errorSettings": {
+    "message": "Ungültige Einstellungen."
+  },
+  "errorExpired": {
+    "message": "Diese Übersetzung ist abgelaufen. Übersetze den Text erneut."
+  },
+  "errorHostDisconnected": {
+    "message": "Lokale Verbindung geschlossen."
+  },
+  "errorHostConnect": {
+    "message": "Verbindung zur lokalen Begleit-App nicht möglich: $value1$. Führe das Installationsprogramm aus und versuche es erneut.",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorHostTimeout": {
+    "message": "Zeitüberschreitung bei der lokalen Begleit-App. Versuche es erneut."
+  },
+  "errorModel": {
+    "message": "Das ausgewählte Modell ist nicht verfügbar. Wähle ein anderes Modell."
+  },
+  "errorEffort": {
+    "message": "Dieses Modell unterstützt diesen Denkaufwand nicht."
+  },
+  "errorInvalidLanguage": {
+    "message": "Gib einen gültigen Sprachcode ein, zum Beispiel en, zh-Hant oder fil."
+  },
+  "errorInvalidPath": {
+    "message": "Gib einen absoluten Pfad zu einer lokalen .md-Datei ein."
+  },
+  "errorLocalPath": {
+    "message": "Nur Markdown-Dateien auf lokalen Laufwerken werden unterstützt."
+  },
+  "errorDevicePath": {
+    "message": "Pfade dürfen keine Gerätenamen oder Leerzeichen beziehungsweise Punkte am Ende enthalten."
+  },
+  "errorLinkedPath": {
+    "message": "Speichern in Verknüpfungen, Verzeichnissen oder Dateien mit mehreren Hardlinks ist nicht möglich."
+  },
+  "errorChangedPath": {
+    "message": "Die Datei ist eine Verknüpfung oder wurde ersetzt. Speichern wurde abgelehnt."
+  },
+  "errorExecutablePath": {
+    "message": "Der Pfad zur Codex-Programmdatei muss absolut sein."
+  },
+  "errorCodexMissing": {
+    "message": "Keine funktionierende Codex-Installation gefunden. Führe das Installationsprogramm erneut aus."
+  },
+  "errorConcurrent": {
+    "message": "Es können bis zu vier Übersetzungen gleichzeitig laufen. Halte eine an oder warte."
+  },
+  "errorNoOutput": {
+    "message": "Das Modell hat keine Übersetzung zurückgegeben. Versuche es erneut."
+  },
+  "errorModelMismatch": {
+    "message": "Codex hat die angeforderten Einstellungen nicht verwendet: $value1$. Ändere die Einstellungen und versuche es erneut.",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorCodexStart": {
+    "message": "Lokales Codex konnte nicht gestartet werden: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorCodexClosed": {
+    "message": "Verbindung zu lokalem Codex getrennt. Versuche es erneut."
+  },
+  "errorCodexTimeout": {
+    "message": "Zeitüberschreitung bei der Codex-Anfrage: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorMessageSize": {
+    "message": "Die lokale Nachricht überschritt die Größenbegrenzung."
+  },
+  "errorUpdateHost": {
+    "message": "Aktualisiere die lokale Begleit-App auf Version 1.3.0 oder höher, um Zielsprachen zu verwenden."
+  },
+  "supplementalModel": {
+    "message": "Offizielles Modell fehlt im lokalen Modellkatalog."
+  }
+}

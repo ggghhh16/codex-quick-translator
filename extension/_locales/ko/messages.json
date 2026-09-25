@@ -1,0 +1,382 @@
+{
+  "extName": {
+    "message": "빠른 번역 · 로컬 Codex"
+  },
+  "extDescription": {
+    "message": "페이지 맥락을 반영해 선택한 텍스트를 원하는 언어로 번역합니다. 결과와 출처를 로컬 Markdown 파일에 저장하세요."
+  },
+  "appName": {
+    "message": "빠른 번역"
+  },
+  "settingsTitle": {
+    "message": "빠른 번역 설정"
+  },
+  "translateCommand": {
+    "message": "선택한 텍스트 번역"
+  },
+  "settings": {
+    "message": "설정"
+  },
+  "translationSettings": {
+    "message": "번역 설정"
+  },
+  "saveNote": {
+    "message": "Markdown에 저장"
+  },
+  "close": {
+    "message": "닫기"
+  },
+  "closeEsc": {
+    "message": "닫기 (Esc)"
+  },
+  "original": {
+    "message": "원문"
+  },
+  "translation": {
+    "message": "번역"
+  },
+  "explanation": {
+    "message": "설명"
+  },
+  "context": {
+    "message": "맥락"
+  },
+  "model": {
+    "message": "모델"
+  },
+  "effort": {
+    "message": "추론 수준"
+  },
+  "effortHint": {
+    "message": "속도와는 별개입니다. 추론 수준을 낮추면 보통 더 빨리 응답합니다."
+  },
+  "fastMode": {
+    "message": "빠른 모드"
+  },
+  "fastMultiplier": {
+    "message": "빠른 모드 ($value1$×)",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "speedHint": {
+    "message": "추론 수준은 그대로 두고 서비스 등급만 변경합니다."
+  },
+  "speedSupported": {
+    "message": "추론 수준은 그대로 유지됩니다. 대기 시간은 달라질 수 있으며 할당량 사용량이 늘 수 있습니다."
+  },
+  "nominalSpeed": {
+    "message": "$value1$×는 안내된 서비스 속도입니다.",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "speedUnavailable": {
+    "message": "이 모델은 일반 서비스를 사용합니다. 추론 수준은 별도로 설정됩니다."
+  },
+  "enabled": {
+    "message": "켜짐"
+  },
+  "disabled": {
+    "message": "꺼짐"
+  },
+  "notesPath": {
+    "message": "Markdown 파일 경로"
+  },
+  "notesHint": {
+    "message": "이 옵션을 켜면 원문, 번역, 설명, 맥락, 페이지 출처를 저장합니다."
+  },
+  "saveSettings": {
+    "message": "설정 저장"
+  },
+  "settingsSaved": {
+    "message": "설정을 저장했습니다. 변경 사항은 다음 번역부터 적용됩니다."
+  },
+  "connecting": {
+    "message": "로컬 Codex에 연결 중…"
+  },
+  "connected": {
+    "message": "로컬 Codex에 연결됨"
+  },
+  "loading": {
+    "message": "불러오는 중…"
+  },
+  "translatingContext": {
+    "message": "페이지 맥락을 반영해 번역 중…"
+  },
+  "translating": {
+    "message": "번역 중…"
+  },
+  "elapsed": {
+    "message": "번역 중 · $value1$초",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "complete": {
+    "message": "번역 완료 · $value1$초",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "incomplete": {
+    "message": "번역이 완료되지 않았습니다."
+  },
+  "stopped": {
+    "message": "번역을 중지했습니다."
+  },
+  "retry": {
+    "message": "다시 시도"
+  },
+  "stop": {
+    "message": "중지"
+  },
+  "copy": {
+    "message": "번역 복사"
+  },
+  "copied": {
+    "message": "번역을 복사했습니다."
+  },
+  "copyFailed": {
+    "message": "복사할 수 없습니다. 번역을 직접 선택해 복사하세요."
+  },
+  "savedTo": {
+    "message": "저장 위치: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "targetLanguage": {
+    "message": "대상 언어"
+  },
+  "targetHint": {
+    "message": "번역, 설명, 맥락에 사용할 언어입니다. 인터페이스 언어는 Chrome 설정을 따릅니다."
+  },
+  "followBrowser": {
+    "message": "브라우저 언어 따르기"
+  },
+  "otherLanguage": {
+    "message": "다른 언어 / 지역 변형…"
+  },
+  "languageCode": {
+    "message": "언어 코드(예: en, zh-Hant, fil)"
+  },
+  "languageCodeLabel": {
+    "message": "사용자 지정 언어 코드"
+  },
+  "privacyShort": {
+    "message": "번역을 요청할 때만 선택한 텍스트, 주변 문단, 제한된 페이지 맥락이 Codex 모델 제공업체로 전송됩니다."
+  },
+  "tagline": {
+    "message": "로컬 Codex · 읽으며 이해하기"
+  },
+  "capabilitiesHint": {
+    "message": "사용할 수 있는 모델과 추론 수준은 로컬 Codex 설정에 따라 다릅니다."
+  },
+  "startReading": {
+    "message": "읽기 시작"
+  },
+  "stepSelect": {
+    "message": "웹페이지에서 텍스트를 선택하세요."
+  },
+  "stepTranslate": {
+    "message": "마우스 오른쪽 버튼을 클릭해 빠른 번역을 선택하거나 Alt+Shift+T를 누르세요."
+  },
+  "stepSave": {
+    "message": "모서리를 끌어 크기를 조절하세요. 깃발 버튼으로 저장할 수 있습니다."
+  },
+  "helpTitle": {
+    "message": "로컬 연결 및 개인정보 보호"
+  },
+  "installIntro": {
+    "message": "현재 Windows를 지원합니다. 도우미 프로그램을 다운로드해 고정된 폴더에 압축을 푼 다음, 해당 폴더에서 PowerShell을 열고 다음 명령을 실행하세요:"
+  },
+  "downloadCompanion": {
+    "message": "로컬 도우미 다운로드"
+  },
+  "requirements": {
+    "message": "Node.js 20+와 설치 및 로그인된 Codex가 필요합니다. 스토어 사용자는 별도의 압축해제된 확장 프로그램을 불러오지 않아도 됩니다."
+  },
+  "privacyLong": {
+    "message": "번역을 요청할 때만 선택한 텍스트, 주변 문단, 최대 16,000자의 페이지 내용이 설정된 Codex 모델 제공업체로 전송됩니다. 추론은 클라우드에서 실행되며, 로컬 도우미는 연결 및 파일 저장을 담당합니다."
+  },
+  "limitations": {
+    "message": "빠른 서비스를 사용하면 할당량이 더 많이 소모될 수 있습니다. 내부 Chrome 페이지, 웹 스토어, 일부 교차 출처 프레임, 기본 제공 PDF 뷰어에서는 떠 있는 패널을 사용할 수 없습니다."
+  },
+  "independent": {
+    "message": "독립 개발 제품이며 OpenAI 또는 Google과 제휴 관계가 없습니다."
+  },
+  "privacyPolicy": {
+    "message": "개인정보 처리방침"
+  },
+  "support": {
+    "message": "지원 및 의견 보내기"
+  },
+  "extensionId": {
+    "message": "확장 프로그램 ID: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "sourcePage": {
+    "message": "출처 페이지"
+  },
+  "sourceUrl": {
+    "message": "출처 URL"
+  },
+  "savedAt": {
+    "message": "저장 시각"
+  },
+  "untitledPage": {
+    "message": "웹 발췌"
+  },
+  "noSource": {
+    "message": "공개 HTTP(S) URL이 제공되지 않았습니다"
+  },
+  "effort_none": {
+    "message": "없음"
+  },
+  "effort_minimal": {
+    "message": "최소"
+  },
+  "effort_low": {
+    "message": "낮음"
+  },
+  "effort_medium": {
+    "message": "보통"
+  },
+  "effort_high": {
+    "message": "높음"
+  },
+  "effort_xhigh": {
+    "message": "매우 높음"
+  },
+  "effort_max": {
+    "message": "최대"
+  },
+  "effort_ultra": {
+    "message": "최고"
+  },
+  "errorConnection": {
+    "message": "확장 프로그램 연결이 끊겼습니다. 웹페이지를 새로고침하세요."
+  },
+  "errorSelectText": {
+    "message": "먼저 번역할 텍스트를 선택하세요."
+  },
+  "errorSelectionLarge": {
+    "message": "번역할 텍스트는 최대 12,000자까지 선택할 수 있습니다."
+  },
+  "errorPage": {
+    "message": "이 페이지에서는 번역을 사용할 수 없습니다. 일반 웹페이지에서 사용하세요."
+  },
+  "errorRequest": {
+    "message": "잘못되었거나 중복된 요청입니다."
+  },
+  "errorSender": {
+    "message": "이 페이지에서 로컬 번역기에 접근할 수 없습니다."
+  },
+  "errorSettings": {
+    "message": "잘못된 설정입니다."
+  },
+  "errorExpired": {
+    "message": "번역이 만료되었습니다. 다시 번역하세요."
+  },
+  "errorHostDisconnected": {
+    "message": "로컬 연결이 종료되었습니다."
+  },
+  "errorHostConnect": {
+    "message": "로컬 도우미에 연결할 수 없습니다: $value1$. 설치 프로그램을 실행한 뒤 다시 시도하세요.",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorHostTimeout": {
+    "message": "로컬 도우미 응답 시간이 초과되었습니다. 다시 시도하세요."
+  },
+  "errorModel": {
+    "message": "선택한 모델을 사용할 수 없습니다. 다른 모델을 선택하세요."
+  },
+  "errorEffort": {
+    "message": "이 모델은 해당 추론 수준을 지원하지 않습니다."
+  },
+  "errorInvalidLanguage": {
+    "message": "올바른 언어 코드를 입력하세요(예: en, zh-Hant 또는 fil)."
+  },
+  "errorInvalidPath": {
+    "message": "절대 경로를 사용해 로컬 .md 파일을 지정하세요."
+  },
+  "errorLocalPath": {
+    "message": "로컬 드라이브의 Markdown 파일만 지원됩니다."
+  },
+  "errorDevicePath": {
+    "message": "경로에 장치 이름이 포함되거나 끝에 공백 또는 마침표가 있으면 안 됩니다."
+  },
+  "errorLinkedPath": {
+    "message": "링크, 디렉터리 또는 하드 링크가 여러 개인 파일에는 저장할 수 없습니다."
+  },
+  "errorChangedPath": {
+    "message": "파일이 링크이거나 교체되었습니다. 저장을 거부했습니다."
+  },
+  "errorExecutablePath": {
+    "message": "Codex 실행 파일의 경로는 절대 경로여야 합니다."
+  },
+  "errorCodexMissing": {
+    "message": "작동하는 Codex 설치를 찾을 수 없습니다. 설치 프로그램을 다시 실행하세요."
+  },
+  "errorConcurrent": {
+    "message": "번역은 최대 4개까지 동시에 실행할 수 있습니다. 하나를 중지하거나 완료될 때까지 기다리세요."
+  },
+  "errorNoOutput": {
+    "message": "모델이 번역 결과를 반환하지 않았습니다. 다시 시도하세요."
+  },
+  "errorModelMismatch": {
+    "message": "Codex가 요청한 설정을 사용하지 않았습니다: $value1$. 설정을 변경한 뒤 다시 시도하세요.",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorCodexStart": {
+    "message": "로컬 Codex를 시작할 수 없습니다: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorCodexClosed": {
+    "message": "로컬 Codex 연결이 끊겼습니다. 다시 시도하세요."
+  },
+  "errorCodexTimeout": {
+    "message": "Codex 요청 시간이 초과되었습니다: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorMessageSize": {
+    "message": "로컬 메시지가 크기 제한을 초과했습니다."
+  },
+  "errorUpdateHost": {
+    "message": "대상 언어를 사용하려면 로컬 도우미를 버전 1.3.0 이상으로 업데이트하세요."
+  },
+  "supplementalModel": {
+    "message": "로컬 모델 선택기 카탈로그에 공식 모델이 없습니다."
+  }
+}

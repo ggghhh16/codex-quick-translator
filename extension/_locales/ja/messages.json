@@ -1,0 +1,382 @@
+{
+  "extName": {
+    "message": "クイック翻訳 · ローカル Codex"
+  },
+  "extDescription": {
+    "message": "選択したテキストをページの文脈とともに指定した言語に翻訳します。結果とソースをローカルの Markdown に保存できます。"
+  },
+  "appName": {
+    "message": "クイック翻訳"
+  },
+  "settingsTitle": {
+    "message": "クイック翻訳の設定"
+  },
+  "translateCommand": {
+    "message": "選択したテキストを翻訳"
+  },
+  "settings": {
+    "message": "設定"
+  },
+  "translationSettings": {
+    "message": "翻訳設定"
+  },
+  "saveNote": {
+    "message": "Markdown に保存"
+  },
+  "close": {
+    "message": "閉じる"
+  },
+  "closeEsc": {
+    "message": "閉じる（Esc）"
+  },
+  "original": {
+    "message": "原文"
+  },
+  "translation": {
+    "message": "翻訳"
+  },
+  "explanation": {
+    "message": "解説"
+  },
+  "context": {
+    "message": "文脈"
+  },
+  "model": {
+    "message": "モデル"
+  },
+  "effort": {
+    "message": "推論レベル"
+  },
+  "effortHint": {
+    "message": "速度とは無関係です。レベルを下げると通常は応答が速くなります。"
+  },
+  "fastMode": {
+    "message": "高速モード"
+  },
+  "fastMultiplier": {
+    "message": "高速モード（$value1$×）",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "speedHint": {
+    "message": "推論レベルではなく、サービス階層のみを変更します。"
+  },
+  "speedSupported": {
+    "message": "推論レベルは変わりません。応答時間は異なる場合があり、クォータの消費量が増えることがあります。"
+  },
+  "nominalSpeed": {
+    "message": "$value1$× はサービスで公称されている速度です。",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "speedUnavailable": {
+    "message": "このモデルは標準サービスを使用します。推論レベルは別途設定されます。"
+  },
+  "enabled": {
+    "message": "オン"
+  },
+  "disabled": {
+    "message": "オフ"
+  },
+  "notesPath": {
+    "message": "Markdown ファイルのパス"
+  },
+  "notesHint": {
+    "message": "有効にすると、原文、翻訳、解説、文脈、ページソースを保存します。"
+  },
+  "saveSettings": {
+    "message": "設定を保存"
+  },
+  "settingsSaved": {
+    "message": "設定を保存しました。変更は次回の翻訳から適用されます。"
+  },
+  "connecting": {
+    "message": "ローカル Codex に接続中…"
+  },
+  "connected": {
+    "message": "ローカル Codex に接続しました"
+  },
+  "loading": {
+    "message": "読み込み中…"
+  },
+  "translatingContext": {
+    "message": "ページの文脈を含めて翻訳中…"
+  },
+  "translating": {
+    "message": "翻訳中…"
+  },
+  "elapsed": {
+    "message": "翻訳中 · $value1$ 秒",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "complete": {
+    "message": "翻訳完了 · $value1$ 秒",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "incomplete": {
+    "message": "翻訳が完了しませんでした。"
+  },
+  "stopped": {
+    "message": "翻訳を停止しました。"
+  },
+  "retry": {
+    "message": "再試行"
+  },
+  "stop": {
+    "message": "停止"
+  },
+  "copy": {
+    "message": "翻訳をコピー"
+  },
+  "copied": {
+    "message": "翻訳をコピーしました。"
+  },
+  "copyFailed": {
+    "message": "コピーできませんでした。翻訳を選択して手動でコピーしてください。"
+  },
+  "savedTo": {
+    "message": "$value1$ に保存しました",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "targetLanguage": {
+    "message": "翻訳先の言語"
+  },
+  "targetHint": {
+    "message": "翻訳、解説、文脈に使用する言語です。インターフェースの言語は Chrome の設定に従います。"
+  },
+  "followBrowser": {
+    "message": "ブラウザーの言語に合わせる"
+  },
+  "otherLanguage": {
+    "message": "その他の言語／地域変種…"
+  },
+  "languageCode": {
+    "message": "言語コード（例：en、zh-Hant、fil）"
+  },
+  "languageCodeLabel": {
+    "message": "カスタム言語コード"
+  },
+  "privacyShort": {
+    "message": "翻訳を依頼した場合に限り、テキスト、周辺の段落、ページの限られた範囲の内容が Codex モデルプロバイダーに送信されます。"
+  },
+  "tagline": {
+    "message": "ローカル Codex · 読みながら理解"
+  },
+  "capabilitiesHint": {
+    "message": "利用できるモデルと推論レベルは、ローカル Codex の設定によって異なります。"
+  },
+  "startReading": {
+    "message": "読み始める"
+  },
+  "stepSelect": {
+    "message": "ウェブページ上のテキストを選択します。"
+  },
+  "stepTranslate": {
+    "message": "右クリックして「クイック翻訳」を選ぶか、Alt+Shift+T を押します。"
+  },
+  "stepSave": {
+    "message": "四隅のいずれかをドラッグしてサイズを変更します。旗のアイコンで保存します。"
+  },
+  "helpTitle": {
+    "message": "ローカル接続とプライバシー"
+  },
+  "installIntro": {
+    "message": "現在は Windows に対応しています。コンパニオンアプリをダウンロードして固定フォルダーに展開し、そのフォルダーで PowerShell を開いて次のコマンドを実行してください："
+  },
+  "downloadCompanion": {
+    "message": "ローカルコンパニオンをダウンロード"
+  },
+  "requirements": {
+    "message": "Node.js 20 以降と、インストール済みでサインイン済みの Codex が必要です。ストア版を使う場合、別の未パッケージ拡張機能を読み込む必要はありません。"
+  },
+  "privacyLong": {
+    "message": "翻訳時に限り、選択したテキスト、周辺の段落、最大 16,000 文字のページ内容が、設定した Codex モデルプロバイダーに送信されます。推論はクラウドで実行され、ローカルコンパニオンは接続とファイル保存を担います。"
+  },
+  "limitations": {
+    "message": "高速サービスではクォータを多く消費する場合があります。Chrome の内部ページ、ウェブストア、一部のクロスオリジンフレーム、組み込み PDF ビューアーではフローティングパネルを使用できません。"
+  },
+  "independent": {
+    "message": "独立して開発されており、OpenAI および Google とは関係ありません。"
+  },
+  "privacyPolicy": {
+    "message": "プライバシーポリシー"
+  },
+  "support": {
+    "message": "サポートとフィードバック"
+  },
+  "extensionId": {
+    "message": "拡張機能 ID：$value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "sourcePage": {
+    "message": "ソースページ"
+  },
+  "sourceUrl": {
+    "message": "ソース URL"
+  },
+  "savedAt": {
+    "message": "保存日時"
+  },
+  "untitledPage": {
+    "message": "ウェブページの抜粋"
+  },
+  "noSource": {
+    "message": "公開 HTTP(S) URL がありません"
+  },
+  "effort_none": {
+    "message": "なし"
+  },
+  "effort_minimal": {
+    "message": "ごく低い"
+  },
+  "effort_low": {
+    "message": "低い"
+  },
+  "effort_medium": {
+    "message": "中程度"
+  },
+  "effort_high": {
+    "message": "高い"
+  },
+  "effort_xhigh": {
+    "message": "非常に高い"
+  },
+  "effort_max": {
+    "message": "最大"
+  },
+  "effort_ultra": {
+    "message": "最高"
+  },
+  "errorConnection": {
+    "message": "拡張機能との接続が切れました。ウェブページを再読み込みしてください。"
+  },
+  "errorSelectText": {
+    "message": "翻訳するテキストを先に選択してください。"
+  },
+  "errorSelectionLarge": {
+    "message": "1 回の翻訳で選択できる文字数は最大 12,000 文字です。"
+  },
+  "errorPage": {
+    "message": "このページでは翻訳できません。通常のウェブページでお試しください。"
+  },
+  "errorRequest": {
+    "message": "無効なリクエスト、または重複したリクエストです。"
+  },
+  "errorSender": {
+    "message": "このページからローカル翻訳機能にアクセスできません。"
+  },
+  "errorSettings": {
+    "message": "設定が無効です。"
+  },
+  "errorExpired": {
+    "message": "この翻訳は期限切れです。もう一度翻訳してください。"
+  },
+  "errorHostDisconnected": {
+    "message": "ローカル接続が閉じられました。"
+  },
+  "errorHostConnect": {
+    "message": "ローカルコンパニオンに接続できません：$value1$。インストーラーを実行してから再試行してください。",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorHostTimeout": {
+    "message": "ローカルコンパニオンがタイムアウトしました。再試行してください。"
+  },
+  "errorModel": {
+    "message": "選択したモデルは利用できません。別のモデルを選択してください。"
+  },
+  "errorEffort": {
+    "message": "このモデルはその推論レベルに対応していません。"
+  },
+  "errorInvalidLanguage": {
+    "message": "有効な言語コードを入力してください（例：en、zh-Hant、fil）。"
+  },
+  "errorInvalidPath": {
+    "message": "ローカルの .md ファイルの絶対パスを入力してください。"
+  },
+  "errorLocalPath": {
+    "message": "ローカルドライブ上の Markdown ファイルのみ使用できます。"
+  },
+  "errorDevicePath": {
+    "message": "パスにデバイス名、末尾の空白、末尾のピリオドは使用できません。"
+  },
+  "errorLinkedPath": {
+    "message": "リンク、ディレクトリ、ハードリンクが複数あるファイルには保存できません。"
+  },
+  "errorChangedPath": {
+    "message": "ファイルがリンクであるか、置き換えられています。保存を中止しました。"
+  },
+  "errorExecutablePath": {
+    "message": "Codex の実行ファイルには絶対パスが必要です。"
+  },
+  "errorCodexMissing": {
+    "message": "動作する Codex が見つかりません。インストーラーを再実行してください。"
+  },
+  "errorConcurrent": {
+    "message": "同時に実行できる翻訳は最大 4 件です。いずれかを停止するか、完了をお待ちください。"
+  },
+  "errorNoOutput": {
+    "message": "モデルから翻訳結果が返されませんでした。再試行してください。"
+  },
+  "errorModelMismatch": {
+    "message": "Codex が指定した設定を使用しませんでした：$value1$。設定を変更して再試行してください。",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorCodexStart": {
+    "message": "ローカル Codex を起動できませんでした：$value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorCodexClosed": {
+    "message": "ローカル Codex との接続が切れました。再試行してください。"
+  },
+  "errorCodexTimeout": {
+    "message": "Codex リクエストがタイムアウトしました：$value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorMessageSize": {
+    "message": "ローカルメッセージがサイズ制限を超えました。"
+  },
+  "errorUpdateHost": {
+    "message": "翻訳先の言語を使うには、ローカルコンパニオンをバージョン 1.3.0 以降に更新してください。"
+  },
+  "supplementalModel": {
+    "message": "ローカルのモデル選択リストに公式モデルがありません。"
+  }
+}

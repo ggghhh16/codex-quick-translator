@@ -1,0 +1,382 @@
+{
+  "extName": {
+    "message": "Traduction rapide · Codex local"
+  },
+  "extDescription": {
+    "message": "Traduisez le texte sélectionné avec son contexte. Enregistrez les résultats et les sources dans un fichier Markdown local."
+  },
+  "appName": {
+    "message": "Traduction rapide"
+  },
+  "settingsTitle": {
+    "message": "Paramètres de Traduction rapide"
+  },
+  "translateCommand": {
+    "message": "Traduire le texte sélectionné"
+  },
+  "settings": {
+    "message": "Paramètres"
+  },
+  "translationSettings": {
+    "message": "Paramètres de traduction"
+  },
+  "saveNote": {
+    "message": "Enregistrer dans Markdown"
+  },
+  "close": {
+    "message": "Fermer"
+  },
+  "closeEsc": {
+    "message": "Fermer (Échap)"
+  },
+  "original": {
+    "message": "Texte original"
+  },
+  "translation": {
+    "message": "Traduction"
+  },
+  "explanation": {
+    "message": "Explication"
+  },
+  "context": {
+    "message": "Contexte"
+  },
+  "model": {
+    "message": "Modèle"
+  },
+  "effort": {
+    "message": "Niveau de raisonnement"
+  },
+  "effortHint": {
+    "message": "Indépendant de la vitesse. Un niveau plus faible répond généralement plus vite."
+  },
+  "fastMode": {
+    "message": "Mode rapide"
+  },
+  "fastMultiplier": {
+    "message": "Mode rapide ($value1$×)",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "speedHint": {
+    "message": "Modifie uniquement le niveau de service, pas le niveau de raisonnement."
+  },
+  "speedSupported": {
+    "message": "Le niveau de raisonnement reste inchangé. La latence varie ; la consommation de quota peut augmenter."
+  },
+  "nominalSpeed": {
+    "message": "$value1$× correspond à la vitesse de service annoncée.",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "speedUnavailable": {
+    "message": "Ce modèle utilise le service standard. Le niveau de raisonnement reste indépendant."
+  },
+  "enabled": {
+    "message": "Activé"
+  },
+  "disabled": {
+    "message": "Désactivé"
+  },
+  "notesPath": {
+    "message": "Chemin du fichier Markdown"
+  },
+  "notesHint": {
+    "message": "Cette option enregistre le texte original, la traduction, l’explication, le contexte et la source de la page."
+  },
+  "saveSettings": {
+    "message": "Enregistrer les paramètres"
+  },
+  "settingsSaved": {
+    "message": "Paramètres enregistrés. Les modifications s’appliqueront à la prochaine traduction."
+  },
+  "connecting": {
+    "message": "Connexion à Codex local…"
+  },
+  "connected": {
+    "message": "Codex local connecté"
+  },
+  "loading": {
+    "message": "Chargement…"
+  },
+  "translatingContext": {
+    "message": "Traduction avec le contexte de la page…"
+  },
+  "translating": {
+    "message": "Traduction en cours…"
+  },
+  "elapsed": {
+    "message": "Traduction en cours · $value1$ s",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "complete": {
+    "message": "Traduction terminée · $value1$ s",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "incomplete": {
+    "message": "Cette traduction n’a pas abouti."
+  },
+  "stopped": {
+    "message": "Traduction arrêtée."
+  },
+  "retry": {
+    "message": "Réessayer"
+  },
+  "stop": {
+    "message": "Arrêter"
+  },
+  "copy": {
+    "message": "Copier la traduction"
+  },
+  "copied": {
+    "message": "Traduction copiée."
+  },
+  "copyFailed": {
+    "message": "Copie impossible. Sélectionnez et copiez la traduction manuellement."
+  },
+  "savedTo": {
+    "message": "Enregistré dans $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "targetLanguage": {
+    "message": "Langue cible"
+  },
+  "targetHint": {
+    "message": "La traduction, l’explication et le contexte utilisent cette langue. L’interface suit la langue de Chrome."
+  },
+  "followBrowser": {
+    "message": "Suivre la langue du navigateur"
+  },
+  "otherLanguage": {
+    "message": "Autre langue / variante régionale…"
+  },
+  "languageCode": {
+    "message": "Code de langue, par ex. en, zh-Hant, fil"
+  },
+  "languageCodeLabel": {
+    "message": "Code de langue personnalisé"
+  },
+  "privacyShort": {
+    "message": "Le texte, les paragraphes proches et une partie du contenu de la page sont envoyés à votre fournisseur de modèle Codex uniquement lorsque vous demandez une traduction."
+  },
+  "tagline": {
+    "message": "Codex local · Comprenez vos lectures"
+  },
+  "capabilitiesHint": {
+    "message": "Les modèles et niveaux de raisonnement disponibles dépendent de votre Codex local."
+  },
+  "startReading": {
+    "message": "Commencer à lire"
+  },
+  "stepSelect": {
+    "message": "Sélectionnez du texte sur une page Web."
+  },
+  "stepTranslate": {
+    "message": "Faites un clic droit sur Traduction rapide ou appuyez sur Alt+Shift+T."
+  },
+  "stepSave": {
+    "message": "Redimensionnez depuis un coin. Utilisez le drapeau pour enregistrer."
+  },
+  "helpTitle": {
+    "message": "Connexion locale et confidentialité"
+  },
+  "installIntro": {
+    "message": "Windows est actuellement pris en charge. Téléchargez le compagnon, extrayez-le dans un dossier fixe et exécutez cette commande dans PowerShell depuis ce dossier :"
+  },
+  "downloadCompanion": {
+    "message": "Télécharger le compagnon local"
+  },
+  "requirements": {
+    "message": "Nécessite Node.js 20+ et une installation de Codex avec session ouverte. Les utilisateurs du Store n’ont pas besoin de charger une autre extension décompressée."
+  },
+  "privacyLong": {
+    "message": "Lors d’une traduction uniquement, le texte sélectionné, les paragraphes proches et jusqu’à 16 000 caractères du contenu de la page sont envoyés au fournisseur de modèle Codex que vous avez configuré. L’inférence s’effectue dans le cloud ; le compagnon local gère la connexion et l’enregistrement des fichiers."
+  },
+  "limitations": {
+    "message": "Le service rapide peut consommer davantage de quota. Les pages internes de Chrome, le Web Store, certains cadres inter-origines et le lecteur PDF intégré ne prennent pas en charge le panneau flottant."
+  },
+  "independent": {
+    "message": "Développé de manière indépendante ; non affilié à OpenAI ni à Google."
+  },
+  "privacyPolicy": {
+    "message": "Politique de confidentialité"
+  },
+  "support": {
+    "message": "Assistance et commentaires"
+  },
+  "extensionId": {
+    "message": "ID de l’extension : $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "sourcePage": {
+    "message": "Page source"
+  },
+  "sourceUrl": {
+    "message": "URL source"
+  },
+  "savedAt": {
+    "message": "Enregistré le"
+  },
+  "untitledPage": {
+    "message": "Extrait Web"
+  },
+  "noSource": {
+    "message": "Aucune URL HTTP(S) publique fournie"
+  },
+  "effort_none": {
+    "message": "Aucun"
+  },
+  "effort_minimal": {
+    "message": "Minimal"
+  },
+  "effort_low": {
+    "message": "Faible"
+  },
+  "effort_medium": {
+    "message": "Moyen"
+  },
+  "effort_high": {
+    "message": "Élevé"
+  },
+  "effort_xhigh": {
+    "message": "Très élevé"
+  },
+  "effort_max": {
+    "message": "Maximum"
+  },
+  "effort_ultra": {
+    "message": "Ultra"
+  },
+  "errorConnection": {
+    "message": "Extension déconnectée. Actualisez la page Web."
+  },
+  "errorSelectText": {
+    "message": "Sélectionnez d’abord le texte à traduire."
+  },
+  "errorSelectionLarge": {
+    "message": "Sélectionnez au maximum 12 000 caractères par traduction."
+  },
+  "errorPage": {
+    "message": "La traduction n’est pas disponible sur cette page. Utilisez une page Web ordinaire."
+  },
+  "errorRequest": {
+    "message": "Requête invalide ou en double."
+  },
+  "errorSender": {
+    "message": "Cette page ne peut pas accéder au traducteur local."
+  },
+  "errorSettings": {
+    "message": "Paramètres invalides."
+  },
+  "errorExpired": {
+    "message": "Cette traduction a expiré. Relancez-la."
+  },
+  "errorHostDisconnected": {
+    "message": "Connexion locale fermée."
+  },
+  "errorHostConnect": {
+    "message": "Impossible de se connecter au compagnon local : $value1$. Lancez le programme d’installation et réessayez.",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorHostTimeout": {
+    "message": "Le compagnon local a expiré. Réessayez."
+  },
+  "errorModel": {
+    "message": "Le modèle sélectionné n’est pas disponible. Choisissez-en un autre."
+  },
+  "errorEffort": {
+    "message": "Ce modèle ne prend pas en charge ce niveau de raisonnement."
+  },
+  "errorInvalidLanguage": {
+    "message": "Saisissez un code de langue valide, par exemple en, zh-Hant ou fil."
+  },
+  "errorInvalidPath": {
+    "message": "Saisissez le chemin absolu d’un fichier .md local."
+  },
+  "errorLocalPath": {
+    "message": "Seuls les fichiers Markdown sur des lecteurs locaux sont pris en charge."
+  },
+  "errorDevicePath": {
+    "message": "Les chemins ne peuvent pas contenir de noms de périphériques ni se terminer par des espaces ou des points."
+  },
+  "errorLinkedPath": {
+    "message": "Impossible d’enregistrer dans des liens, des dossiers ou des fichiers ayant plusieurs liens physiques."
+  },
+  "errorChangedPath": {
+    "message": "Le fichier est un lien ou a été remplacé. Enregistrement refusé."
+  },
+  "errorExecutablePath": {
+    "message": "Le chemin de l’exécutable Codex doit être absolu."
+  },
+  "errorCodexMissing": {
+    "message": "Aucune installation fonctionnelle de Codex trouvée. Relancez le programme d’installation."
+  },
+  "errorConcurrent": {
+    "message": "Jusqu’à quatre traductions peuvent être effectuées simultanément. Arrêtez-en une ou patientez."
+  },
+  "errorNoOutput": {
+    "message": "Le modèle n’a renvoyé aucune traduction. Réessayez."
+  },
+  "errorModelMismatch": {
+    "message": "Codex n’a pas utilisé les paramètres demandés : $value1$. Modifiez les paramètres et réessayez.",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorCodexStart": {
+    "message": "Impossible de lancer Codex local : $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorCodexClosed": {
+    "message": "Codex local déconnecté. Réessayez."
+  },
+  "errorCodexTimeout": {
+    "message": "La requête Codex a expiré : $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorMessageSize": {
+    "message": "Le message local dépasse la taille limite."
+  },
+  "errorUpdateHost": {
+    "message": "Mettez à jour le compagnon local vers la version 1.3.0 ou ultérieure pour utiliser les langues cibles."
+  },
+  "supplementalModel": {
+    "message": "Modèle officiel absent du catalogue local des modèles."
+  }
+}

@@ -1,0 +1,382 @@
+{
+  "extName": {
+    "message": "Quick Translate · Local Codex"
+  },
+  "extDescription": {
+    "message": "Traduce texto seleccionado con contexto al idioma que elijas. Guarda resultados y fuentes en Markdown local."
+  },
+  "appName": {
+    "message": "Quick Translate"
+  },
+  "settingsTitle": {
+    "message": "Ajustes de Quick Translate"
+  },
+  "translateCommand": {
+    "message": "Traducir el texto seleccionado"
+  },
+  "settings": {
+    "message": "Ajustes"
+  },
+  "translationSettings": {
+    "message": "Ajustes de traducción"
+  },
+  "saveNote": {
+    "message": "Guardar en Markdown"
+  },
+  "close": {
+    "message": "Cerrar"
+  },
+  "closeEsc": {
+    "message": "Cerrar (Esc)"
+  },
+  "original": {
+    "message": "Texto original"
+  },
+  "translation": {
+    "message": "Traducción"
+  },
+  "explanation": {
+    "message": "Explicación"
+  },
+  "context": {
+    "message": "Contexto"
+  },
+  "model": {
+    "message": "Modelo"
+  },
+  "effort": {
+    "message": "Esfuerzo de razonamiento"
+  },
+  "effortHint": {
+    "message": "No depende de la velocidad. Un esfuerzo menor suele responder antes."
+  },
+  "fastMode": {
+    "message": "Modo rápido"
+  },
+  "fastMultiplier": {
+    "message": "Modo rápido ($value1$×)",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "speedHint": {
+    "message": "Cambia solo el nivel de servicio, no el esfuerzo de razonamiento."
+  },
+  "speedSupported": {
+    "message": "El esfuerzo de razonamiento no cambia. La latencia varía; el consumo de cuota puede aumentar."
+  },
+  "nominalSpeed": {
+    "message": "$value1$× es la velocidad de servicio anunciada.",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "speedUnavailable": {
+    "message": "Este modelo usa el servicio estándar. El esfuerzo de razonamiento es independiente."
+  },
+  "enabled": {
+    "message": "Activado"
+  },
+  "disabled": {
+    "message": "Desactivado"
+  },
+  "notesPath": {
+    "message": "Ruta del archivo Markdown"
+  },
+  "notesHint": {
+    "message": "Al activar esta opción, se guardan el texto original, la traducción, la explicación, el contexto y la fuente de la página."
+  },
+  "saveSettings": {
+    "message": "Guardar ajustes"
+  },
+  "settingsSaved": {
+    "message": "Ajustes guardados. Los cambios se aplicarán a la próxima traducción."
+  },
+  "connecting": {
+    "message": "Conectando a Codex local…"
+  },
+  "connected": {
+    "message": "Conectado a Codex local"
+  },
+  "loading": {
+    "message": "Cargando…"
+  },
+  "translatingContext": {
+    "message": "Traduciendo con el contexto de la página…"
+  },
+  "translating": {
+    "message": "Traduciendo…"
+  },
+  "elapsed": {
+    "message": "Traduciendo · $value1$ s",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "complete": {
+    "message": "Traducción completada · $value1$ s",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "incomplete": {
+    "message": "La traducción no se completó."
+  },
+  "stopped": {
+    "message": "Traducción detenida."
+  },
+  "retry": {
+    "message": "Reintentar"
+  },
+  "stop": {
+    "message": "Detener"
+  },
+  "copy": {
+    "message": "Copiar traducción"
+  },
+  "copied": {
+    "message": "Traducción copiada."
+  },
+  "copyFailed": {
+    "message": "No se pudo copiar. Selecciona y copia la traducción manualmente."
+  },
+  "savedTo": {
+    "message": "Guardado en $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "targetLanguage": {
+    "message": "Idioma de destino"
+  },
+  "targetHint": {
+    "message": "La traducción, la explicación y el contexto usarán este idioma. La interfaz seguirá el idioma de Chrome."
+  },
+  "followBrowser": {
+    "message": "Seguir el idioma del navegador"
+  },
+  "otherLanguage": {
+    "message": "Otro idioma o variante regional…"
+  },
+  "languageCode": {
+    "message": "Código de idioma, p. ej., en, zh-Hant, fil"
+  },
+  "languageCodeLabel": {
+    "message": "Código de idioma personalizado"
+  },
+  "privacyShort": {
+    "message": "El texto, los párrafos cercanos y una parte limitada del contenido de la página solo se envían al proveedor de tu modelo de Codex cuando solicitas una traducción."
+  },
+  "tagline": {
+    "message": "Codex local · Comprende mientras lees"
+  },
+  "capabilitiesHint": {
+    "message": "Los modelos y niveles de razonamiento disponibles dependen de tu Codex local."
+  },
+  "startReading": {
+    "message": "Empieza a leer"
+  },
+  "stepSelect": {
+    "message": "Selecciona texto en una página web."
+  },
+  "stepTranslate": {
+    "message": "Haz clic derecho en Quick Translate o pulsa Alt+Shift+T."
+  },
+  "stepSave": {
+    "message": "Cambia el tamaño desde cualquier esquina. Usa la bandera para guardar."
+  },
+  "helpTitle": {
+    "message": "Conexión local y privacidad"
+  },
+  "installIntro": {
+    "message": "Actualmente, solo se admite Windows. Descarga el complemento, extráelo en una carpeta fija y ejecuta este comando en PowerShell desde esa carpeta:"
+  },
+  "downloadCompanion": {
+    "message": "Descargar complemento local"
+  },
+  "requirements": {
+    "message": "Requiere Node.js 20+ y una instalación de Codex con sesión iniciada. Los usuarios de la tienda no necesitan cargar otra extensión desempaquetada."
+  },
+  "privacyLong": {
+    "message": "Solo al traducir, se envían al proveedor configurado de tu modelo de Codex el texto seleccionado, los párrafos cercanos y hasta 16.000 caracteres del contenido de la página. La inferencia se ejecuta en la nube; el complemento local se conecta y guarda archivos."
+  },
+  "limitations": {
+    "message": "El servicio rápido puede consumir más cuota. Las páginas internas de Chrome, Chrome Web Store, algunos marcos de origen cruzado y el visor de PDF integrado no admiten el panel flotante."
+  },
+  "independent": {
+    "message": "Desarrollado de forma independiente; no está afiliado con OpenAI ni Google."
+  },
+  "privacyPolicy": {
+    "message": "Política de privacidad"
+  },
+  "support": {
+    "message": "Asistencia y comentarios"
+  },
+  "extensionId": {
+    "message": "ID de la extensión: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "sourcePage": {
+    "message": "Página de origen"
+  },
+  "sourceUrl": {
+    "message": "URL de origen"
+  },
+  "savedAt": {
+    "message": "Guardado el"
+  },
+  "untitledPage": {
+    "message": "Fragmento web"
+  },
+  "noSource": {
+    "message": "No se proporcionó una URL pública HTTP(S)"
+  },
+  "effort_none": {
+    "message": "Ninguno"
+  },
+  "effort_minimal": {
+    "message": "Mínimo"
+  },
+  "effort_low": {
+    "message": "Bajo"
+  },
+  "effort_medium": {
+    "message": "Medio"
+  },
+  "effort_high": {
+    "message": "Alto"
+  },
+  "effort_xhigh": {
+    "message": "Muy alto"
+  },
+  "effort_max": {
+    "message": "Máximo"
+  },
+  "effort_ultra": {
+    "message": "Ultra"
+  },
+  "errorConnection": {
+    "message": "La extensión se desconectó. Actualiza la página web."
+  },
+  "errorSelectText": {
+    "message": "Primero selecciona el texto que quieres traducir."
+  },
+  "errorSelectionLarge": {
+    "message": "Selecciona como máximo 12.000 caracteres por traducción."
+  },
+  "errorPage": {
+    "message": "La traducción no está disponible en esta página. Usa una página web normal."
+  },
+  "errorRequest": {
+    "message": "Solicitud no válida o duplicada."
+  },
+  "errorSender": {
+    "message": "Esta página no puede acceder al traductor local."
+  },
+  "errorSettings": {
+    "message": "Ajustes no válidos."
+  },
+  "errorExpired": {
+    "message": "Esta traducción ha caducado. Vuelve a traducirla."
+  },
+  "errorHostDisconnected": {
+    "message": "Se cerró la conexión local."
+  },
+  "errorHostConnect": {
+    "message": "No se pudo conectar con el complemento local: $value1$. Ejecuta el instalador y vuelve a intentarlo.",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorHostTimeout": {
+    "message": "Se agotó el tiempo de espera del complemento local. Vuelve a intentarlo."
+  },
+  "errorModel": {
+    "message": "El modelo seleccionado no está disponible. Elige otro modelo."
+  },
+  "errorEffort": {
+    "message": "Este modelo no admite ese nivel de esfuerzo de razonamiento."
+  },
+  "errorInvalidLanguage": {
+    "message": "Introduce un código de idioma válido, por ejemplo, en, zh-Hant o fil."
+  },
+  "errorInvalidPath": {
+    "message": "Introduce la ruta absoluta de un archivo .md local."
+  },
+  "errorLocalPath": {
+    "message": "Solo se admiten archivos Markdown en unidades locales."
+  },
+  "errorDevicePath": {
+    "message": "Las rutas no pueden contener nombres de dispositivo ni terminar en espacios o puntos."
+  },
+  "errorLinkedPath": {
+    "message": "No se puede guardar en enlaces, directorios ni archivos con varios enlaces duros."
+  },
+  "errorChangedPath": {
+    "message": "El archivo es un enlace o se ha reemplazado. No se guardó."
+  },
+  "errorExecutablePath": {
+    "message": "La ruta del ejecutable de Codex debe ser absoluta."
+  },
+  "errorCodexMissing": {
+    "message": "No se encontró una instalación funcional de Codex. Vuelve a ejecutar el instalador."
+  },
+  "errorConcurrent": {
+    "message": "Se pueden ejecutar hasta cuatro traducciones a la vez. Detén una o espera."
+  },
+  "errorNoOutput": {
+    "message": "El modelo no devolvió ninguna traducción. Vuelve a intentarlo."
+  },
+  "errorModelMismatch": {
+    "message": "Codex no usó los ajustes solicitados: $value1$. Cambia los ajustes y vuelve a intentarlo.",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorCodexStart": {
+    "message": "No se pudo iniciar Codex local: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorCodexClosed": {
+    "message": "Codex local se desconectó. Vuelve a intentarlo."
+  },
+  "errorCodexTimeout": {
+    "message": "Se agotó el tiempo de espera de la solicitud de Codex: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorMessageSize": {
+    "message": "El mensaje local superó el límite de tamaño."
+  },
+  "errorUpdateHost": {
+    "message": "Actualiza el complemento local a la versión 1.3.0 o posterior para usar idiomas de destino."
+  },
+  "supplementalModel": {
+    "message": "Falta un modelo oficial en el catálogo local del selector."
+  }
+}

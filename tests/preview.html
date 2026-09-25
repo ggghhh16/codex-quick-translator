@@ -1,26 +1,27 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><title>Monetary policy — 翻译界面验证</title><style>
 :root{color-scheme:dark;font:16px/1.9 Georgia,serif;background:#161715;color:#cecec4}body{max-width:880px;margin:80px auto;padding:0 40px}nav{font:11px/1.5 sans-serif;letter-spacing:2px;color:#8f9787;border-bottom:1px solid #373b31;padding-bottom:20px}h1{font-size:44px;line-height:1.2;font-weight:500;margin-bottom:20px}h2{font-weight:500}p{max-width:660px;color:#b0b1a6}.tag{font:11px/1 sans-serif;border:1px solid #484e3e;padding:5px 8px;border-radius:5px;color:#bac7a8}button{font:13px/1.5 sans-serif;background:#c4cdb3;color:#22271d;border:0;border-radius:6px;padding:10px 14px;cursor:pointer}aside{font:12px/1.7 sans-serif;color:#888e7e;margin-top:40px}#target{color:#e4e7db}
 </style></head><body><nav>THE READING ROOM / ECONOMICS</nav><article><p><span class="tag">A FIELD NOTE</span></p><h1>Understanding monetary policy</h1><p>Central banks use interest rates to influence borrowing, spending, and inflation. Higher rates make borrowing more expensive.</p><p id="target">The bank raised interest rates to curb inflation.</p><p>This decision can slow consumer demand. In this context, the word “bank” refers to the central bank, rather than the edge of a river.</p><h2>Reading between the lines</h2><p>A single sentence becomes clearer when read alongside the article's main argument. Translation should preserve this relationship.</p></article><button id="open">打开翻译浮窗</button><button id="failure">验证连接中断</button><aside>开发界面验证页 · 重放真实 Codex 翻译结果。此页的扩展通信为测试适配，实际本地通信及保存另由 native-smoke 测试验证。</aside>
+<script src="/preview-i18n.js"></script>
 <script>
 // The QA page exposes its shadow root to UI inspection; production remains closed.
 const attachShadow=Element.prototype.attachShadow;
 Element.prototype.attachShadow=function(options){return attachShadow.call(this,{...options,mode:'open'});};
 const listeners=[];let cancel=false;let fail=false;
-let preferences={model:'gpt-6-luna',effort:'low',fast:true,notesPath:'D:\\Notes\\translations.md'};
+let preferences={model:'gpt-6-luna',effort:'low',fast:true,targetLanguage:'auto',notesPath:'D:\\Notes\\translations.md'};
 const models=[{model:'gpt-6-luna',displayName:'GPT-6 Luna',defaultReasoningEffort:'medium',supportedReasoningEfforts:[{reasoningEffort:'low'},{reasoningEffort:'medium'}],serviceTiers:[{id:'priority',description:'1.5x speed'}]},{model:'gpt-6-sol',displayName:'GPT-6 Sol',defaultReasoningEffort:'medium',supportedReasoningEfforts:[{reasoningEffort:'low'},{reasoningEffort:'medium'}],serviceTiers:[{id:'priority',description:'1.5x speed'}]}];
-window.chrome={runtime:{onMessage:{addListener(fn){listeners.push(fn);}},async sendMessage(msg){
-  if(msg.type==='hello')return{ok:true,models,preferences,effective:{model:preferences.model,effort:'low',serviceTier:'priority'}};
-  if(msg.type==='settings'){preferences=msg.preferences;return{ok:true,preferences,effective:{model:preferences.model,effort:preferences.effort,serviceTier:preferences.fast?'priority':'default'}};}
+window.chrome={i18n:window.__testI18n||{getUILanguage:()=> 'en',getMessage:()=>''},runtime:{onMessage:{addListener(fn){listeners.push(fn);}},async sendMessage(msg){
+  if(msg.type==='hello')return{ok:true,models,preferences,effective:{model:preferences.model,effort:'low',serviceTier:'priority',targetLanguage:preferences.targetLanguage==='auto'?chrome.i18n.getUILanguage():preferences.targetLanguage}};
+  if(msg.type==='settings'){preferences=msg.preferences;return{ok:true,preferences,effective:{model:preferences.model,effort:preferences.effort,serviceTier:preferences.fast?'priority':'default',targetLanguage:preferences.targetLanguage==='auto'?chrome.i18n.getUILanguage():preferences.targetLanguage}};}
   if(msg.type==='save')return{ok:true,path:preferences.notesPath};
   if(msg.type==='cancel'){cancel=true;return{ok:true};}
   if(msg.type==='translate'){
     cancel=false;
     if(fail){setTimeout(()=>listeners.forEach(fn=>fn({type:'translation-event',id:msg.id,event:'error',error:'测试：本地连接已中断，请重试。'})),50);return{ok:true};}
-    const recorded=await fetch('/result.json').then(r=>r.json());
+    const recorded=await fetch('/result.json?language='+encodeURIComponent(preferences.targetLanguage==='auto'?chrome.i18n.getUILanguage():preferences.targetLanguage)).then(r=>r.json());
     let n=0;const timer=setInterval(()=>{if(cancel){clearInterval(timer);return;}n+=18;const text=recorded.text.slice(0,n);const event={type:'translation-event',id:msg.id,event:n>=recorded.text.length?'done':'delta',text,settings:recorded.settings};listeners.forEach(fn=>fn(event));if(n>=recorded.text.length)clearInterval(timer);},25);
     return{ok:true};
   }
 }}};
 function open(){const range=document.createRange();range.selectNodeContents(document.getElementById('target'));const selection=getSelection();selection.removeAllRanges();selection.addRange(range);listeners.forEach(fn=>fn({type:'open-translator'}));}
 document.getElementById('open').onclick=()=>{fail=false;open();};document.getElementById('failure').onclick=()=>{fail=true;open();};
-</script><script src="/settings-ui.js"></script><script src="/content.js"></script></body></html>
+</script><script src="/i18n.js"></script><script src="/languages.js"></script><script src="/settings-ui.js"></script><script src="/content.js"></script></body></html>

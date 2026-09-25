@@ -1,13 +1,14 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>快速翻译 · 设置</title><link rel="stylesheet" href="options.css"></head>
-<body><main><header><div class="logo">译</div><div><h1>快速翻译</h1><p>Local Codex · 把理解留在阅读现场</p></div></header>
-<div class="connection" id="connection" role="status">正在连接本地 Codex…</div>
-<form id="settings"><label for="model">模型</label><select id="model" disabled><option>加载中…</option></select>
-<label for="effort">思考强度</label><select id="effort" disabled><option>加载中…</option></select><p class="hint">独立设置；较低强度通常更快，切换闪电不会改变它。</p>
-<div class="row"><div><label for="fast" id="fast-label">⚡ 快速模式</label><p class="hint">仅调整服务速度</p></div><input type="checkbox" role="switch" id="fast" checked></div>
-<p class="hint" id="effective">模型和思考强度以本地 Codex 返回的能力为准。</p>
-<label for="path">收藏文件路径</label><input id="path" placeholder="D:\Notes\translations.md" required spellcheck="false"><p class="hint">旗帜按钮将原文、翻译、解释、语境和来源追加到此文件。</p>
-<button type="submit" id="save" disabled>保存设置</button></form><p id="status" role="status" aria-live="polite"></p>
-<section><h2>开始阅读</h2><ol><li>选中网页上的文字。</li><li>右键选择「快速翻译」，或按 <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd>。</li><li>拖动四个角调整浮窗大小，点击旗帜收藏。</li></ol></section>
-<details id="help"><summary>本地连接与隐私</summary><p>目前支持 Windows。首次使用请<a href="https://github.com/ggghhh16/codex-quick-translator/releases/latest" target="_blank" rel="noopener noreferrer">下载本地连接程序</a>，解压到固定目录，在该目录的 PowerShell 中运行：</p><p><code id="install-command"></code></p><p>需要 Node.js 20+ 和已安装、登录的 Codex。安装商店版后，无需再加载本地 extension 目录。</p><p>仅在点击翻译时发送所选文字、附近段落及最多 16,000 字符的网页正文到 Codex 所用的模型服务。模型运行在云端，本地程序负责连接及保存文件。</p><p>快速服务可能增加额度消耗。Chrome 内置页面、扩展商店、部分跨域嵌入页面与内置 PDF 阅读器无法注入浮窗。</p><p>独立开发，与 OpenAI 无官方隶属关系。<a href="https://github.com/ggghhh16/codex-quick-translator/blob/main/PRIVACY.md" target="_blank" rel="noopener noreferrer">隐私政策</a> · <a href="https://github.com/ggghhh16/codex-quick-translator/issues" target="_blank" rel="noopener noreferrer">支持与反馈</a></p><p id="extension-id"></p></details>
-</main><script src="settings-ui.js"></script><script src="options.js"></script></body></html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title data-i18n="settingsTitle"></title><link rel="stylesheet" href="options.css"></head>
+<body><main><header><div class="logo" aria-hidden="true">文</div><div><h1 data-i18n="appName"></h1><p data-i18n="tagline"></p></div></header>
+<div class="connection" id="connection" role="status" data-i18n="connecting"></div>
+<form id="settings"><label for="target-language" data-i18n="targetLanguage"></label><select id="target-language"><option data-i18n="loading"></option></select><input id="custom-language" dir="ltr" data-i18n-placeholder="languageCode" data-i18n-aria="languageCodeLabel" maxlength="50" hidden><p class="hint" data-i18n="targetHint"></p>
+<label for="model" data-i18n="model"></label><select id="model" disabled><option data-i18n="loading"></option></select>
+<label for="effort" data-i18n="effort"></label><select id="effort" disabled><option data-i18n="loading"></option></select><p class="hint" data-i18n="effortHint"></p>
+<div class="row"><div><label for="fast" id="fast-label" data-i18n="fastMode"></label><p class="hint" data-i18n="speedHint"></p></div><input type="checkbox" role="switch" id="fast" checked></div>
+<p class="hint" id="effective" data-i18n="capabilitiesHint"></p>
+<label for="path" data-i18n="notesPath"></label><input id="path" dir="ltr" placeholder="D:\Notes\translations.md" required spellcheck="false"><p class="hint" data-i18n="notesHint"></p>
+<button type="submit" id="save" disabled data-i18n="saveSettings"></button></form><p id="status" role="status" aria-live="polite"></p>
+<section><h2 data-i18n="startReading"></h2><ol><li data-i18n="stepSelect"></li><li data-i18n="stepTranslate"></li><li data-i18n="stepSave"></li></ol></section>
+<details id="help"><summary data-i18n="helpTitle"></summary><p data-i18n="installIntro"></p><p><a href="https://github.com/ggghhh16/codex-quick-translator/releases/latest" target="_blank" rel="noopener noreferrer" data-i18n="downloadCompanion"></a></p><p dir="ltr"><code id="install-command"></code></p><p data-i18n="requirements"></p><p data-i18n="privacyLong"></p><p data-i18n="limitations"></p><p data-i18n="independent"></p><p><a href="https://github.com/ggghhh16/codex-quick-translator/blob/main/PRIVACY.md" target="_blank" rel="noopener noreferrer" data-i18n="privacyPolicy"></a> · <a href="https://github.com/ggghhh16/codex-quick-translator/issues" target="_blank" rel="noopener noreferrer" data-i18n="support"></a></p><p id="extension-id" dir="ltr"></p></details>
+</main><script src="i18n.js"></script><script src="languages.js"></script><script src="settings-ui.js"></script><script src="options.js"></script></body></html>

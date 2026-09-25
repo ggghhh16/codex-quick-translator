@@ -1,0 +1,382 @@
+{
+  "extName": {
+    "message": "快速翻譯 · Local Codex"
+  },
+  "extDescription": {
+    "message": "搭配頁面內容翻譯選取的文字，並將結果與來源儲存為本機 Markdown。"
+  },
+  "appName": {
+    "message": "快速翻譯"
+  },
+  "settingsTitle": {
+    "message": "快速翻譯設定"
+  },
+  "translateCommand": {
+    "message": "翻譯選取的文字"
+  },
+  "settings": {
+    "message": "設定"
+  },
+  "translationSettings": {
+    "message": "翻譯設定"
+  },
+  "saveNote": {
+    "message": "儲存為 Markdown"
+  },
+  "close": {
+    "message": "關閉"
+  },
+  "closeEsc": {
+    "message": "關閉（Esc）"
+  },
+  "original": {
+    "message": "原文"
+  },
+  "translation": {
+    "message": "翻譯"
+  },
+  "explanation": {
+    "message": "說明"
+  },
+  "context": {
+    "message": "上下文"
+  },
+  "model": {
+    "message": "模型"
+  },
+  "effort": {
+    "message": "推理力度"
+  },
+  "effortHint": {
+    "message": "與速度無關。較低的力度通常回覆較快。"
+  },
+  "fastMode": {
+    "message": "快速模式"
+  },
+  "fastMultiplier": {
+    "message": "快速模式（$value1$×）",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "speedHint": {
+    "message": "僅變更服務層級，不影響推理力度。"
+  },
+  "speedSupported": {
+    "message": "推理力度維持不變。延遲時間可能不同；配額用量可能增加。"
+  },
+  "nominalSpeed": {
+    "message": "$value1$× 為標示的服務速度。",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "speedUnavailable": {
+    "message": "此模型使用標準服務。推理力度不受影響。"
+  },
+  "enabled": {
+    "message": "開啟"
+  },
+  "disabled": {
+    "message": "關閉"
+  },
+  "notesPath": {
+    "message": "Markdown 檔案路徑"
+  },
+  "notesHint": {
+    "message": "此選項會儲存原文、翻譯、說明、上下文和頁面來源。"
+  },
+  "saveSettings": {
+    "message": "儲存設定"
+  },
+  "settingsSaved": {
+    "message": "設定已儲存。變更會套用至下一次翻譯。"
+  },
+  "connecting": {
+    "message": "正在連線至本機 Codex…"
+  },
+  "connected": {
+    "message": "已連線至本機 Codex"
+  },
+  "loading": {
+    "message": "載入中…"
+  },
+  "translatingContext": {
+    "message": "正在搭配頁面內容翻譯…"
+  },
+  "translating": {
+    "message": "翻譯中…"
+  },
+  "elapsed": {
+    "message": "翻譯中 · $value1$ 秒",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "complete": {
+    "message": "翻譯完成 · $value1$ 秒",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "incomplete": {
+    "message": "翻譯尚未完成。"
+  },
+  "stopped": {
+    "message": "翻譯已停止。"
+  },
+  "retry": {
+    "message": "重試"
+  },
+  "stop": {
+    "message": "停止"
+  },
+  "copy": {
+    "message": "複製翻譯"
+  },
+  "copied": {
+    "message": "已複製翻譯。"
+  },
+  "copyFailed": {
+    "message": "無法複製。請手動選取並複製翻譯。"
+  },
+  "savedTo": {
+    "message": "已儲存至 $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "targetLanguage": {
+    "message": "目標語言"
+  },
+  "targetHint": {
+    "message": "翻譯、說明和上下文會使用此語言。介面語言依 Chrome 設定。"
+  },
+  "followBrowser": {
+    "message": "跟隨瀏覽器語言"
+  },
+  "otherLanguage": {
+    "message": "其他語言／地區變體…"
+  },
+  "languageCode": {
+    "message": "語言代碼，例如 en、zh-Hant、fil"
+  },
+  "languageCodeLabel": {
+    "message": "自訂語言代碼"
+  },
+  "privacyShort": {
+    "message": "只有在您要求翻譯時，文字、附近段落和有限的頁面內容才會傳送至您的 Codex 模型供應商。"
+  },
+  "tagline": {
+    "message": "Local Codex · 閱讀時理解內容"
+  },
+  "capabilitiesHint": {
+    "message": "可用模型和推理層級取決於您的本機 Codex。"
+  },
+  "startReading": {
+    "message": "開始閱讀"
+  },
+  "stepSelect": {
+    "message": "在網頁上選取文字。"
+  },
+  "stepTranslate": {
+    "message": "在 Quick Translate 上按右鍵，或按 Alt+Shift+T。"
+  },
+  "stepSave": {
+    "message": "從任一角落調整大小。使用旗標儲存。"
+  },
+  "helpTitle": {
+    "message": "本機連線與隱私"
+  },
+  "installIntro": {
+    "message": "目前支援 Windows。下載伴隨程式，解壓縮至固定資料夾，並在該資料夾中透過 PowerShell 執行此命令："
+  },
+  "downloadCompanion": {
+    "message": "下載本機伴隨程式"
+  },
+  "requirements": {
+    "message": "需要 Node.js 20+，並已安裝且登入 Codex。商店版使用者不必載入其他未封裝擴充功能。"
+  },
+  "privacyLong": {
+    "message": "只有在翻譯時，選取的文字、附近段落和最多 16,000 個字元的頁面內容才會傳送至您設定的 Codex 模型供應商。推論在雲端執行；本機伴隨程式負責連線與儲存檔案。"
+  },
+  "limitations": {
+    "message": "快速服務可能會消耗更多配額。Chrome 內部頁面、Web Store、部分跨來源框架和內建 PDF 檢視器不支援浮動面板。"
+  },
+  "independent": {
+    "message": "本專案為獨立開發，與 OpenAI 或 Google 無隸屬關係。"
+  },
+  "privacyPolicy": {
+    "message": "隱私權政策"
+  },
+  "support": {
+    "message": "支援與意見回饋"
+  },
+  "extensionId": {
+    "message": "擴充功能 ID：$value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "sourcePage": {
+    "message": "來源頁面"
+  },
+  "sourceUrl": {
+    "message": "來源 URL"
+  },
+  "savedAt": {
+    "message": "儲存時間"
+  },
+  "untitledPage": {
+    "message": "網頁摘錄"
+  },
+  "noSource": {
+    "message": "未提供公開的 HTTP(S) URL"
+  },
+  "effort_none": {
+    "message": "無"
+  },
+  "effort_minimal": {
+    "message": "極低"
+  },
+  "effort_low": {
+    "message": "低"
+  },
+  "effort_medium": {
+    "message": "中"
+  },
+  "effort_high": {
+    "message": "高"
+  },
+  "effort_xhigh": {
+    "message": "極高"
+  },
+  "effort_max": {
+    "message": "最高"
+  },
+  "effort_ultra": {
+    "message": "超高"
+  },
+  "errorConnection": {
+    "message": "擴充功能已中斷連線。請重新整理網頁。"
+  },
+  "errorSelectText": {
+    "message": "請先選取要翻譯的文字。"
+  },
+  "errorSelectionLarge": {
+    "message": "每次翻譯最多選取 12,000 個字元。"
+  },
+  "errorPage": {
+    "message": "此頁面無法翻譯。請改用一般網頁。"
+  },
+  "errorRequest": {
+    "message": "要求無效或重複。"
+  },
+  "errorSender": {
+    "message": "此頁面無法存取本機翻譯器。"
+  },
+  "errorSettings": {
+    "message": "設定無效。"
+  },
+  "errorExpired": {
+    "message": "此翻譯已過期。請重新翻譯。"
+  },
+  "errorHostDisconnected": {
+    "message": "本機連線已關閉。"
+  },
+  "errorHostConnect": {
+    "message": "無法連線至本機伴隨程式：$value1$。請執行安裝程式後重試。",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorHostTimeout": {
+    "message": "本機伴隨程式逾時。請重試。"
+  },
+  "errorModel": {
+    "message": "所選模型無法使用。請選擇其他模型。"
+  },
+  "errorEffort": {
+    "message": "此模型不支援該推理力度。"
+  },
+  "errorInvalidLanguage": {
+    "message": "請輸入有效的語言代碼，例如 en、zh-Hant 或 fil。"
+  },
+  "errorInvalidPath": {
+    "message": "請輸入絕對本機 .md 檔案路徑。"
+  },
+  "errorLocalPath": {
+    "message": "僅支援儲存至本機磁碟上的 Markdown 檔案。"
+  },
+  "errorDevicePath": {
+    "message": "路徑不得包含裝置名稱，也不得以空格或句點結尾。"
+  },
+  "errorLinkedPath": {
+    "message": "無法儲存至連結、目錄或具有多個硬連結的檔案。"
+  },
+  "errorChangedPath": {
+    "message": "檔案是連結或已遭取代。已拒絕儲存。"
+  },
+  "errorExecutablePath": {
+    "message": "Codex 執行檔必須使用絕對路徑。"
+  },
+  "errorCodexMissing": {
+    "message": "找不到可正常運作的 Codex 安裝。請重新執行安裝程式。"
+  },
+  "errorConcurrent": {
+    "message": "最多可同時執行四項翻譯。請停止一項或稍候。"
+  },
+  "errorNoOutput": {
+    "message": "模型未回傳翻譯。請重試。"
+  },
+  "errorModelMismatch": {
+    "message": "Codex 未使用要求的設定：$value1$。請變更設定後重試。",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorCodexStart": {
+    "message": "無法啟動本機 Codex：$value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorCodexClosed": {
+    "message": "本機 Codex 已中斷連線。請重試。"
+  },
+  "errorCodexTimeout": {
+    "message": "Codex 要求逾時：$value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorMessageSize": {
+    "message": "本機訊息超出大小限制。"
+  },
+  "errorUpdateHost": {
+    "message": "請將本機伴隨程式更新至 1.3.0 或更新版本，以使用目標語言。"
+  },
+  "supplementalModel": {
+    "message": "本機選擇器目錄中缺少官方模型。"
+  }
+}

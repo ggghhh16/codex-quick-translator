@@ -1,0 +1,382 @@
+{
+  "extName": {
+    "message": "Quick Translate · Local Codex"
+  },
+  "extDescription": {
+    "message": "Translate selected text with page context into your chosen language. Save results and sources to local Markdown."
+  },
+  "appName": {
+    "message": "Quick Translate"
+  },
+  "settingsTitle": {
+    "message": "Quick Translate settings"
+  },
+  "translateCommand": {
+    "message": "Translate selected text"
+  },
+  "settings": {
+    "message": "Settings"
+  },
+  "translationSettings": {
+    "message": "Translation settings"
+  },
+  "saveNote": {
+    "message": "Save to Markdown"
+  },
+  "close": {
+    "message": "Close"
+  },
+  "closeEsc": {
+    "message": "Close (Esc)"
+  },
+  "original": {
+    "message": "Original text"
+  },
+  "translation": {
+    "message": "Translation"
+  },
+  "explanation": {
+    "message": "Explanation"
+  },
+  "context": {
+    "message": "Context"
+  },
+  "model": {
+    "message": "Model"
+  },
+  "effort": {
+    "message": "Reasoning effort"
+  },
+  "effortHint": {
+    "message": "Independent of speed. Lower effort usually responds sooner."
+  },
+  "fastMode": {
+    "message": "Fast mode"
+  },
+  "fastMultiplier": {
+    "message": "Fast mode ($value1$×)",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "speedHint": {
+    "message": "Changes the service tier only, not reasoning effort."
+  },
+  "speedSupported": {
+    "message": "Reasoning effort stays unchanged. Latency varies; quota usage may increase."
+  },
+  "nominalSpeed": {
+    "message": "$value1$× is the advertised service speed.",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "speedUnavailable": {
+    "message": "This model uses standard service. Reasoning effort remains independent."
+  },
+  "enabled": {
+    "message": "On"
+  },
+  "disabled": {
+    "message": "Off"
+  },
+  "notesPath": {
+    "message": "Markdown file path"
+  },
+  "notesHint": {
+    "message": "The flag saves the original, translation, explanation, context and page source."
+  },
+  "saveSettings": {
+    "message": "Save settings"
+  },
+  "settingsSaved": {
+    "message": "Settings saved. Changes apply to the next translation."
+  },
+  "connecting": {
+    "message": "Connecting to local Codex…"
+  },
+  "connected": {
+    "message": "Local Codex connected"
+  },
+  "loading": {
+    "message": "Loading…"
+  },
+  "translatingContext": {
+    "message": "Translating with page context…"
+  },
+  "translating": {
+    "message": "Translating…"
+  },
+  "elapsed": {
+    "message": "Translating · $value1$ s",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "complete": {
+    "message": "Translation complete · $value1$ s",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "incomplete": {
+    "message": "This translation did not finish."
+  },
+  "stopped": {
+    "message": "Translation stopped."
+  },
+  "retry": {
+    "message": "Retry"
+  },
+  "stop": {
+    "message": "Stop"
+  },
+  "copy": {
+    "message": "Copy translation"
+  },
+  "copied": {
+    "message": "Translation copied."
+  },
+  "copyFailed": {
+    "message": "Could not copy. Select and copy the translation manually."
+  },
+  "savedTo": {
+    "message": "Saved to $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "targetLanguage": {
+    "message": "Target language"
+  },
+  "targetHint": {
+    "message": "Translation, explanation and context use this language. The interface follows Chrome."
+  },
+  "followBrowser": {
+    "message": "Follow browser language"
+  },
+  "otherLanguage": {
+    "message": "Other language / regional variant…"
+  },
+  "languageCode": {
+    "message": "Language code, e.g. en, zh-Hant, fil"
+  },
+  "languageCodeLabel": {
+    "message": "Custom language code"
+  },
+  "privacyShort": {
+    "message": "Text, nearby paragraphs and limited page context are sent to your Codex model provider only when you request a translation."
+  },
+  "tagline": {
+    "message": "Local Codex · Understand while you read"
+  },
+  "capabilitiesHint": {
+    "message": "Available models and reasoning levels depend on your local Codex."
+  },
+  "startReading": {
+    "message": "Start reading"
+  },
+  "stepSelect": {
+    "message": "Select text on a webpage."
+  },
+  "stepTranslate": {
+    "message": "Right-click Quick Translate, or press Alt+Shift+T."
+  },
+  "stepSave": {
+    "message": "Resize from any corner. Use the flag to save."
+  },
+  "helpTitle": {
+    "message": "Local connection and privacy"
+  },
+  "installIntro": {
+    "message": "Windows is currently supported. Download the companion, extract it to a fixed folder and run this command in PowerShell from that folder:"
+  },
+  "downloadCompanion": {
+    "message": "Download local companion"
+  },
+  "requirements": {
+    "message": "Requires Node.js 20+ and an installed, signed-in Codex. Store users do not need to load another unpacked extension."
+  },
+  "privacyLong": {
+    "message": "Only on translation, selected text, nearby paragraphs and up to 16,000 characters of page content are sent to your configured Codex model provider. Inference runs in the cloud; the local companion connects and saves files."
+  },
+  "limitations": {
+    "message": "Fast service may consume more quota. Internal Chrome pages, the Web Store, some cross-origin frames and the built-in PDF viewer do not support the floating panel."
+  },
+  "independent": {
+    "message": "Independently developed; not affiliated with OpenAI or Google."
+  },
+  "privacyPolicy": {
+    "message": "Privacy policy"
+  },
+  "support": {
+    "message": "Support and feedback"
+  },
+  "extensionId": {
+    "message": "Extension ID: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "sourcePage": {
+    "message": "Source page"
+  },
+  "sourceUrl": {
+    "message": "Source URL"
+  },
+  "savedAt": {
+    "message": "Saved at"
+  },
+  "untitledPage": {
+    "message": "Web excerpt"
+  },
+  "noSource": {
+    "message": "No public HTTP(S) URL provided"
+  },
+  "effort_none": {
+    "message": "None"
+  },
+  "effort_minimal": {
+    "message": "Minimal"
+  },
+  "effort_low": {
+    "message": "Low"
+  },
+  "effort_medium": {
+    "message": "Medium"
+  },
+  "effort_high": {
+    "message": "High"
+  },
+  "effort_xhigh": {
+    "message": "Extra high"
+  },
+  "effort_max": {
+    "message": "Maximum"
+  },
+  "effort_ultra": {
+    "message": "Ultra"
+  },
+  "errorConnection": {
+    "message": "Extension disconnected. Refresh the webpage."
+  },
+  "errorSelectText": {
+    "message": "Select text to translate first."
+  },
+  "errorSelectionLarge": {
+    "message": "Select at most 12,000 characters per translation."
+  },
+  "errorPage": {
+    "message": "Translation is unavailable on this page. Use an ordinary webpage."
+  },
+  "errorRequest": {
+    "message": "Invalid or duplicate request."
+  },
+  "errorSender": {
+    "message": "This page cannot access the local translator."
+  },
+  "errorSettings": {
+    "message": "Invalid settings."
+  },
+  "errorExpired": {
+    "message": "This translation has expired. Translate it again."
+  },
+  "errorHostDisconnected": {
+    "message": "Local connection closed."
+  },
+  "errorHostConnect": {
+    "message": "Cannot connect to the local companion: $value1$. Run the installer and retry.",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorHostTimeout": {
+    "message": "The local companion timed out. Retry."
+  },
+  "errorModel": {
+    "message": "The selected model is unavailable. Choose another model."
+  },
+  "errorEffort": {
+    "message": "This model does not support that reasoning effort."
+  },
+  "errorInvalidLanguage": {
+    "message": "Enter a valid language code, for example en, zh-Hant or fil."
+  },
+  "errorInvalidPath": {
+    "message": "Enter an absolute local .md file path."
+  },
+  "errorLocalPath": {
+    "message": "Only Markdown files on local drives are supported."
+  },
+  "errorDevicePath": {
+    "message": "Paths cannot contain device names or trailing spaces or dots."
+  },
+  "errorLinkedPath": {
+    "message": "Cannot save to links, directories or files with multiple hard links."
+  },
+  "errorChangedPath": {
+    "message": "The file is a link or was replaced. Saving was refused."
+  },
+  "errorExecutablePath": {
+    "message": "The Codex executable must have an absolute path."
+  },
+  "errorCodexMissing": {
+    "message": "No working Codex installation found. Run the installer again."
+  },
+  "errorConcurrent": {
+    "message": "Up to four translations can run at once. Stop one or wait."
+  },
+  "errorNoOutput": {
+    "message": "The model returned no translation. Retry."
+  },
+  "errorModelMismatch": {
+    "message": "Codex did not use the requested settings: $value1$. Change settings and retry.",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorCodexStart": {
+    "message": "Could not start local Codex: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorCodexClosed": {
+    "message": "Local Codex disconnected. Retry."
+  },
+  "errorCodexTimeout": {
+    "message": "Codex request timed out: $value1$",
+    "placeholders": {
+      "value1": {
+        "content": "$1"
+      }
+    }
+  },
+  "errorMessageSize": {
+    "message": "The local message exceeded the size limit."
+  },
+  "errorUpdateHost": {
+    "message": "Update the local companion to version 1.3.0 or later to use target languages."
+  },
+  "supplementalModel": {
+    "message": "Official model missing from the local picker catalog."
+  }
+}
