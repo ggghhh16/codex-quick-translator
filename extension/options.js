@@ -1,7 +1,7 @@
 const $ = id => document.getElementById(id);
 const {t,locale,apply,error:displayError}=TranslatorI18n;
 document.documentElement.lang=locale();document.documentElement.dir=TranslatorLanguages.direction(locale());apply(document);
-if(!locale().startsWith('zh'))document.querySelector('[data-i18n="privacyPolicy"]').href='https://github.com/ggghhh16/codex-quick-translator/blob/main/PRIVACY.en.md';
+if(!locale().startsWith('zh'))document.querySelector('[data-i18n="privacyPolicy"]').href='https://github.com/ggghhh16/codex-quick-translator/blob/main/PRIVACY.md';
 let models = [];
 async function ask(message) { const r=await chrome.runtime.sendMessage(message);if(!r?.ok)throw new Error(r?.error||t('errorConnection'));return r; }
 function effective() {

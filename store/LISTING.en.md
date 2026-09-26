@@ -26,10 +26,10 @@ Independent open-source project; not affiliated with OpenAI or Google.
 
 Source, installation and support: https://github.com/ggghhh16/codex-quick-translator
 
-Privacy policy: https://github.com/ggghhh16/codex-quick-translator/blob/main/PRIVACY.en.md
+Privacy policy: https://github.com/ggghhh16/codex-quick-translator/blob/main/PRIVACY.md
 
 ## Single purpose
 
 Translate user-selected webpage text with bounded page context into the user's chosen language, with optional user-initiated local Markdown saving of that same result and source.
 
-Permissions and data disclosures are equivalent to LISTING.zh-CN.md. Upload a localized English listing alongside the Chinese listing; packaged UI catalogs do not automatically translate developer-dashboard description fields.
+The `activeTab` permission reads the current page only after a translation request; `scripting` injects the packaged panel on demand; `contextMenus` adds the selection command; and `nativeMessaging` connects to the disclosed local companion for Codex translation and user-initiated Markdown saving. Disclose processing of website content and page URLs in the store privacy form, including possible personal data in selected text. The extension does not sell data, use it for unrelated purposes, include analytics or ads, or run remotely hosted executable code. A separate Chinese listing is available in [LISTING.zh-CN.md](LISTING.zh-CN.md); packaged UI catalogs do not translate developer-dashboard description fields.

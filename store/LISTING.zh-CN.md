@@ -32,7 +32,7 @@ Chrome 内置页面、扩展商店、内置 PDF 阅读器及部分跨域嵌入�
 
 - 主页：https://github.com/ggghhh16/codex-quick-translator
 - 支持：https://github.com/ggghhh16/codex-quick-translator/issues
-- 隐私政策：https://github.com/ggghhh16/codex-quick-translator/blob/main/PRIVACY.md
+- 隐私政策：https://github.com/ggghhh16/codex-quick-translator/blob/main/PRIVACY.zh-CN.md
 
 ## 单一用途
 

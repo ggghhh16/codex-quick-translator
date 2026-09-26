@@ -1,30 +1,30 @@
-# 安全与隐私
+# Security and privacy
 
-## 数据流与权限
+## Data flow and permissions
 
-用户明确触发翻译后，扩展读取选中文字、附近段落和有限长度的主要正文，交给本机 Codex App Server，再发送给 Codex 配置的模型提供方。它不是离线翻译；页面正文或选区中的个人信息不会被自动识别并脱敏。
+After you explicitly request a translation, the extension reads the selected text, nearby paragraphs and a bounded excerpt of the main page content. It passes this material to the local Codex App Server and then to the model provider configured in Codex. Translation is not offline. Personal information in the selection or page text is not automatically detected or redacted.
 
-扩展仅申请 `activeTab`、`scripting`、`contextMenus`、`nativeMessaging`。不注册常驻全站内容脚本，不读取 Cookie，不内置账号凭据，不加载远程脚本。Native Messaging 注册只允许固定扩展 ID。后台校验发送页面、数据长度及 tab/frame/document 归属，来源网址取自 Chrome 提供的发送页面信息。
+The extension requests only `activeTab`, `scripting`, `contextMenus` and `nativeMessaging`. It has no persistent access to all websites, does not read cookies, include account credentials or load remote scripts. Native Messaging registration allows only the specified extension ID. The background script validates message origin and length, plus tab/frame/document ownership. The source URL comes from Chrome's sender information.
 
-网页与模型文本不作为 HTML 执行。模型请求关闭命令工具、MCP、应用、插件、hooks、记忆和网络搜索，使用临时会话与受限只读权限。模型要求工具或批准时，客户端拒绝请求。配置禁用按完整表合并，名称包含点号的集成也会被禁用。
+Webpage and model text are never executed as HTML. Model requests disable command tools, MCP, apps, plugins, hooks, memory and web search, and use temporary sessions with restricted read-only permissions. The client rejects requests for tools or approval. Integration settings are overridden as complete tables, including integration names containing periods.
 
-## Markdown 收藏
+## Markdown saving
 
-- 收藏只追加本地主机持有的已完成翻译，不接受网页直接指定任意写入内容。
-- 每条笔记注明来源网页、来源网址、保存时间和实际模型参数。
-- 网址删除账号密码、片段及非白名单查询参数，仅保留常见公开资源标识 `v/id/p/page/article/title`。网址路径及保留参数仍可能包含个人信息；依赖其他查询参数的网站，保存的链接可能无法直接定位原内容。
-- 原文使用动态长度代码围栏；模型正文和网页标题转义 HTML、图片、嵌入、代码及其他 Markdown 标记，仅保留三个结果标题。安全优先于富文本排版。
-- 路径必须为本地磁盘绝对 `.md` 路径；拒绝 UNC、备用数据流、设备名称、符号链接、目录和多重硬链接。打开文件后重新校验文件身份并使用追加模式。
-- 这些检查不能防御拥有相同 Windows 用户权限、能够并发修改父目录或代码的恶意程序。安装目录应只允许可信用户写入。
+- Saving appends only completed translations held by the local companion; webpages cannot supply arbitrary content to write.
+- Each note records source page, source URL, save time and actual model settings.
+- URLs lose usernames, passwords, fragments and query parameters outside the allowlist `v/id/p/page/article/title`. Paths and retained parameters may still contain personal information. Links that need other parameters may no longer resolve to the exact source.
+- Original text uses a length-adjusted fenced code block. Model output and page titles escape HTML, images, embeds, code and other Markdown syntax, retaining only the three result headings. Safety takes priority over rich formatting.
+- The destination must be an absolute `.md` path on a local disk. UNC paths, alternate data streams, device names, symlinks, directories and multiply linked files are rejected. The host checks file identity again after opening and appends instead of overwriting.
+- These checks do not protect against malicious software with the same Windows user permissions that can concurrently change parent directories or project code. Keep the installation directory writable only by trusted users.
 
-## 本地残留与发布范围
+## Local files and release scope
 
-`.local/` 保存运行时、主机配置、偏好和工作目录；`.dev/` 保存公开测试材料、测试结果和隔离测试目录；`notes/` 是默认笔记目录。它们被 Git 忽略，且不在发布文件清单中。用户另行指定的笔记文件由用户自己管理。Codex 自身的日志与账号存储遵循其原有设置，本扩展不承诺清理它们。
+`.local/` holds the runtime, host configuration, preferences and working directory. `.dev/` holds public test material, results and isolated test directories. `notes/` is the default notes directory. They are Git-ignored and excluded from the release file list. Users manage any separate notes destination they choose. Codex account data and logs follow Codex's own settings; this extension does not claim to remove them.
 
-卸载脚本仅移除本地主机注册；扩展、项目目录和笔记需按个人需求移除，避免误删收藏。发布使用 `release-files.json` 的逐文件清单；扫描工作区、Git 暂存内容和 ZIP 内容。凭据特征扫描并非完整的秘密检测保证，发布前仍应人工检查新增文件。
+The uninstaller removes only the native-host registration. Remove the extension, project directory and notes separately as appropriate to avoid accidental note loss. Releases use the explicit file list in `release-files.json` and scan the worktree, Git index and ZIP contents. Signature-based secret scans are not a complete guarantee; review new release files manually. For the full data-use policy, see [PRIVACY.md](PRIVACY.md).
 
-## 报告问题
+## Reporting an issue
 
-请通过仓库的 Security 页面私密报告安全问题（若可用）；公开 Issue 只描述不含凭据、个人网页内容或本机路径的复现信息。
+Use the repository's Security page to report vulnerabilities privately when available. Public issues should include only reproduction details free of credentials, private page content and local paths.
 
-参考：[Chrome Native Messaging](https://developer.chrome.com/docs/extensions/develop/concepts/native-messaging)、[Chrome 扩展安全建议](https://developer.chrome.com/docs/extensions/develop/security-privacy/stay-secure)。
+References: [Chrome Native Messaging](https://developer.chrome.com/docs/extensions/develop/concepts/native-messaging) and [Chrome extension security guidance](https://developer.chrome.com/docs/extensions/develop/security-privacy/stay-secure).

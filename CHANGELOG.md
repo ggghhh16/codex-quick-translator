@@ -1,42 +1,42 @@
-# 更新记录
+# Changelog
 
 ## 1.3.1 — 2026-09-25
 
-- 修复保存目标语言后浮窗按钮、设置项和提示文字仍固定跟随 Chrome 的问题。现在浮窗界面使用目标语言，未提供该界面语言时回退英文。
-- 打开浮窗时读取已保存的语言；在浮窗或工具栏设置页保存后，已打开的浮窗立即同步界面语言。
-- 思考强度选项、速度说明、按钮提示和排版方向同时更新；已有翻译正文及收藏元信息保留原本语言，不额外发起翻译。
-- 补充中文 Chrome 切换英文浮窗、跨页面同步、关闭后重开及语言回退的回归验证。
+- Fixed floating-panel buttons, settings and messages continuing to follow Chrome's language after saving a different target language. The panel now uses the target language, with English as the fallback when its interface translation is unavailable.
+- The panel reads saved language settings when opened. Saving from either the panel or toolbar settings immediately updates all open panels.
+- Reasoning options, speed descriptions, button hints and text direction update together. Existing translation text and saved note metadata keep their original language; changing settings does not start another translation.
+- Added regression checks for switching to an English panel in Chinese Chrome, synchronization across pages, reopening and language fallback.
 
 ## 1.3.0 — 2026-09-25
 
-- 目标语言改为可选，支持广泛语言列表及自定义语言代码；翻译、解释、语境和标题全部遵循目标语言。
-- 新安装目标语言跟随 Chrome；旧设置迁移保留简体中文，默认模型、强度与速度不变。
-- 使用 Chrome i18n 提供 10 种界面语言和英文回退，支持从右向左排版及本地化错误提示。
-- 在 Codex 基础与开发者指令中明确目标语言，避免只设置基础指令时实测仍返回中文。
-- Markdown 保留本次真实目标语言与来源网址；后续修改设置不改变已有结果的语言信息。
-- 检测旧版本地连接程序并提示升级；新增英文安装说明、隐私政策和商店文案。
+- Added a target-language picker with a broad language list and custom language codes. Translation, explanation, context and headings follow the selected language.
+- New installations follow Chrome's language; migrated settings retain Simplified Chinese. Default model, reasoning effort and speed remain unchanged.
+- Added ten Chrome i18n interface languages, English fallback, right-to-left layout and localized error messages.
+- Set the target language in both Codex base and developer instructions after live tests showed that a base instruction alone could still return Chinese.
+- Markdown notes retain the language actually used and the source URL, even if preferences change later.
+- Added an old-companion version warning, English installation instructions, privacy policy and store listing.
 
 ## 1.2.1 — 2026-09-25
 
-- 准备 Chrome 网上应用店专用 ZIP、扩展图标、宣传图、界面截图、隐私政策和审核说明。
-- 本地安装脚本支持 `-ExtensionId`，兼容商店分配的扩展 ID；设置页显示与当前扩展 ID 对应的安装命令。
-- 明确 Windows、本地连接程序和已登录 Codex 依赖，并增加隐私政策、安装和支持链接。
-- 商店提交和审核状态以开发者后台为准，此版本号不表示已上架。
+- Prepared a Chrome Web Store ZIP, extension icons, promotional image, screenshots, privacy policy and reviewer instructions.
+- Added `-ExtensionId` to the local installer for store-assigned IDs; settings show the command for the current extension ID.
+- Clarified the Windows, local companion and signed-in Codex requirements; added privacy, installation and support links.
+- Store submission and review status must be checked in the developer dashboard. This version number does not imply publication.
 
 ## 1.2.0 — 2026-09-25
 
-- 首次安装默认 GPT-6 Luna、low、快速模式（标称 1.5×）；已保存的其他用户设置仍保留。
-- Markdown 收藏明确注明来源网页、可点击网址、保存时间和模型参数。
-- 清理来源网址中的凭据及非白名单查询参数；转义收藏中的 HTML、图片、嵌入及可执行 Markdown。
-- 校验消息来源和长度，阻止重复请求编号跨页面覆盖；完善文件路径和打开后的文件身份检查。
-- 按完整配置表禁用继承集成，支持名称中的特殊字符；拒绝相对 Codex 可执行文件路径。
-- 真实主机测试使用独立配置目录；发布文件使用明确清单，并检查 Git 暂存区和 ZIP。
+- New installations default to GPT-6 Luna, low reasoning effort and fast service (advertised as 1.5×); existing saved choices remain.
+- Markdown notes include the source page, clickable URL, save time and model settings.
+- Removed credentials and non-allowlisted query parameters from source URLs. Escaped HTML, images, embeds and executable Markdown in saved content.
+- Added message origin and length validation, cross-page request ID isolation, file-path checks and file identity checks after opening.
+- Disabled inherited integrations through complete configuration-table overrides, including names with special characters. Rejected relative Codex executable paths.
+- Isolated real-host tests from user settings and switched to an explicit release file list with Git index and ZIP checks.
 
 ## 1.1.0
 
-- 思考强度独立设置；快速开关只影响服务层级。
-- 加入 GPT-6 Sol/Luna，完成七种模型的速度比较，见 BENCHMARK.md。
+- Made reasoning effort independent from the fast-service toggle.
+- Added GPT-6 Sol and Luna and benchmarked seven models; see [BENCHMARK.md](BENCHMARK.md).
 
 ## 1.0.0
 
-- 右键划词、中文翻译与解释、网页语境、四角缩放浮窗和 Markdown 收藏。
+- Added selection-based context-menu translation, Chinese translation and explanation, webpage context, a panel resizable from all four corners, and Markdown saving.

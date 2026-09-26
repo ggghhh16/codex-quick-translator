@@ -1,87 +1,87 @@
-# 验证记录
+# Validation record
 
-日期：2026-09-25。目标平台：Windows + Chrome；本地 Codex `0.155.0-alpha.16.4`。
+Date: 2026-09-25. Target platform: Windows + Chrome. Local Codex version: `0.155.0-alpha.16.4`.
 
-## v1.3.1 浮窗界面语言修复
+## v1.3.1: floating-panel interface language
 
-- 根因：浮窗始终调用 Chrome 当前界面的 `getMessage`，已保存的目标语言只用于模型输出。现改为由后台读取随扩展打包的对应语言资源，浮窗单独使用该资源；未提供的界面语言回退英文。
-- 打开时读取当前设置，保存后更新当前及其他已打开浮窗的按钮、设置、强度标签、速度说明、提示文字与排版方向。同步按 tab/frame/document 定向；关闭浮窗或标签页后清理订阅。
-- 修复重复打开齿轮时异步读取旧设置可能覆盖刚选择语言的问题。已生成正文保持原语言和方向，界面更新不发起模型请求。
-- 49 项 Node 测试与 4 项 Python 发布检查通过。新增中文 Chrome 下保存英文后返回正确语言资源、向已打开浮窗同步、关闭后停止通知及安全回退检查。
-- 浏览器测试页在英文、中文、阿拉伯语 Chrome 环境验证：日语/阿拉伯语浮窗、从工具栏保存后的同步事件、英文按钮和设置、关闭重开保留英语、自定义语言界面回退英文。测试使用生产 UI 与模拟扩展通信，未声称完成已安装扩展原生右键端到端复验。
-- 本轮未改模型调用或执行额外真实翻译；截图使用先前真实模型结果重放。发布仍使用逐文件清单及工作区、Git 暂存区、ZIP 内容扫描。
+- Cause: the panel always called Chrome's `getMessage` for the browser UI language; the saved target language affected only model output. It now loads the packaged catalog for the target language, with English fallback.
+- On opening, the panel reads current settings. Saving updates buttons, settings, reasoning labels, speed text, messages and layout direction in current and other open panels. Notifications are scoped to tab/frame/document, and subscriptions are removed when a panel or tab closes.
+- Fixed an older asynchronous settings read overwriting a newly chosen language when the gear menu was reopened. Existing translation text and direction remain; interface updates do not request another translation.
+- Passed 49 Node tests and four Python publication checks. New checks cover saving English in Chinese Chrome, updating open panels, stopping notifications after close and safe fallback.
+- The browser test page checked English, Chinese and Arabic Chrome contexts: Japanese/Arabic panels, synchronization from toolbar settings, English controls, English retained after reopen, and fallback for a custom language. It used production UI with simulated extension transport. It was not an installed-extension native context-menu end-to-end retest.
+- This change did not modify model calls or perform additional live translation. Screenshots replayed earlier real model output. The release still used explicit file lists and scans of worktree, Git index and ZIP contents.
 
-## v1.3.0 多语言与国际化
+## v1.3.0: target languages and internationalization
 
-- 46 项 Node 测试、4 项 Python 发布扫描测试通过。新增语言代码校验、旧配置迁移、Chrome 消息替换、10 个语言目录完整性、旧主机兼容阻止、实际 RPC 指令字段和多语言 Markdown 安全检查。
-- 语言列表在本轮 Node/Chrome 环境中提供 207 个语言及地区变体，另支持自定义代码。数量来自本机 Intl/CLDR，可随运行时变化；不代表模型对每种语言都达到同等准确度。
-- 真实本地主机使用 GPT-6 Luna / low / priority，分别输出日语、阿拉伯语和英语的翻译、解释、语境，三个标题也匹配目标语言。最终成功样本约 6.9、5.0、5.9 秒，仅为本次结果，不是速度保证。
-- 首次日语实测暴露只在基础指令指定语言仍返回中文的问题；修复为在基础指令和开发者指令中都完整指定可信目标语言后，上述三种输出通过。未把提示词检查等同于模型行为验证。
-- 每种目标语言均保存设置并重新读取；翻译完成后先切换偏好再收藏，仍保留该结果原本的目标语言。真实 Markdown 写入包含原文、结果、明确来源 URL；重复收藏没有重复追加。测试使用独立目录，未修改用户正式偏好和笔记。
-- 浏览器测试页使用生产 UI 和真实结果重放，验证英文、中文、阿拉伯语界面，目标选择与自定义代码保存/重新加载、无效代码报错、日语与阿拉伯语输出方向、界面和输出语言独立、收藏提示与 Esc。检查截图后修复浮窗继承网页字体的问题。
-- 商店介绍、安装说明和隐私政策提供中英文；截图更新为英文界面与真实日语输出示例。界面有 10 种本地化，其他语言按 Chrome 机制回退英文。
-- 本轮未完成已安装 Chrome 扩展的原生右键菜单端到端复验；上述浏览器测试使用模拟扩展通信，真实 Native Messaging 帧通过标准输入输出单独验证。商店上传及审核状态仍以开发者后台为准。
-- 发布清单为 73 个文件；新增语言资源均列入完整包与商店包检查。运行时代码未新增网络接口、权限或第三方依赖。
+- Passed 46 Node tests and four Python publication-scan tests. Coverage included language-code validation, legacy preference migration, Chrome message substitutions, ten locale catalogs, old-host version blocking, real RPC instruction fields and multilingual Markdown safety.
+- The language picker offered 207 languages and regional variants in the tested Node/Chrome environment, plus custom codes. This count comes from local Intl/CLDR data and may vary by runtime. It does not imply equal model accuracy for every language.
+- The real native host used GPT-6 Luna / low / priority and produced Japanese, Arabic and English translation, explanation and context with headings in the respective target language. Successful sample times were about 6.9, 5.0 and 5.9 seconds; they are observations, not speed guarantees.
+- The first live Japanese test exposed Chinese output when the target language was specified only in the base instruction. Specifying the trusted target language in both base and developer instructions fixed the observed behavior for those three languages. Prompt checks alone were not treated as model-behavior proof.
+- Each target language was saved and read back. Notes retained the result's original target language even after preferences changed. Real Markdown writes included original text, output and explicit source URL; repeat saving did not duplicate a note. Tests used a separate directory and did not alter user preferences or notes.
+- The browser test page used production UI and real-output replay to check English, Chinese and Arabic interfaces, target selection and custom-code persistence, invalid-code errors, Japanese/Arabic text direction, separate interface and output languages, saving feedback and Esc. A font inherited from the webpage was corrected after screenshot review.
+- Store descriptions, installation instructions and privacy policies were prepared in English and Chinese. Screenshots show an English interface with a replay of real Japanese output. The interface has ten localized catalogs; other languages fall back to English according to Chrome behavior.
+- The installed Chrome extension's native context-menu flow was not retested end to end. Browser tests used simulated extension communication; real Native Messaging frames were checked separately through standard input/output. Store upload and review status must be checked in the developer dashboard.
+- The release list contained 73 files. New locale resources were included in both package checks. Runtime code added no network endpoint, permission or third-party dependency.
 
-## v1.2.1 商店提交准备
+## v1.2.1: store submission preparation
 
-- 商店专用 ZIP 仅包含浏览器代码和四种尺寸的 PNG 图标，`manifest.json` 位于 ZIP 根目录；打包时移除开发公钥，让商店生成正式 Item ID。
-- 安装脚本新增严格格式校验的 `-ExtensionId`；扩展设置页展示当前 ID 对应的安装命令，以便商店版连接本地 Codex。
-- 准备 128×128 扩展图标、440×280 宣传图，以及两张 1280×800 页面截图。截图由生产浮窗代码和真实模型结果的重放生成，页面只用公开示例材料，标明“示例重放”。
-- 发布清单现包含 55 个源码与材料文件；商店包只含 11 个浏览器文件。PNG 只允许固定目录和格式，不接受隐藏文本元数据与尾随数据。
-- 商店条目、隐私政策、权限理由和审核测试说明已写入 `store/` 及 `PRIVACY.md`。商店后台提交状态需以实际后台为准，不能据本地材料推断已提交。
+- The store ZIP contained only browser code and four icon sizes, with `manifest.json` at the root. Packaging removed the development public key so the store could assign an Item ID.
+- The installer gained strict `-ExtensionId` format validation. Settings displayed a command for the current extension ID.
+- Prepared a 128×128 icon, 440×280 promotional image and two 1280×800 screenshots. Screenshots used production panel code and real-output replay with public example content and were labeled “example replay.” They were not latency or installed end-to-end evidence.
+- The release list then contained 55 source and material files; the store ZIP held 11 browser files. PNGs were restricted to expected paths and formats, without hidden metadata or trailing data.
+- Store listing, privacy policy, permission reasons and reviewer instructions were prepared. Local materials alone do not establish dashboard submission.
 
-## v1.2 发布验证与安全审查
+## v1.2: release checks and security review
 
-- 35 项 Node 测试与 3 项 Python 发布扫描测试通过；PowerShell 安装、卸载脚本语法解析通过。
-- 真实原生主机测试：新配置返回 `gpt-6-luna / low / priority`，约 5.5 秒完成一次公开英文材料翻译，收到 92 条流式事件。
-- 实际写入测试文件包含原文、三个中文结果区块、明确的来源标题和可点击网址；重复收藏不重复追加。测试配置及输出与正式偏好和笔记隔离。
-- 修复了消息来源与长度检查不足、重复请求编号可能覆盖页面归属、来源网址携带凭据/未知查询参数、收藏内容可生成 Markdown 图片或嵌入、特殊本地路径及相对可执行文件路径等问题。
-- 继承集成禁用改为整表嵌套覆盖，避免点号名称被拆分成错误配置。使用真实 App Server 验证该配置可以初始化、翻译与保存。
-- 对运行时代码的网络请求、进程启动、DOM 输出、文件追加、权限清单及安装脚本进行人工检查；运行时代码无第三方 npm 依赖，无内置令牌。
-- 发布使用 41 个逐项列出的文件；扫描工作区、Git 暂存内容与 ZIP，排除本机配置、运行时、收藏、个人路径和测试原始输出。扩展 `manifest.key` 为公开的扩展 ID 公钥。
-- 安全审查属于本次代码检查和针对性测试，不是外部渗透测试或安全认证。具体数据流、残留位置及防护边界见 [SECURITY.md](SECURITY.md)。
-- 本次未重新完成安装后的 Chrome 原生右键菜单全流程验证；原生主机测试不代替浏览器端验收。
+- Passed 35 Node tests and three Python publication-scan tests. PowerShell installer and uninstaller scripts parsed successfully.
+- A real native-host test returned `gpt-6-luna / low / priority`, completed one public English translation in about 5.5 seconds and received 92 streaming events.
+- A real test note included original text, three Chinese result sections, source title and clickable URL. Saving the same result again did not append a duplicate. Test settings and output were isolated from normal preferences and notes.
+- Fixed insufficient message-origin and length checks, request IDs crossing page ownership, URLs retaining credentials or unknown query parameters, unsafe Markdown images and embeds, special local paths and relative executable paths.
+- Changed inherited-integration disabling to whole-table overrides so names with periods remain intact. A real App Server test initialized, translated and saved with this configuration.
+- Manually reviewed runtime network calls, process launches, DOM output, file appends, permissions and the installer. Runtime code had no third-party npm dependency or built-in token.
+- Release packaging used 41 explicitly listed files and scanned worktree, Git index and ZIP, excluding local settings, runtimes, notes, personal paths and raw test output. The extension's `manifest.key` is a public key used for stable extension ID, not a credential.
+- This was a code review and targeted testing, not an external penetration test or security certification. See [SECURITY.md](SECURITY.md) for data flow, local files and limitations.
+- The installed Chrome extension's native context-menu flow was not rerun during this release; native-host tests do not replace browser acceptance testing.
 
-## v1.1 更新验证
+## v1.1: validation
 
-- 25 项自动测试通过，新增快慢服务与思考强度独立性、旧配置迁移、模型目录合并和倍率展示检查。
-- 浏览器测试页确认：选择 medium 后关闭闪电、保存、重新打开，medium 保留；换到 GPT-6 Sol 再开启 1.5×，medium 仍保留。
-- 原生主机返回版本 1.1.0，真实模型列表包含 GPT-6 Sol/Luna，并提供独立 effort 字段；检查未修改用户模型选择或笔记路径。
-- 七个模型各五轮真实翻译，加一组标准服务对照，共 40 次；详见 [BENCHMARK.md](BENCHMARK.md)。
-- 本机原生主机注册已完成；本轮 Chrome 扩展重新加载与最终界面验证仍待完成。
+- Passed 25 automated tests, including independent speed and reasoning settings, migration of old preferences, model-catalog merging and advertised multiplier display.
+- On the browser test page, selecting `medium`, disabling fast service, saving and reopening retained `medium`. Switching to GPT-6 Sol and re-enabling 1.5× also retained `medium`.
+- The native host returned version 1.1.0, and the live catalog included GPT-6 Sol/Luna with a separate effort field. The check did not modify the user's model or note path.
+- Ran five live translations for each of seven models, plus a standard-service comparison: 40 requests total. See [BENCHMARK.md](BENCHMARK.md).
+- The local native-host registration was completed. Reloading Chrome and final UI checks remained pending in that validation round.
 
-## v1.0 初始验证记录
+## v1.0: initial validation
 
-| 检查 | 结果 |
+| Check | Result |
 | --- | --- |
-| Node 自动测试 | 16/16 通过 |
-| 安装脚本 PowerShell 语法解析 | 通过 |
-| 本地 Codex 初始化与动态模型列表 | 使用真实 Windows 用户已登录的 Codex，通过 |
-| 最低思考强度和快速服务 | 按实际模型能力选择，实测 `gpt-6-luna / low / priority` |
-| 原生消息帧传输到项目本地主机 | 标准输入输出握手、流式翻译通过 |
-| 真实翻译及保存 | 最后一次示例约 5.6 秒完成，收到 96 条流式事件；保存内容包含原文、翻译和语境 |
-| 重复收藏 | 同一次结果、同一文件重复保存没有重复追加 |
-| 文件保护 | 追加不覆盖；拒绝相对路径、非 Markdown 目标和多重硬链接目标 |
-| 页面隔离 | tab/frame/document 定向消息；其他 tab 无法保存不属于自己的结果 |
-| 取消与断开连接 | 自动测试检查取消消息与错误传播 |
-| 浮窗界面 | 浏览器测试页验证中文三个区块、设置、收藏成功提示 |
-| 四角缩放 | 在浏览器中分别拖动左上、右上、左下、右下，均观察到正确改变大小 |
-| 设置交互 | 验证闪电关闭后显示 medium、路径编辑、保存成功提示 |
-| 错误状态 | 测试适配器模拟断连，显示可重试错误，未完成结果不能收藏 |
-| Esc | 焦点移出浮窗后仍能关闭，已修复并复验 |
+| Node automated tests | 16/16 passed |
+| PowerShell installer/uninstaller parsing | Passed |
+| Local Codex initialization and model catalog | Passed with the signed-in Windows user's Codex |
+| Minimum effort and fast service | Selected from live model capabilities; observed `gpt-6-luna / low / priority` |
+| Native protocol frames | Standard input/output handshake and streaming passed |
+| Real translation and saving | Last example completed in about 5.6 seconds with 96 stream events; note included original text, translation and context |
+| Duplicate saving | No second append for the same result and file |
+| File protection | Append without overwrite; reject relative, non-Markdown and multiply linked destinations |
+| Page isolation | Messages targeted by tab/frame/document; another tab could not save a foreign result |
+| Cancellation and disconnect | Automated checks covered cancellation and error propagation |
+| Floating panel | Browser test page checked three Chinese sections, settings and save confirmation |
+| Corner resizing | All four corners visibly resized the panel in browser checks |
+| Settings | Checked `medium` after disabling fast mode, path editing and save confirmation |
+| Error state | Test adapter simulated a disconnect; unfinished result could not be saved |
+| Esc | Closing still worked after focus left the panel; fixed and rechecked |
 
-示例延迟只用于说明一次测试的结果，不代表服务速度保证。网页长度、模型、网络和服务负载均会改变延迟。
+The sample latency describes one test and is not a service-speed guarantee. Page length, model, network and service load affect latency.
 
-## 验证边界
+## Validation limits
 
-- 更新已有安装后，浏览器侧生效需重新加载扩展并刷新网页。
-- 真实本地主机测试通过直接标准输入输出完成，不能证明 Chrome 注册与启动程序这一步已通过。
-- 界面验证使用项目测试页面重放真实 Codex 结果；扩展通信和收藏提示为测试适配，测试页的 Shadow DOM 设为开放以便 UI 检查。正式代码保持封闭 Shadow DOM。
-- 真实 Markdown 文件追加及重复保存由独立本地主机测试验证，并非依据测试页的成功提示推断。
-- 未验证 Chrome 原生右键菜单、跨域 iframe、PDF、复杂网页兼容性；受浏览器限制的页面在 README 列出。
-- 完整浏览器验收步骤：Chrome 重新加载 `extension` → 普通网页划词右键 → 确认真实浮窗 → 点击旗帜 → 检查设定文件追加结果。
+- After updating an existing installation, reload the extension and refresh webpages before checking browser behavior.
+- Real native-host tests used direct standard input/output. They do not prove Chrome registration and process launch work together.
+- UI tests replayed real Codex output on a project test page. Extension communication and save messages used a test adapter; its Shadow DOM was open for inspection, while production Shadow DOM remains closed.
+- Actual Markdown append and duplicate protection were checked through a separate native-host test, not inferred from the test page's success message.
+- Chrome's native context menu, cross-origin iframes, PDFs and complex-page compatibility were not fully validated. Browser-restricted pages are listed in [README.md](README.md).
+- Full browser acceptance path: reload `extension` in Chrome → select text on a normal webpage → use the context menu → confirm the real panel → click the flag → inspect the appended note.
 
-## 打包
+## Packaging
 
-`scripts/package.py` 按 `release-files.json` 的逐文件清单生成 ZIP 并检查压缩包完整性；同时生成 SHA-256 校验文件。`scripts/check-publication.py --index --zip <zip>` 检查暂存区与压缩包的真实内容，并要求文件集合与清单相同。排除 `.local`、`.dev`、个人笔记和运行时文件；扫描常见凭据、私钥、个人邮箱及本机用户路径。扩展内 `manifest.key` 是用于稳定扩展 ID 的公钥，不是凭据。
+`scripts/package.py` builds a ZIP from the per-file `release-files.json` allowlist and checks integrity, then creates a SHA-256 file. `scripts/check-publication.py --index --zip <zip>` checks the actual Git index and archive against that list. `.local`, `.dev`, personal notes and runtime files are excluded. Scans detect common credential, private-key, personal-email and local-user-path patterns. The extension's `manifest.key` is a public extension-ID key, not a credential.

@@ -1,36 +1,36 @@
-# 翻译速度实测（2026-09-25）
+# Translation latency benchmark (2026-09-25)
 
-本轮最快：**GPT-6 Luna + low + 快速模式（priority，标称 1.5×）**。开始显示文字的中位数为 **3.572 秒**，完整结果的中位数为 **4.945 秒**。
+The fastest tested combination was **GPT-6 Luna + low reasoning + fast service (`priority`, advertised as 1.5×)**. Median time to first visible text was **3.572 seconds**; median time to complete was **4.945 seconds**.
 
-## 方法
+## Method
 
-- 使用插件真实 Codex App Server 调用，运行时版本 `0.155.0-alpha.16.4`；无模拟模型结果。
-- 每组五次：金融英语、技术英语、日语三个短材料循环，同一轮每个模型收到同一份材料。
-- 顺序运行，轮换模型顺序；独立临时会话，App Server 保持运行；全部使用 `low`。
-- 首字计时包含创建模型会话到首个可见文本事件，完整计时到完成事件；不包含首次启动 App Server 的开销。
-- 检查返回结果具备翻译、解释、语境三个部分；未进行完整翻译质量评分。
-- GPT-5.6 Terra 是前三轮首字最快候选，因此另加其标准服务对照；五轮后 Luna 排名第一。
+- Called the real Codex App Server through the extension with runtime version `0.155.0-alpha.16.4`; no mocked model output.
+- Ran five requests per configuration, cycling through short financial English, technical English and Japanese passages. Each model received the same passage in a given round.
+- Ran requests sequentially with rotated model order, separate temporary sessions, a persistent App Server process and `low` reasoning throughout.
+- Timed from session creation to the first visible text event, and from session creation to completion. App Server cold start was excluded.
+- Checked for translation, explanation and context sections; did not conduct a full translation-quality assessment.
+- GPT-5.6 Terra led on first-text latency after three rounds, so a standard-service comparison was added. Luna led after five rounds.
 
-## 结果
+## Results
 
-| 模型 | 服务 | 次数 | 首字中位数 | 完整中位数 | 首字范围 |
+| Model | Service | Runs | Median first text | Median complete | First-text range |
 | --- | --- | ---: | ---: | ---: | ---: |
-| gpt-6-luna | 快速 | 5 | 3.572 秒 | 4.945 秒 | 3.491–5.708 秒 |
-| gpt-5.6-sol | 快速 | 5 | 3.748 秒 | 5.200 秒 | 3.623–4.201 秒 |
-| gpt-5.5 | 快速 | 5 | 3.818 秒 | 5.298 秒 | 3.562–7.777 秒 |
-| gpt-6-sol | 快速 | 5 | 3.885 秒 | 5.274 秒 | 3.555–5.992 秒 |
-| gpt-5.6-terra | 快速 | 5 | 4.019 秒 | 5.148 秒 | 3.493–5.053 秒 |
-| gpt-5.6-terra | 标准 | 5 | 4.019 秒 | 6.221 秒 | 3.771–4.900 秒 |
-| gpt-6-astra | 快速 | 5 | 4.326 秒 | 6.430 秒 | 3.847–5.217 秒 |
-| gpt-5.6-luna | 快速 | 5 | 4.481 秒 | 5.935 秒 | 3.539–5.943 秒 |
+| gpt-6-luna | Fast | 5 | 3.572 s | 4.945 s | 3.491–5.708 s |
+| gpt-5.6-sol | Fast | 5 | 3.748 s | 5.200 s | 3.623–4.201 s |
+| gpt-5.5 | Fast | 5 | 3.818 s | 5.298 s | 3.562–7.777 s |
+| gpt-6-sol | Fast | 5 | 3.885 s | 5.274 s | 3.555–5.992 s |
+| gpt-5.6-terra | Fast | 5 | 4.019 s | 5.148 s | 3.493–5.053 s |
+| gpt-5.6-terra | Standard | 5 | 4.019 s | 6.221 s | 3.771–4.900 s |
+| gpt-6-astra | Fast | 5 | 4.326 s | 6.430 s | 3.847–5.217 s |
+| gpt-5.6-luna | Fast | 5 | 4.481 s | 5.935 s | 3.539–5.943 s |
 
-## 结论边界
+## Limits
 
-- 这是当前账号、网络与短文本任务下的五次样本，不是所有任务的普遍速度排名。GPT-6 Luna 与 GPT-6 Sol 首字中位数相差约 0.31 秒，部分差异可能来自波动。
-- 每个模型生成的解释长度不同，完整耗时同时受输出长度影响；没有将该结果当作固定 token 吞吐量测试。
-- 标称 1.5× 不等于端到端耗时固定缩短为 2/3。网络、会话准备与排队时间仍存在。
-- 未遍历所有模型的标准模式和所有思考强度；此处的最快是本表实测组合中的最快。
-- 本机旧版 `0.153.2` 曾对 GPT-6 Sol/Luna 返回不支持错误；新版成功提供模型目录和真实翻译。插件现优先选择本机较新的官方 Codex。
-- 当前 Codex 目录对 Sol/Luna 声明最低 `low`，未擅自改成 API 文档中的 `none`。
+- These are five short-text samples from one account and network, not a universal model ranking. GPT-6 Luna and GPT-6 Sol differ by about 0.31 seconds in median first-text time; some of that difference may be noise.
+- Explanation lengths varied by model, affecting completion time. Results are not a fixed token-throughput comparison.
+- Advertised 1.5× service does not guarantee two-thirds of the end-to-end latency. Network, session setup and queuing still matter.
+- Standard service and all reasoning levels were not tested for every model. “Fastest” refers only to the combinations in this table.
+- An older local Codex version, `0.153.2`, returned unsupported-model errors for GPT-6 Sol/Luna. The newer version provided a model catalog and successful translations. The extension now prefers the newer official local Codex installation.
+- The local Codex catalog lists `low` as the minimum for Sol/Luna; the extension does not offer the API documentation's `none` level for them.
 
-完整原始计时和输出文本保存在项目 `.dev/benchmark.json`，不打入发布压缩包。
+Raw timings and output are stored in the local `.dev/benchmark.json`, which is excluded from release packages.

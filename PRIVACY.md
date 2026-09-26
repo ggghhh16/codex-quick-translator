@@ -1,37 +1,33 @@
-# 快速翻译 · Local Codex 隐私政策
+# Quick Translate · Local Codex — Privacy Policy
 
-[English](PRIVACY.en.md)
+Effective September 25, 2026. Developer: GitHub user ggghhh16. Applies to the Chrome extension and its local companion. [简体中文](PRIVACY.zh-CN.md). This independent project is not affiliated with OpenAI or Google.
 
-生效日期：2026-09-25。开发者：GitHub 用户 ggghhh16。适用产品：快速翻译 · Local Codex Chrome 扩展及其本地连接程序。本项目独立开发，与 OpenAI 或 Google 无官方隶属关系。
+## Data and purpose
 
-## 处理哪些数据、为什么处理
+Only when you request a translation through the context menu or shortcut, the extension reads selected text (up to 12,000 characters), nearby paragraphs (up to 5,000), main page excerpts (up to 16,000), page title and source URL. These provide translation, explanation and context in your chosen language. Text may contain personal information; the extension does not automatically remove it.
 
-只有在你通过右键菜单或快捷键触发翻译后，扩展才读取该页面的选中文字（最多 12,000 字符）、附近段落（最多 5,000 字符）、主要正文摘录（最多 16,000 字符）、网页标题和来源网址，用于提供所选目标语言的翻译、解释与语境。选区和正文可能包含你正在阅读的个人信息；扩展不自动识别并清除文本中的个人信息。
+URLs have usernames, passwords and fragments removed. Only common content-identification query parameters `v/id/p/page/article/title` are retained. Paths and retained parameters may still contain personal information. The extension does not access the browsing-history database, continuously monitor browsing, read cookies or password fields, or build profiles.
 
-网址会清除用户名、密码和片段，并仅保留常见内容标识查询参数 `v/id/p/page/article/title`。路径和保留参数仍可能含有个人信息。扩展不读取浏览器历史记录数据库，不持续追踪浏览活动，不读取 Cookie 或表单密码，不建立用户画像。
+## Data recipients
 
-## 数据发往哪里
+Chrome Native Messaging transfers page material to the local companion, which sends it through Codex App Server to the model provider configured in your Codex installation. This is usually OpenAI, but custom configurations may use other providers. Inference runs in the cloud, not offline. Provider retention and use depend on its policies and your account settings.
 
-页面材料通过 Chrome Native Messaging 交给本机连接程序，再经本机 Codex App Server 发送到你在 Codex 中配置的模型服务提供方。通常为 OpenAI；自定义 Codex 配置可能使用其他提供方。模型推理在云端进行，并非离线翻译。提供方如何保留、使用数据，取决于其适用政策、你的账号类型和设置，请在使用前检查。
+The developer has no server receiving translation data. The extension includes no analytics, advertising or telemetry service. The developer does not sell user data, use it for advertising, transfer it to data brokers, or use it for unrelated purposes. Transmission to your configured model provider is necessary to perform your requested translation.
 
-开发者没有接收翻译数据的服务器，扩展不内置统计、广告或遥测服务。开发者不会出售用户数据、用于广告、转交数据经纪商，或用于与翻译和用户主动收藏无关的目的。为了完成你请求的翻译，将材料发送给你选择的模型服务是必要的数据传输。
+## Local storage and deletion
 
-## 本机保存与删除
+Model, reasoning effort, speed, target language and note-path preferences are stored in the companion's `.local` directory. The selected target language also determines floating-panel labels. Chrome’s interface language localizes toolbar settings and the context menu, and resolves the “Follow browser language” target. Up to 100 completed translations are retained in companion process memory and cleared when that process exits.
 
-模型、思考强度、速度开关、目标语言、收藏路径存于本地连接程序的 `.local/` 目录。完成的翻译在本地主机内存中最多保留 100 条记录，关闭相应本地主机进程后清除。
+Only clicking the flag appends original text, translation, explanation, context, page title, source URL, time, target language and model settings to your chosen Markdown file. The developer cannot access it. You may edit or delete notes yourself; uninstalling intentionally preserves them. Deleting the companion directory removes its settings and test data. Codex manages its own account data and logs separately.
 
-仅当你点击旗帜收藏时，原文、翻译、解释、语境、来源标题、网址、时间、目标语言和模型参数才追加到你指定的 Markdown 文件。开发者无法访问这些文件。你可以自行编辑或删除收藏文件；它们不会随扩展卸载自动删除，以免丢失笔记。删除本地连接程序目录可以移除其中的设置和测试数据。Codex 自身的账号与日志存储由 Codex 管理，不在本扩展的清理范围内。
+## Permissions and security
 
-## 权限与安全
+`activeTab` and `scripting` provide access to the current page after your action; `contextMenus` supplies the translation command; `nativeMessaging` connects to Codex and saves notes on request. There is no persistent all-sites permission or remote executable script. The extension does not read or store Codex authentication tokens; Codex manages authentication and model requests.
 
-`activeTab` 与 `scripting` 用于用户触发后在当前网页显示翻译窗；`contextMenus` 提供右键菜单；`nativeMessaging` 连接本机 Codex 并按用户操作保存 Markdown。无常驻全站访问权限，无远程可执行脚本。扩展不读取或持有 Codex 的登录令牌；由 Codex 自行管理登录与模型请求。
+Before translating, ensure the page material may be sent to your model provider, especially work documents, personal communications or sensitive data. Implementation details and limitations are documented in [SECURITY.md](SECURITY.md).
 
-使用前请确认当前页面内容允许发送到模型服务，尤其是工作资料、个人通讯和敏感信息。安全实现与限制见 [SECURITY.md](SECURITY.md)。
+## Limited Use and contact
 
-## 有限使用声明
+Use and transfer of information received from Chrome APIs adhere to the [Chrome Web Store User Data Policy](https://developer.chrome.com/docs/webstore/program-policies/user-data/), including Limited Use requirements. Data serves only the disclosed translation, explanation, context and user-initiated local saving features.
 
-本扩展对从 Chrome API 获得的信息的使用与传输遵守 [Chrome 网上应用店用户数据政策](https://developer.chrome.com/docs/webstore/program-policies/user-data/)，包括 Limited Use 要求。数据仅用于明确展示的翻译、解释、语境及用户主动发起的本地收藏功能。
-
-## 政策变更与联系
-
-政策变更会更新本页日期，并通过仓库版本记录公开。问题可通过 [项目 Issues](https://github.com/ggghhh16/codex-quick-translator/issues) 联系开发者；请勿在公开 Issue 中提交私人网页内容、笔记、账号凭据或其他敏感数据。
+Policy changes update the effective date and repository release notes. Contact the developer through [project Issues](https://github.com/ggghhh16/codex-quick-translator/issues). Do not post private page contents, notes or credentials in public issues.
